@@ -1,0 +1,14 @@
+{
+  "name": "ATRI",
+  "version": "0.2.0",
+  "description": "Visual Novel Discord Bot",
+  "main": "index.js",
+  "author": "Moonchild",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^14.1.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.20.0"
+  }
+}
