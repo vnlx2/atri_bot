@@ -6,7 +6,12 @@
   "author": "Moonchild",
   "license": "MIT",
   "dependencies": {
-    "discord.js": "^14.1.1"
+    "@discordjs/rest": "^1.0.1",
+    "better-sqlite3": "^7.6.2",
+    "discord.js": "^14.1.1",
+    "dotenv": "^16.0.1",
+    "quick.db": "^9.0.6",
+    "vndb-api": "^1.0.3"
   },
   "devDependencies": {
     "eslint": "^8.20.0"
