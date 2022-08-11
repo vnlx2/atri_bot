@@ -4,6 +4,8 @@
  */
 
 const VNDB = require('vndb-api');
+const dotenv = require('dotenv');
+dotenv.config();
 
 class VndbService {
   constructor(client) {
@@ -12,11 +14,14 @@ class VndbService {
           maxConnection: 10,
       });
     this.client = client;
-    this.vn_length = {
-      3: 'Fast',
-      4: 'Medium',
-      5: 'Slow',
-    };
+    this.vn_length = [
+      'Unknown',
+      'Very Short (< 2 hours)',
+      'Short (2 - 10 hours)',
+      'Medium (10 - 30 hours)',
+      'Long (30 - 50 hours)',
+      'Very Long (> 50 hours)',
+    ];
   }
   async getInfo(id) {
     return this.vndb
@@ -38,12 +43,12 @@ class VndbService {
           fields: [
             {
               name: 'Aliases',
-              value: res.aliases,
+              value: (res.aliases === null) ? '-' : res.aliases,
               inline: true,
             },
             {
               name: 'Length',
-              value: this.getPlayerTime(res.length),
+              value: this.vn_length[res.length],
               inline: true,
             },
             {
@@ -51,13 +56,11 @@ class VndbService {
               value: res.rating.toString(),
               inline: true,
             },
-            {
-              name: 'Popularity',
-              value: res.popularity.toString(),
-              inline: true,
-            },
           ],
           timestamp: new Date(),
+          footer: {
+            text: `ATRI Version: ${process.env.VERSION}`,
+          },
         };
         return infoEmbedded;
       })
@@ -69,26 +72,54 @@ class VndbService {
       });
   }
 
-  findByName(name) {
-    this.vndb
-      .query('get vn basic (search ~ "' + name + '")')
+  async findByTitle(name, page = 1) {
+    return this.vndb
+      .query('get vn basic (search ~ "' + name + '") { "page": ' + page + ', "results": ' + 5 + ' }')
       .then((res) => {
-        console.log([res.num, res.items]);
-        return [res.num, res.items];
+        let results = '';
+        const items = [];
+        for (let i = 0; i < res.items.length; i++) {
+          const item = res.items[i];
+          if (i == 0) {
+            results += `${i + 1 + (5 * (page - 1))}. \`${item.id}\` - ${item.title}`;
+          }
+          else {
+            results += `\n${i + 1 + (5 * (page - 1))}. \`${item.id}\` - ${item.title}`;
+          }
+          items.push(
+            {
+              label: `${item.title}`,
+              value: `${item.id}`,
+            },
+          );
+        }
+
+        const searchResultEmbedded = {
+          color: 0x205bba,
+          title: 'Search Results',
+          author: {
+            name: 'ATRI Visual Novel Search Engine',
+            icon_url: this.client.user.avatarURL(),
+          },
+          description: results,
+          timestamp: new Date(),
+          footer: {
+            text: `ATRI Version: ${process.env.VERSION} | Page ${page}`,
+          },
+        };
+        return {
+          next_page: res.more,
+          results: searchResultEmbedded,
+          items: items,
+        };
       })
       .catch((ex) => {
-        console.log(ex.msg);
-        return ex.msg;
-      })
-      .finally(() => {
-        this.vndb.destroy();
+        return ex;
       });
   }
 
-  getPlayerTime(idx) {
-    if (idx == 3) return 'Fast';
-    else if (idx == 4) return 'Medium';
-    else if (idx == 5) return 'Slow';
+  async clearConnection() {
+    this.vndb.destroy();
   }
 }
 
