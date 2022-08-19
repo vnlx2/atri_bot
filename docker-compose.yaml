@@ -1,0 +1,50 @@
+
+version: "3"
+services: 
+  # atri:
+  #   build: ./
+  #   command: yarn start.dev
+  #   networks:
+  #     - docker-service
+  #   depends_on: 
+  #     - mariadb
+
+  mysql:
+    image: mysql:8
+    container_name: atri_db
+    ports:
+      - 3306:3306
+    volumes:
+      - dbdata:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=RondatelierSolid
+      - MYSQL_PASSWORD=Akulaper
+      - MYSQL_USER=admin
+      - MYSQL_DATABASE=atri
+    networks:
+      - docker-service
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: pma
+    links:
+      - mysql
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    restart: always
+    ports:
+      - 8080:80
+    networks:
+      - docker-service
+    depends_on: 
+      - mysql
+
+networks:
+  docker-service:
+    driver: bridge
+
+volumes:
+  dbdata:
+    driver: local

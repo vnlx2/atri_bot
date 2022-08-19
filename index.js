@@ -35,7 +35,6 @@ for (const file of eventFiles) {
     }
 }
 
-
 // Import All Commands
 client.commands = new Collection();
 const commandsPath = path.join(__dirname, 'commands');

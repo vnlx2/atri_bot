@@ -3,14 +3,20 @@
   "version": "0.2.0",
   "description": "Visual Novel Discord Bot",
   "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "start.dev": "nodemon -L index.js",
+    "deploy.cmd": "node deploy-command.js"
+  },
   "author": "Moonchild",
   "license": "MIT",
   "dependencies": {
     "@discordjs/rest": "^1.0.1",
-    "better-sqlite3": "^7.6.2",
     "discord.js": "^14.1.1",
     "dotenv": "^16.0.1",
-    "quick.db": "^9.0.6",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3",
+    "node-cron": "^3.0.1",
     "vndb-api": "^1.0.3"
   },
   "devDependencies": {

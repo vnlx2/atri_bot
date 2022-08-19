@@ -2,6 +2,8 @@
 const { SlashCommandBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, SelectMenuBuilder } = require('discord.js');
 const VndbService = require('../services/vndb_service');
 const dotenv = require('dotenv');
+const vn_link_db = require('../services/vn_database_service');
+
 dotenv.config();
 
 module.exports = {
@@ -28,6 +30,7 @@ module.exports = {
                         .setRequired(true),
                 ),
         ),
+
     async execute(interaction, client) {
         try {
             // Initialized Service
@@ -91,7 +94,55 @@ module.exports = {
             if (res === null) {
                 return ({ embeds: [this.errorEmbed('Not Found', 'Sorry, we didn\'t find the vn you are looking for, please check the vn id again.', client)] });
             }
-            return { embeds: [res], ephemeral: false };
+            // Add Download Link
+            await vn_link_db.getDownloadLink(id)
+                .then((vn_download_links) => {
+                    if (vn_download_links.en.length > 0 || vn_download_links.jp.length > 0) {
+                        res.fields.push({
+                            name: '\u200B',
+                            value: '**Download Link**',
+                        });
+                        let links = '';
+                        let index = 1;
+                        if (vn_download_links.en.length > 0) {
+                            for (const link of vn_download_links.en) {
+                                links += `[Link ${index}](${link}) `;
+                                index++;
+                            }
+                            res.fields.push({
+                                name: 'EN',
+                                value: links,
+                            });
+                        }
+                        else if (vn_download_links.jp.length > 0) {
+                            links = '';
+                            index = 1;
+                            for (const link of vn_download_links.jp) {
+                                links += `[Link ${index}](${link}) `;
+                                index++;
+                            }
+                            res.fields.push({
+                                name: 'JP',
+                                value: links,
+                            });
+                        }
+                    }
+                });
+
+            // VN DL Tool
+            const requestDL = new ButtonBuilder()
+                                .setCustomId('vn-dl-request')
+                                .setLabel('Request VN')
+                                .setStyle(ButtonStyle.Primary)
+                                .setDisabled(false);
+            const reportDL = new ButtonBuilder()
+                                .setCustomId('vn-dl-report')
+                                .setLabel('Report Dead Link')
+                                .setStyle(ButtonStyle.Secondary)
+                                .setEmoji('🚩');
+            const VNDownloadTool = new ActionRowBuilder()
+                        .addComponents([requestDL, reportDL]);
+            return { embeds: [res], ephemeral: false, components: [VNDownloadTool] };
         }
         catch (err) {
             console.error(err);
