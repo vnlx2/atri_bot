@@ -114,7 +114,7 @@ module.exports = {
                                 value: links,
                             });
                         }
-                        else if (vn_download_links.jp.length > 0) {
+                        if (vn_download_links.jp.length > 0) {
                             links = '';
                             index = 1;
                             for (const link of vn_download_links.jp) {
