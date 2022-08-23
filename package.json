@@ -19,6 +19,7 @@
     "mysql2": "^2.3.3",
     "node-cron": "^3.0.1",
     "node-schedule": "^2.1.0",
+    "pino": "^7.0.0-rc.9",
     "vndb-api": "^1.0.3"
   },
   "devDependencies": {

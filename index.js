@@ -46,24 +46,5 @@ for (const file of commandFiles) {
     client.commands.set(command.data.name, command);
 }
 
-// Create Interaction
-client.on('interactionCreate', async interaction => {
-    if (!interaction.isChatInputCommand()) return;
-
-    const command = client.commands.get(interaction.commandName);
-    if (!command) return;
-    try {
-        await command.execute(interaction, client);
-    }
-    catch (err) {
-        console.error(err);
-        await interaction.reply({
-            content: `An Error has occured. ${err}`,
-            ephemeral: true,
-        });
-    }
-});
-
-
 // Login to Discord with your token
 client.login(token);

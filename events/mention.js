@@ -16,6 +16,7 @@ module.exports = {
 			if (message.content.includes('@here') || message.content.includes('@everyone') || message.type == 'REPLY') return false;
 
 			if (message.mentions.has(client.user.id)) {
+				console.info(`${message.author.username} mentions Me`);
 				if (message.content == `<@${client.user.id}>`) {
 					const msg = random[Math.floor(Math.random() * 9)];
 					message.channel.send((msg == ' Hentai!') ? `<@${message.author.id}> ${msg}`

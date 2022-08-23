@@ -9,7 +9,7 @@ dotenv.config();
 
 class AkashicBirthday {
     constructor() {
-        this.ceplok_telur = ['517713906492243993'];
+        this.ceplok_telur = [];
     }
 
     clear_special_role(guild, role) {
