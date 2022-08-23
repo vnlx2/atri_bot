@@ -1,6 +1,7 @@
 /* eslint-disable indent */
 const { SlashCommandBuilder } = require('discord.js');
 const vn_search = require('../services/vn_search');
+const embed_make = require('../helpers/embed');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -67,7 +68,7 @@ module.exports = {
                             if (i.customId === 'selected-result') {
                                 const info = await vn_search.info(parseInt(i.values[0]), client);
                                 await interaction.followUp(info);
-                                await interaction.deleteReply();
+                                navigationCollect.stop(['VN was Selected']);
                             }
                         }
                     }
@@ -80,6 +81,7 @@ module.exports = {
         }
         catch (err) {
             console.error(err);
+            embed_make.embed(client.user.avatarURL, 'Error', 'An error was occured', 0xe01212);
         }
     },
 };

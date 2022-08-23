@@ -56,42 +56,45 @@ module.exports.getInfo = async (client, id) => {
 };
 
 module.exports.findByTitle = async (client, name, page = 1) => {
-  return vndb
-    .query('get vn basic (search ~ "' + name + '") { "page": ' + page + ', "results": ' + 5 + ' }')
-    .then((res) => {
-      let results = '';
-      const items = [];
-      if (items.length === 0) {
-        return null;
-      }
-      else {
-        for (let i = 0; i < res.items.length; i++) {
-          const item = res.items[i];
-          if (i == 0) {
-            results += `${i + 1 + (5 * (page - 1))}. \`${item.id}\` - ${item.title}`;
-          }
-          else {
-            results += `\n${i + 1 + (5 * (page - 1))}. \`${item.id}\` - ${item.title}`;
-          }
-          items.push(
-            {
-              label: `${item.title}`,
-              value: `${item.id}`,
-            },
-          );
+  try {
+    return vndb
+      .query('get vn basic (search ~ "' + name + '") { "page": ' + page + ', "results": ' + 5 + ' }')
+      .then((res) => {
+        let results = '';
+        const items = [];
+        if (res.items.length === 0) {
+          return null;
         }
-      }
-      console.log(results);
-      console.log(embed_maker.embed(client.user.avatarURL, 'Search Results', results, 0x205bba));
-      return {
-        next_page: res.more,
-        results: embed_maker.embed(client.user.avatarURL, 'Search Results', results, 0x205bba),
-        items: items,
-      };
-    })
-    .catch((ex) => {
-      return ex;
-    });
+        else {
+          for (let i = 0; i < res.items.length; i++) {
+            const item = res.items[i];
+            if (i == 0) {
+              results += `${i + 1 + (5 * (page - 1))}. \`${item.id}\` - ${item.title}`;
+            }
+            else {
+              results += `\n${i + 1 + (5 * (page - 1))}. \`${item.id}\` - ${item.title}`;
+            }
+            items.push(
+              {
+                label: (item.title.length > 100) ? item.title.substring(0, 97) + '...' : item.title,
+                value: `${item.id}`,
+              },
+            );
+          }
+        }
+        return {
+          next_page: res.more,
+          results: embed_maker.embed(client.user.avatarURL, 'Search Results', results, 0x205bba),
+          items: items,
+        };
+      })
+      .catch((ex) => {
+        return ex;
+      });
+  }
+  catch (err) {
+    console.error(err);
+  }
 };
 
 module.exports.clearConnection = async () => {
