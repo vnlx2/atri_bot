@@ -2,6 +2,7 @@
 const { SlashCommandBuilder } = require('discord.js');
 const vn_search = require('../services/vn_search');
 const embed_make = require('../helpers/embed');
+const vn_info_tools = require('../events/vnInfoToolCollect');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -35,6 +36,8 @@ module.exports = {
                 await interaction.deferReply();
                 const result = await vn_search.info(interaction.options.getInteger('id'), client);
                 await interaction.editReply(result);
+
+                vn_info_tools(interaction, client);
             }
             // VN Search
             else if (interaction.options.getSubcommand() === 'search') {
@@ -48,29 +51,40 @@ module.exports = {
                 });
 
                 navigationCollect.on('collect', async (i) => {
-                    if (i.user.id === interaction.user.id) {
-                        await i.deferUpdate();
-                        if (i.customId.includes('next-page')) {
-                            navigationCollect.resetTimer();
-                            const page = parseInt(i.customId.split('-')[3]);
-                            const title = i.customId.split('-')[0];
-                            const data = await vn_search.search(title, client, page);
-                            await i.editReply(data);
-                        }
-                        else if (i.customId.includes('prev-page')) {
-                            navigationCollect.resetTimer();
-                            const page = parseInt(i.customId.split('-')[3]);
-                            const title = i.customId.split('-')[0];
-                            const data = await vn_search.search(title, client, page);
-                            await i.editReply(data);
-                        }
-                        else if (i.isSelectMenu()) {
-                            if (i.customId === 'selected-result') {
-                                const info = await vn_search.info(parseInt(i.values[0]), client);
-                                await interaction.followUp(info);
-                                navigationCollect.stop(['VN was Selected']);
+                    try {
+                        if (i.user.id === interaction.user.id) {
+                            await i.deferUpdate();
+                            if (i.customId.includes('next-page')) {
+                                console.log('next');
+                                navigationCollect.resetTimer();
+                                const page = parseInt(i.customId.split('-')[3]);
+                                const title = i.customId.split('-')[0];
+                                const data = await vn_search.search(title, client, page);
+                                await i.editReply(data);
+                            }
+                            else if (i.customId.includes('prev-page')) {
+                                console.log('prev');
+                                navigationCollect.resetTimer();
+                                const page = parseInt(i.customId.split('-')[3]);
+                                const title = i.customId.split('-')[0];
+                                const data = await vn_search.search(title, client, page);
+                                await i.editReply(data);
+                            }
+                            else if (i.isSelectMenu()) {
+                                if (i.customId === 'selected-result') {
+                                    console.log('select');
+                                    const info = await vn_search.info(parseInt(i.values[0]), client);
+                                    await interaction.followUp(info)
+                                        .then(async (msg) => {
+                                            await vn_info_tools(interaction, client, msg);
+                                    });
+                                    navigationCollect.stop(['VN was Selected']);
+                                }
                             }
                         }
+                    }
+                    catch (err) {
+                        console.error(err);
                     }
                 });
 

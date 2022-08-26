@@ -1,6 +1,7 @@
 /* eslint-disable indent */
 const vndb_service = require('./vndb_service');
 const vn_database = require('./vn_database_service');
+const embed_maker = require('../helpers/embed');
 const { ActionRowBuilder, ButtonBuilder, ButtonStyle, SelectMenuBuilder } = require('discord.js');
 
 
@@ -56,13 +57,13 @@ const info = async (id, client) => {
                         }
                         // VN DL Tool
                         const requestDL = new ButtonBuilder()
-                                            .setCustomId('vn-dl-request')
+                                            .setCustomId(`vn-dl-request-${id}`)
                                             .setLabel('Request VN')
                                             .setStyle(ButtonStyle.Primary)
                                             .setDisabled(false);
                         const reportDL = new ButtonBuilder()
-                                            .setCustomId('vn-dl-report')
-                                            .setLabel('Report Dead Link')
+                                            .setCustomId(`vn-dl-report-${id}`)
+                                            .setLabel('Report Link')
                                             .setStyle(ButtonStyle.Secondary)
                                             .setEmoji('🚩');
                         const VNDownloadTool = new ActionRowBuilder()
@@ -112,6 +113,15 @@ const search = async (title, client, page = 1) => {
     }
 };
 
+const request = async (id, title, client) => {
+    try {
+        return await client.channels.cache.get(process.env.DEBUG_REQUEST_CHANNEL_ID).send({ embeds: [embed_maker.embed(client.user.avatarURL(), 'Request Visual Novel', `**${title}**\nLink\n[https://vndb.org/v${id}](https://vndb.org/v${id})`, 0x325aab, `https://vndb.org/v${id}`)] });
+    }
+    catch (err) {
+        console.error(err);
+    }
+};
+
 const errorEmbed = (title, message, client) => {
     return {
         color: 0xe01212,
@@ -131,4 +141,5 @@ const errorEmbed = (title, message, client) => {
 module.exports = {
     info,
     search,
+    request,
 };
