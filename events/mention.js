@@ -19,15 +19,16 @@ module.exports = {
 			if (message.mentions.has(client.user.id)) {
 				console.info(`${message.author.username} mentions Me`);
 				if (message.content == `<@${client.user.id}>`) {
-					if (moment.months() == 7 && moment.date() == 28) {
-						console.log('Birthday Time');
-						if (message.content.toLowers().contains('birthday') || message.content.toLowers().contains('ulang tahun')) {
-							message.channel.send(`Thank you ucapannya, <@${message.author.id}...`);
-						}
-					}
 					const msg = random[Math.floor(Math.random() * 9)];
 					message.channel.send((msg == ' Hentai!') ? `<@${message.author.id}> ${msg}`
 						: `${msg}`);
+				}
+				else if (moment().month() == 7 && moment().date() == 28) {
+					console.log('Birthday Time');
+					const content = message.content.toLowerCase();
+					if (content.includes('birthday') || content.includes('ulang tahun') || content.includes('tanjoubi')) {
+						message.channel.send(`Thank you ucapannya, <@${message.author.id}>... Atri bahagia deh jadinya :slight_smile:`);
+					}
 				}
                 else if (message.content.match(/\bembed\b/i)) {
                     const exampleEmbed = new EmbedBuilder()
