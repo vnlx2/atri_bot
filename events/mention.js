@@ -1,5 +1,6 @@
 /* eslint-disable indent */
 const { EmbedBuilder } = require('discord.js');
+const moment = require('moment');
 // const VndbService = require('../services/vndb_service');
 
 // const vndbService = VndbService
@@ -18,6 +19,11 @@ module.exports = {
 			if (message.mentions.has(client.user.id)) {
 				console.info(`${message.author.username} mentions Me`);
 				if (message.content == `<@${client.user.id}>`) {
+					if (moment.months() == 7 && moment.date() == 28) {
+						if (message.content.toLowers().contains('birthday') || message.content.toLowers().contains('ulang tahun')) {
+							message.channel.send(`Thank you ucapannya, <@${message.author.id}...`);
+						}
+					}
 					const msg = random[Math.floor(Math.random() * 9)];
 					message.channel.send((msg == ' Hentai!') ? `<@${message.author.id}> ${msg}`
 						: `${msg}`);
