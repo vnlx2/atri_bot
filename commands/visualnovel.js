@@ -53,26 +53,25 @@ module.exports = {
                 navigationCollect.on('collect', async (i) => {
                     try {
                         if (i.user.id === interaction.user.id) {
-                            await i.deferUpdate();
-                            if (i.customId.includes('next-page')) {
-                                console.log('next');
-                                navigationCollect.resetTimer();
-                                const page = parseInt(i.customId.split('-')[3]);
-                                const title = i.customId.split('-')[0];
-                                const data = await vn_search.search(title, client, page);
-                                await i.editReply(data);
-                            }
-                            else if (i.customId.includes('prev-page')) {
-                                console.log('prev');
-                                navigationCollect.resetTimer();
-                                const page = parseInt(i.customId.split('-')[3]);
-                                const title = i.customId.split('-')[0];
-                                const data = await vn_search.search(title, client, page);
-                                await i.editReply(data);
+                            if (i.isButton()) {
+                                await i.deferUpdate();
+                                if (i.customId.includes('next-page')) {
+                                    navigationCollect.resetTimer();
+                                    const page = parseInt(i.customId.split('-')[3]);
+                                    const title = i.customId.split('-')[0];
+                                    const data = await vn_search.search(title, client, page);
+                                    await i.editReply(data);
+                                }
+                                else if (i.customId.includes('prev-page')) {
+                                    navigationCollect.resetTimer();
+                                    const page = parseInt(i.customId.split('-')[3]);
+                                    const title = i.customId.split('-')[0];
+                                    const data = await vn_search.search(title, client, page);
+                                    await i.editReply(data);
+                                }
                             }
                             else if (i.isSelectMenu()) {
                                 if (i.customId === 'selected-result') {
-                                    console.log('select');
                                     const info = await vn_search.info(parseInt(i.values[0]), client);
                                     await interaction.followUp(info)
                                         .then(async (msg) => {

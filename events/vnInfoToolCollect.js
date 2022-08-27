@@ -3,31 +3,30 @@ const vn_search = require('../services/vn_search');
 const { ModalBuilder, ActionRowBuilder, TextInputBuilder, TextInputStyle } = require('discord.js');
 
 module.exports = async (interaction, client, msg = null) => {
-    const infoToolCollect = interaction.channel.createMessageComponentCollector({
-        time: 60000,
-    });
+    const infoToolCollect = interaction.channel.createMessageComponentCollector();
 
     infoToolCollect.on('collect', async (i) => {
         try {
             if (i.user.id === interaction.user.id) {
-                await i.deferUpdate();
                 if (i.customId.includes('vn-dl-request')) {
                     infoToolCollect.resetTimer();
                     const id = parseInt(i.customId.split('-')[3]);
                     const title = i.message.embeds[0].data.title;
-                    console.log('masuk');
                     await vn_search.request(id, title, client)
                         .then(async () => {
-                            console.log('jalan');
+                            if (msg === null) {
+                                i.update({ content: 'Your request has been sent.', embeds: [], components: [] });
+                            }
                             await infoToolCollect.stop('Your request has been sent.');
                         });
                 }
                 else if (i.customId.includes('vn-dl-report')) {
                     infoToolCollect.resetTimer();
-                    console.log('report');
+                    const id = parseInt(i.customId.split('-')[3]);
+                    const title = i.message.embeds[0].data.title;
                     const reportModal = new ModalBuilder()
-                        .setCustomId('vnDeadLinkReportModal')
-                        .setTitle('Report Dead Link')
+                        .setCustomId(`vn-report-link-modal-${id}-${title}`)
+                        .setTitle('Report Link')
                         .addComponents([
                             new ActionRowBuilder().addComponents(
                                 new TextInputBuilder()
@@ -39,7 +38,7 @@ module.exports = async (interaction, client, msg = null) => {
                             ),
                             new ActionRowBuilder().addComponents(
                                 new TextInputBuilder()
-                                    .setCustomId('dead-link-reason')
+                                    .setCustomId('report-reason')
                                     .setLabel('Reason')
                                     .setStyle(TextInputStyle.Paragraph)
                                     .setMaxLength(200)
@@ -47,7 +46,7 @@ module.exports = async (interaction, client, msg = null) => {
                                     .setRequired(true),
                             ),
                     ]);
-                    await interaction.showModal(reportModal);
+                    await i.showModal(reportModal);
                 }
             }
         }

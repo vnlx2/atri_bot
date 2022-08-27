@@ -122,6 +122,15 @@ const request = async (id, title, client) => {
     }
 };
 
+const report = async (id, title, link, reason, client) => {
+    try {
+        return await client.channels.cache.get(process.env.DEBUG_REPORT_CHANNEL_ID).send({ embeds: [embed_maker.embed(client.user.avatarURL(), 'Report Visual Novel', `**${title}**\nVNDB Link : [https://vndb.org/v${id}](https://vndb.org/v${id})\nLink Name : ${link}\nReason : ${reason}`, 0x325aab, `https://vndb.org/v${id}`)] });
+    }
+    catch (err) {
+        console.error(err);
+    }
+};
+
 const errorEmbed = (title, message, client) => {
     return {
         color: 0xe01212,
@@ -142,4 +151,5 @@ module.exports = {
     info,
     search,
     request,
+    report,
 };

@@ -8,7 +8,7 @@ const download_link = async (id) => {
         const jp_links = [];
 
         // Get Data
-        const query = `Select * from vn_download_link where code=${id} order by provider`;
+        const query = `Select * from vn_download_link where code='v${id}' order by provider`;
         let results = await pool.query(query);
         results = Object.values(JSON.parse(JSON.stringify(results)));
         results.forEach((result) => {
