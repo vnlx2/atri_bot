@@ -1,5 +1,4 @@
 /* eslint-disable indent */
-const { EmbedBuilder } = require('discord.js');
 const moment = require('moment');
 // const VndbService = require('../services/vndb_service');
 
@@ -30,27 +29,6 @@ module.exports = {
 						message.channel.send(`Thank you ucapannya, <@${message.author.id}>... Atri bahagia deh jadinya :slight_smile:`);
 					}
 				}
-                else if (message.content.match(/\bembed\b/i)) {
-                    const exampleEmbed = new EmbedBuilder()
-                                    .setColor(0xfcba03)
-                                    .setTitle('Some title')
-                                    .setURL('https://vndb.org/v4')
-                                    .setAuthor({ name: 'ATRI Visual Novel Search Engine', iconURL: client.user.avatarURL() })
-                                    .setDescription('Some description here')
-                                    .setThumbnail('https://i.imgur.com/AfFp7pu.png')
-                                    .addFields(
-                                        { name: 'Regular field title', value: 'Some value here' },
-                                        { name: '\u200B', value: '\u200B' },
-                                        { name: 'Inline field title', value: 'Some value here', inline: true },
-                                        { name: 'Inline field title', value: 'Some value here', inline: true },
-                                    )
-                                    .addFields({ name: 'Inline field title', value: 'Some value here', inline: true })
-                                    .setImage('https://i.imgur.com/AfFp7pu.png')
-                                    .setTimestamp()
-                                    .setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
-
-                    message.channel.send({ embeds: [exampleEmbed] });
-                }
 				else {
 					message.channel.send('Maaf, ATRI masih belum mengerti');
 				}
