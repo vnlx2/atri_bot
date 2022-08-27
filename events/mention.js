@@ -20,6 +20,7 @@ module.exports = {
 				console.info(`${message.author.username} mentions Me`);
 				if (message.content == `<@${client.user.id}>`) {
 					if (moment.months() == 7 && moment.date() == 28) {
+						console.log('Birthday Time');
 						if (message.content.toLowers().contains('birthday') || message.content.toLowers().contains('ulang tahun')) {
 							message.channel.send(`Thank you ucapannya, <@${message.author.id}...`);
 						}
