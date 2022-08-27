@@ -20,6 +20,10 @@ for (const file of commandFiles) {
 // Initialied REST API for Discord.js
 const rest = new REST({ version : '10' }).setToken(process.env.BOT_TOKEN);
 
-rest.put(Routes.applicationGuildCommands(process.env.APP_ID, process.env.DEBUG_SERVER_ID), { body:commands })
-	.then(() => console.log('Application Commands register succesfully.'))
+rest.put(Routes.applicationGuildCommands(process.env.APP_ID, process.env.AKASHIC_SERVER_ID), { body:commands })
+	.then(() => console.log('Application Commands register succesfully in Akashic Server.'))
+	.catch(console.error);
+
+rest.put(Routes.applicationGuildCommands(process.env.APP_ID, process.env.VNL_SERVER_ID), { body:commands })
+	.then(() => console.log('Application Commands register succesfully in VNL Server.'))
 	.catch(console.error);

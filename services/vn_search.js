@@ -115,7 +115,7 @@ const search = async (title, client, page = 1) => {
 
 const request = async (id, title, client) => {
     try {
-        return await client.channels.cache.get(process.env.DEBUG_REQUEST_CHANNEL_ID).send({ embeds: [embed_maker.embed(client.user.avatarURL(), 'Request Visual Novel', `**${title}**\nLink\n[https://vndb.org/v${id}](https://vndb.org/v${id})`, 0x325aab, `https://vndb.org/v${id}`)] });
+        return await client.channels.cache.get(process.env.VNL_REQUEST_CHANNEL_ID).send({ embeds: [embed_maker.embed(client.user.avatarURL(), 'Request Visual Novel', `**${title}**\nLink\n[https://vndb.org/v${id}](https://vndb.org/v${id})`, 0x325aab, `https://vndb.org/v${id}`)] });
     }
     catch (err) {
         console.error(err);
@@ -124,7 +124,7 @@ const request = async (id, title, client) => {
 
 const report = async (id, title, link, reason, client) => {
     try {
-        return await client.channels.cache.get(process.env.DEBUG_REPORT_CHANNEL_ID).send({ embeds: [embed_maker.embed(client.user.avatarURL(), 'Report Visual Novel', `**${title}**\nVNDB Link : [https://vndb.org/v${id}](https://vndb.org/v${id})\nLink Name : ${link}\nReason : ${reason}`, 0x325aab, `https://vndb.org/v${id}`)] });
+        return await client.channels.cache.get(process.env.VNL_REPORT_CHANNEL_ID).send({ embeds: [embed_maker.embed(client.user.avatarURL(), 'Report Visual Novel', `**${title}**\nVNDB Link : [https://vndb.org/v${id}](https://vndb.org/v${id})\nLink Name : ${link}\nReason : ${reason}`, 0x325aab, `https://vndb.org/v${id}`)] });
     }
     catch (err) {
         console.error(err);
