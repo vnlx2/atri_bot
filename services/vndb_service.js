@@ -40,7 +40,7 @@ module.exports.getInfo = async (client, id) => {
           },
           {
             name: 'Length',
-            value: vn_length[res.length],
+            value: (res.length === null) ? '-' : vn_length[res.length],
             inline: true,
           },
           {

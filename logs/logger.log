@@ -4,3 +4,1880 @@
 [32mINFO[39m [2022-28-08, 2:40:17 PM] (83471): [36mBirthday Time[39m
 [32mINFO[39m [2022-28-08, 2:40:59 PM] (83828): [36mSystem Ready, Logged as ATRI Tester#8292[39m
 [32mINFO[39m [2022-28-08, 2:40:59 PM] (83828): [36mUptime: Sun Aug 28 2022 21:40:59 GMT+0700 (Western Indonesia Time)[39m
+[32mINFO[39m [2022-28-08, 2:43:01 PM] (83828): [36mmoonchild mentions Me[39m
+[32mINFO[39m [2022-28-08, 2:43:01 PM] (83828): [36mBirthday Time[39m
+[32mINFO[39m [2022-28-08, 3:09:31 PM] (85106): [36mSystem Ready, Logged as ATRI Tester#8292[39m
+[32mINFO[39m [2022-28-08, 3:09:31 PM] (85106): [36mUptime: Sun Aug 28 2022 22:09:31 GMT+0700 (Western Indonesia Time)[39m
+[32mINFO[39m [2022-28-08, 3:09:43 PM] (83828): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[32mINFO[39m [2022-28-08, 3:09:43 PM] (85106): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[31mERROR[39m [2022-28-08, 3:09:44 PM] (85106): [36mUnknown interaction[39m
+    err: {
+      "type": "DiscordAPIError",
+      "message": "Unknown interaction",
+      "stack":
+          DiscordAPIError[10062]: Unknown interaction
+              at SequentialHandler.runRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:287:15)
+              at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+              at async SequentialHandler.queueRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:99:14)
+              at async REST.request (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/REST.cjs:52:22)
+              at async ChatInputCommandInteraction.deferReply (/Users/moonchild/Documents/project/atri/node_modules/discord.js/src/structures/interfaces/InteractionResponses.js:68:5)
+              at async Object.execute (/Users/moonchild/Documents/project/atri/commands/visualnovel.js:46:17)
+              at async Object.execute (/Users/moonchild/Documents/project/atri/events/interactionCreate.js:18:5)
+      "rawError": {
+        "message": "Unknown interaction",
+        "code": 10062
+      },
+      "code": 10062,
+      "status": 404,
+      "method": "POST",
+      "url": "https://discord.com/api/v10/interactions/1013465411892813824/aW50ZXJhY3Rpb246MTAxMzQ2NTQxMTg5MjgxMzgyNDpNZlBPMkd1WUhBb3hTOW9FRXBYM1FheVczeUtYV3BpWmt5MDIydUFSMUgzbjZmUkV6QlBLTDNkVlVEd09JMVNCYjVidUFtUEwzRzh3blFwbjVlODJ1b1NwWFNKcXhiT3FrTTU2V1dzblRaeG9ZeXpxNUo3YmhhckVIYjN3eU44Nw/callback",
+      "requestBody": {
+        "json": {
+          "type": 5,
+          "data": {}
+        }
+      }
+    }
+[32mINFO[39m [2022-28-08, 3:09:48 PM] (83828): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[31mERROR[39m [2022-28-08, 3:09:48 PM] (83828): [36mconnect ECONNREFUSED 127.0.0.1:8154[39m
+    err: {
+      "type": "Error",
+      "message": "connect ECONNREFUSED 127.0.0.1:8154",
+      "stack":
+          Error: connect ECONNREFUSED 127.0.0.1:8154
+              at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1247:16)
+              --------------------
+              at Protocol._enqueue (/Users/moonchild/Documents/project/atri/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+              at Protocol.handshake (/Users/moonchild/Documents/project/atri/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+              at PoolConnection.connect (/Users/moonchild/Documents/project/atri/node_modules/mysql/lib/Connection.js:116:18)
+              at Pool.getConnection (/Users/moonchild/Documents/project/atri/node_modules/mysql/lib/Pool.js:48:16)
+              at Pool.query (/Users/moonchild/Documents/project/atri/node_modules/mysql/lib/Pool.js:202:8)
+              at node:internal/util:361:7
+              at new Promise (<anonymous>)
+              at Pool.query (node:internal/util:347:12)
+              at Object.download_link (/Users/moonchild/Documents/project/atri/services/vn_database_service.js:13:34)
+              at /Users/moonchild/Documents/project/atri/services/vn_search.js:17:42
+      "errno": -61,
+      "code": "ECONNREFUSED",
+      "syscall": "connect",
+      "address": "127.0.0.1",
+      "port": 8154,
+      "fatal": true
+    }
+[31mERROR[39m [2022-28-08, 3:09:48 PM] (83828): [36mCannot read properties of undefined (reading 'en')[39m
+    err: {
+      "type": "TypeError",
+      "message": "Cannot read properties of undefined (reading 'en')",
+      "stack":
+          TypeError: Cannot read properties of undefined (reading 'en')
+              at /Users/moonchild/Documents/project/atri/services/vn_search.js:19:47
+              at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+              at async /Users/moonchild/Documents/project/atri/services/vn_search.js:17:24
+              at async Object.info (/Users/moonchild/Documents/project/atri/services/vn_search.js:11:16)
+              at async InteractionCollector.<anonymous> (/Users/moonchild/Documents/project/atri/commands/visualnovel.js:76:50)
+    }
+[31mERROR[39m [2022-28-08, 3:09:49 PM] (83828): [36mCannot send an empty message[39m
+    err: {
+      "type": "DiscordAPIError",
+      "message": "Cannot send an empty message",
+      "stack":
+          DiscordAPIError[50006]: Cannot send an empty message
+              at SequentialHandler.runRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:287:15)
+              at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+              at async SequentialHandler.queueRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:99:14)
+              at async REST.request (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/REST.cjs:52:22)
+              at async InteractionWebhook.send (/Users/moonchild/Documents/project/atri/node_modules/discord.js/src/structures/Webhook.js:214:15)
+              at async InteractionCollector.<anonymous> (/Users/moonchild/Documents/project/atri/commands/visualnovel.js:77:37)
+      "rawError": {
+        "message": "Cannot send an empty message",
+        "code": 50006
+      },
+      "code": 50006,
+      "status": 400,
+      "method": "POST",
+      "url": "https://discord.com/api/v10/webhooks/1003008258962886766/aW50ZXJhY3Rpb246MTAxMzQ2NTQxMTg5MjgxMzgyNDpNZlBPMkd1WUhBb3hTOW9FRXBYM1FheVczeUtYV3BpWmt5MDIydUFSMUgzbjZmUkV6QlBLTDNkVlVEd09JMVNCYjVidUFtUEwzRzh3blFwbjVlODJ1b1NwWFNKcXhiT3FrTTU2V1dzblRaeG9ZeXpxNUo3YmhhckVIYjN3eU44Nw?wait=true",
+      "requestBody": {
+        "files": [],
+        "json": {
+          "tts": false
+        }
+      }
+    }
+[32mINFO[39m [2022-28-08, 3:09:48 PM] (85106): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[32mINFO[39m [2022-28-08, 3:10:19 PM] (85212): [36mSystem Ready, Logged as ATRI Tester#8292[39m
+[32mINFO[39m [2022-28-08, 3:10:19 PM] (85212): [36mUptime: Sun Aug 28 2022 22:10:19 GMT+0700 (Western Indonesia Time)[39m
+[32mINFO[39m [2022-28-08, 3:10:29 PM] (85213): [36mSystem Ready, Logged as ATRI Tester#8292[39m
+[32mINFO[39m [2022-28-08, 3:10:29 PM] (85213): [36mUptime: Sun Aug 28 2022 22:10:29 GMT+0700 (Western Indonesia Time)[39m
+[32mINFO[39m [2022-28-08, 3:10:40 PM] (85212): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[31mERROR[39m [2022-28-08, 3:10:41 PM] (85212): [36mUnknown interaction[39m
+    err: {
+      "type": "DiscordAPIError",
+      "message": "Unknown interaction",
+      "stack":
+          DiscordAPIError[10062]: Unknown interaction
+              at SequentialHandler.runRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:287:15)
+              at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+              at async SequentialHandler.queueRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:99:14)
+              at async REST.request (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/REST.cjs:52:22)
+              at async ChatInputCommandInteraction.deferReply (/Users/moonchild/Documents/project/atri/node_modules/discord.js/src/structures/interfaces/InteractionResponses.js:68:5)
+              at async Object.execute (/Users/moonchild/Documents/project/atri/commands/visualnovel.js:46:17)
+              at async Object.execute (/Users/moonchild/Documents/project/atri/events/interactionCreate.js:18:5)
+      "rawError": {
+        "message": "Unknown interaction",
+        "code": 10062
+      },
+      "code": 10062,
+      "status": 404,
+      "method": "POST",
+      "url": "https://discord.com/api/v10/interactions/1013465652654256128/aW50ZXJhY3Rpb246MTAxMzQ2NTY1MjY1NDI1NjEyODpZNVFwcTdaWmFzamU0TU5MV3Z5bFdJMjVlNjM3SHdyREZZdXlWd2JOeXM1NlBPdFdkRDhhdGJQdzM0ZDk4RUI5d2lIcmVJQmNEZ3lHaXIwekl0SVpFQ0lDVWZtaUtyWFlHY3o5Rll0UFRweWVBNXRvRkUzT3NyZk9NMXBvU3VodA/callback",
+      "requestBody": {
+        "json": {
+          "type": 5,
+          "data": {}
+        }
+      }
+    }
+[32mINFO[39m [2022-28-08, 3:10:40 PM] (85213): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[32mINFO[39m [2022-28-08, 3:10:46 PM] (85212): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[32mINFO[39m [2022-28-08, 3:10:46 PM] (85213): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[31mERROR[39m [2022-28-08, 3:10:46 PM] (85213): [36mconnect ECONNREFUSED 127.0.0.1:8154[39m
+    err: {
+      "type": "Error",
+      "message": "connect ECONNREFUSED 127.0.0.1:8154",
+      "stack":
+          Error: connect ECONNREFUSED 127.0.0.1:8154
+              at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1247:16)
+              --------------------
+              at Protocol._enqueue (/Users/moonchild/Documents/project/atri/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+              at Protocol.handshake (/Users/moonchild/Documents/project/atri/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+              at PoolConnection.connect (/Users/moonchild/Documents/project/atri/node_modules/mysql/lib/Connection.js:116:18)
+              at Pool.getConnection (/Users/moonchild/Documents/project/atri/node_modules/mysql/lib/Pool.js:48:16)
+              at Pool.query (/Users/moonchild/Documents/project/atri/node_modules/mysql/lib/Pool.js:202:8)
+              at node:internal/util:361:7
+              at new Promise (<anonymous>)
+              at Pool.query (node:internal/util:347:12)
+              at Object.download_link (/Users/moonchild/Documents/project/atri/services/vn_database_service.js:13:34)
+              at /Users/moonchild/Documents/project/atri/services/vn_search.js:17:42
+      "errno": -61,
+      "code": "ECONNREFUSED",
+      "syscall": "connect",
+      "address": "127.0.0.1",
+      "port": 8154,
+      "fatal": true
+    }
+[31mERROR[39m [2022-28-08, 3:10:46 PM] (85213): [36mCannot read properties of undefined (reading 'en')[39m
+    err: {
+      "type": "TypeError",
+      "message": "Cannot read properties of undefined (reading 'en')",
+      "stack":
+          TypeError: Cannot read properties of undefined (reading 'en')
+              at /Users/moonchild/Documents/project/atri/services/vn_search.js:19:47
+              at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+              at async /Users/moonchild/Documents/project/atri/services/vn_search.js:17:24
+              at async Object.info (/Users/moonchild/Documents/project/atri/services/vn_search.js:11:16)
+              at async InteractionCollector.<anonymous> (/Users/moonchild/Documents/project/atri/commands/visualnovel.js:77:50)
+    }
+[31mERROR[39m [2022-28-08, 3:10:46 PM] (85213): [36mCannot send an empty message[39m
+    err: {
+      "type": "DiscordAPIError",
+      "message": "Cannot send an empty message",
+      "stack":
+          DiscordAPIError[50006]: Cannot send an empty message
+              at SequentialHandler.runRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:287:15)
+              at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+              at async SequentialHandler.queueRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:99:14)
+              at async REST.request (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/REST.cjs:52:22)
+              at async InteractionWebhook.send (/Users/moonchild/Documents/project/atri/node_modules/discord.js/src/structures/Webhook.js:214:15)
+              at async InteractionCollector.<anonymous> (/Users/moonchild/Documents/project/atri/commands/visualnovel.js:78:37)
+      "rawError": {
+        "message": "Cannot send an empty message",
+        "code": 50006
+      },
+      "code": 50006,
+      "status": 400,
+      "method": "POST",
+      "url": "https://discord.com/api/v10/webhooks/1003008258962886766/aW50ZXJhY3Rpb246MTAxMzQ2NTY1MjY1NDI1NjEyODpZNVFwcTdaWmFzamU0TU5MV3Z5bFdJMjVlNjM3SHdyREZZdXlWd2JOeXM1NlBPdFdkRDhhdGJQdzM0ZDk4RUI5d2lIcmVJQmNEZ3lHaXIwekl0SVpFQ0lDVWZtaUtyWFlHY3o5Rll0UFRweWVBNXRvRkUzT3NyZk9NMXBvU3VodA?wait=true",
+      "requestBody": {
+        "files": [],
+        "json": {
+          "tts": false
+        }
+      }
+    }
+[32mINFO[39m [2022-28-08, 3:11:09 PM] (85213): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[32mINFO[39m [2022-28-08, 3:11:09 PM] (85212): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[31mERROR[39m [2022-28-08, 3:11:10 PM] (85212): [36mUnknown interaction[39m
+    err: {
+      "type": "DiscordAPIError",
+      "message": "Unknown interaction",
+      "stack":
+          DiscordAPIError[10062]: Unknown interaction
+              at SequentialHandler.runRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:287:15)
+              at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+              at async SequentialHandler.queueRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:99:14)
+              at async REST.request (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/REST.cjs:52:22)
+              at async ChatInputCommandInteraction.deferReply (/Users/moonchild/Documents/project/atri/node_modules/discord.js/src/structures/interfaces/InteractionResponses.js:68:5)
+              at async Object.execute (/Users/moonchild/Documents/project/atri/commands/visualnovel.js:46:17)
+              at async Object.execute (/Users/moonchild/Documents/project/atri/events/interactionCreate.js:18:5)
+      "rawError": {
+        "message": "Unknown interaction",
+        "code": 10062
+      },
+      "code": 10062,
+      "status": 404,
+      "method": "POST",
+      "url": "https://discord.com/api/v10/interactions/1013465773961908326/aW50ZXJhY3Rpb246MTAxMzQ2NTc3Mzk2MTkwODMyNjpubGpRaXRFMTNSUTlTUnVnMWhGd2k2SXBFY2ZwdXBLTjBkcGw0RmxrMHR2S1FoVHhsOHdmYjc2N1dWUzY4SXVWOUZmTGJnYUhIZXJZN0pxRVdVaUVHM3kwZ1dmMW56c2FuMkRWQWJVMjlaaDJLeXhjMDRaSXhQRjBOekNEczBlaw/callback",
+      "requestBody": {
+        "json": {
+          "type": 5,
+          "data": {}
+        }
+      }
+    }
+[32mINFO[39m [2022-28-08, 3:11:15 PM] (85212): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[32mINFO[39m [2022-28-08, 3:11:15 PM] (85213): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[31mERROR[39m [2022-28-08, 3:11:15 PM] (85213): [36mconnect ECONNREFUSED 127.0.0.1:8154[39m
+    err: {
+      "type": "Error",
+      "message": "connect ECONNREFUSED 127.0.0.1:8154",
+      "stack":
+          Error: connect ECONNREFUSED 127.0.0.1:8154
+              at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1247:16)
+              --------------------
+              at Protocol._enqueue (/Users/moonchild/Documents/project/atri/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+              at Protocol.handshake (/Users/moonchild/Documents/project/atri/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+              at PoolConnection.connect (/Users/moonchild/Documents/project/atri/node_modules/mysql/lib/Connection.js:116:18)
+              at Pool.getConnection (/Users/moonchild/Documents/project/atri/node_modules/mysql/lib/Pool.js:48:16)
+              at Pool.query (/Users/moonchild/Documents/project/atri/node_modules/mysql/lib/Pool.js:202:8)
+              at node:internal/util:361:7
+              at new Promise (<anonymous>)
+              at Pool.query (node:internal/util:347:12)
+              at Object.download_link (/Users/moonchild/Documents/project/atri/services/vn_database_service.js:13:34)
+              at /Users/moonchild/Documents/project/atri/services/vn_search.js:17:42
+      "errno": -61,
+      "code": "ECONNREFUSED",
+      "syscall": "connect",
+      "address": "127.0.0.1",
+      "port": 8154,
+      "fatal": true
+    }
+[31mERROR[39m [2022-28-08, 3:11:15 PM] (85213): [36mCannot read properties of undefined (reading 'en')[39m
+    err: {
+      "type": "TypeError",
+      "message": "Cannot read properties of undefined (reading 'en')",
+      "stack":
+          TypeError: Cannot read properties of undefined (reading 'en')
+              at /Users/moonchild/Documents/project/atri/services/vn_search.js:19:47
+              at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+              at async /Users/moonchild/Documents/project/atri/services/vn_search.js:17:24
+              at async Object.info (/Users/moonchild/Documents/project/atri/services/vn_search.js:11:16)
+              at async InteractionCollector.<anonymous> (/Users/moonchild/Documents/project/atri/commands/visualnovel.js:77:50)
+    }
+[31mERROR[39m [2022-28-08, 3:11:15 PM] (85213): [36mCannot send an empty message[39m
+    err: {
+      "type": "DiscordAPIError",
+      "message": "Cannot send an empty message",
+      "stack":
+          DiscordAPIError[50006]: Cannot send an empty message
+              at SequentialHandler.runRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:287:15)
+              at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+              at async SequentialHandler.queueRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:99:14)
+              at async REST.request (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/REST.cjs:52:22)
+              at async InteractionWebhook.send (/Users/moonchild/Documents/project/atri/node_modules/discord.js/src/structures/Webhook.js:214:15)
+              at async InteractionCollector.<anonymous> (/Users/moonchild/Documents/project/atri/commands/visualnovel.js:78:37)
+      "rawError": {
+        "message": "Cannot send an empty message",
+        "code": 50006
+      },
+      "code": 50006,
+      "status": 400,
+      "method": "POST",
+      "url": "https://discord.com/api/v10/webhooks/1003008258962886766/aW50ZXJhY3Rpb246MTAxMzQ2NTc3Mzk2MTkwODMyNjpubGpRaXRFMTNSUTlTUnVnMWhGd2k2SXBFY2ZwdXBLTjBkcGw0RmxrMHR2S1FoVHhsOHdmYjc2N1dWUzY4SXVWOUZmTGJnYUhIZXJZN0pxRVdVaUVHM3kwZ1dmMW56c2FuMkRWQWJVMjlaaDJLeXhjMDRaSXhQRjBOekNEczBlaw?wait=true",
+      "requestBody": {
+        "files": [],
+        "json": {
+          "tts": false
+        }
+      }
+    }
+[32mINFO[39m [2022-28-08, 3:12:36 PM] (85212): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[32mINFO[39m [2022-28-08, 3:12:36 PM] (85213): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[31mERROR[39m [2022-28-08, 3:12:36 PM] (85213): [36mUnknown interaction[39m
+    err: {
+      "type": "DiscordAPIError",
+      "message": "Unknown interaction",
+      "stack":
+          DiscordAPIError[10062]: Unknown interaction
+              at SequentialHandler.runRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:287:15)
+              at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+              at async SequentialHandler.queueRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:99:14)
+              at async REST.request (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/REST.cjs:52:22)
+              at async ChatInputCommandInteraction.deferReply (/Users/moonchild/Documents/project/atri/node_modules/discord.js/src/structures/interfaces/InteractionResponses.js:68:5)
+              at async Object.execute (/Users/moonchild/Documents/project/atri/commands/visualnovel.js:46:17)
+              at async Object.execute (/Users/moonchild/Documents/project/atri/events/interactionCreate.js:18:5)
+      "rawError": {
+        "message": "Unknown interaction",
+        "code": 10062
+      },
+      "code": 10062,
+      "status": 404,
+      "method": "POST",
+      "url": "https://discord.com/api/v10/interactions/1013466136983130224/aW50ZXJhY3Rpb246MTAxMzQ2NjEzNjk4MzEzMDIyNDpnS2dPSG9FTUFTMkpxRFhlSm5iaDdTTjFIMTl0ams0UkVpS1ZGNVVBSERsZ1BTYnBJQnlWNVRlOWdnT25hTGVyV2tSRWcxbHlzS3F6NVYxSGVyZHJ5cmpLTEhKcVpHdGlyVUd1OGQ0SG9udm96YVZGeVhqM1dxU2dyNXNZQXUxZw/callback",
+      "requestBody": {
+        "json": {
+          "type": 5,
+          "data": {}
+        }
+      }
+    }
+[32mINFO[39m [2022-28-08, 3:12:42 PM] (85212): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[31mERROR[39m [2022-28-08, 3:12:42 PM] (85212): [36mconnect ECONNREFUSED 127.0.0.1:8154[39m
+    err: {
+      "type": "Error",
+      "message": "connect ECONNREFUSED 127.0.0.1:8154",
+      "stack":
+          Error: connect ECONNREFUSED 127.0.0.1:8154
+              at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1247:16)
+              --------------------
+              at Protocol._enqueue (/Users/moonchild/Documents/project/atri/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+              at Protocol.handshake (/Users/moonchild/Documents/project/atri/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+              at PoolConnection.connect (/Users/moonchild/Documents/project/atri/node_modules/mysql/lib/Connection.js:116:18)
+              at Pool.getConnection (/Users/moonchild/Documents/project/atri/node_modules/mysql/lib/Pool.js:48:16)
+              at Pool.query (/Users/moonchild/Documents/project/atri/node_modules/mysql/lib/Pool.js:202:8)
+              at node:internal/util:361:7
+              at new Promise (<anonymous>)
+              at Pool.query (node:internal/util:347:12)
+              at Object.download_link (/Users/moonchild/Documents/project/atri/services/vn_database_service.js:13:34)
+              at /Users/moonchild/Documents/project/atri/services/vn_search.js:17:42
+      "errno": -61,
+      "code": "ECONNREFUSED",
+      "syscall": "connect",
+      "address": "127.0.0.1",
+      "port": 8154,
+      "fatal": true
+    }
+[31mERROR[39m [2022-28-08, 3:12:42 PM] (85212): [36mCannot read properties of undefined (reading 'en')[39m
+    err: {
+      "type": "TypeError",
+      "message": "Cannot read properties of undefined (reading 'en')",
+      "stack":
+          TypeError: Cannot read properties of undefined (reading 'en')
+              at /Users/moonchild/Documents/project/atri/services/vn_search.js:19:47
+              at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+              at async /Users/moonchild/Documents/project/atri/services/vn_search.js:17:24
+              at async Object.info (/Users/moonchild/Documents/project/atri/services/vn_search.js:11:16)
+              at async InteractionCollector.<anonymous> (/Users/moonchild/Documents/project/atri/commands/visualnovel.js:77:50)
+    }
+[32mINFO[39m [2022-28-08, 3:12:42 PM] (85213): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[31mERROR[39m [2022-28-08, 3:12:43 PM] (85212): [36mCannot send an empty message[39m
+    err: {
+      "type": "DiscordAPIError",
+      "message": "Cannot send an empty message",
+      "stack":
+          DiscordAPIError[50006]: Cannot send an empty message
+              at SequentialHandler.runRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:287:15)
+              at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+              at async SequentialHandler.queueRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:99:14)
+              at async REST.request (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/REST.cjs:52:22)
+              at async InteractionWebhook.send (/Users/moonchild/Documents/project/atri/node_modules/discord.js/src/structures/Webhook.js:214:15)
+              at async InteractionCollector.<anonymous> (/Users/moonchild/Documents/project/atri/commands/visualnovel.js:78:37)
+      "rawError": {
+        "message": "Cannot send an empty message",
+        "code": 50006
+      },
+      "code": 50006,
+      "status": 400,
+      "method": "POST",
+      "url": "https://discord.com/api/v10/webhooks/1003008258962886766/aW50ZXJhY3Rpb246MTAxMzQ2NjEzNjk4MzEzMDIyNDpnS2dPSG9FTUFTMkpxRFhlSm5iaDdTTjFIMTl0ams0UkVpS1ZGNVVBSERsZ1BTYnBJQnlWNVRlOWdnT25hTGVyV2tSRWcxbHlzS3F6NVYxSGVyZHJ5cmpLTEhKcVpHdGlyVUd1OGQ0SG9udm96YVZGeVhqM1dxU2dyNXNZQXUxZw?wait=true",
+      "requestBody": {
+        "files": [],
+        "json": {
+          "tts": false
+        }
+      }
+    }
+[32mINFO[39m [2022-28-08, 3:12:55 PM] (85433): [36mSystem Ready, Logged as ATRI Tester#8292[39m
+[32mINFO[39m [2022-28-08, 3:12:55 PM] (85433): [36mUptime: Sun Aug 28 2022 22:12:55 GMT+0700 (Western Indonesia Time)[39m
+[32mINFO[39m [2022-28-08, 3:13:03 PM] (85433): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[31mERROR[39m [2022-28-08, 3:13:04 PM] (85433): [36mUnknown interaction[39m
+    err: {
+      "type": "DiscordAPIError",
+      "message": "Unknown interaction",
+      "stack":
+          DiscordAPIError[10062]: Unknown interaction
+              at SequentialHandler.runRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:287:15)
+              at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+              at async SequentialHandler.queueRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:99:14)
+              at async REST.request (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/REST.cjs:52:22)
+              at async ChatInputCommandInteraction.deferReply (/Users/moonchild/Documents/project/atri/node_modules/discord.js/src/structures/interfaces/InteractionResponses.js:68:5)
+              at async Object.execute (/Users/moonchild/Documents/project/atri/commands/visualnovel.js:46:17)
+              at async Object.execute (/Users/moonchild/Documents/project/atri/events/interactionCreate.js:18:5)
+      "rawError": {
+        "message": "Unknown interaction",
+        "code": 10062
+      },
+      "code": 10062,
+      "status": 404,
+      "method": "POST",
+      "url": "https://discord.com/api/v10/interactions/1013466251256934491/aW50ZXJhY3Rpb246MTAxMzQ2NjI1MTI1NjkzNDQ5MTowZHd2aEJaUmxDamN5cnJmN3M5WGswNTFkZjd2REMweHA5RzFMN3ZLSVU3NDlZRmREUGU5d2xUR1AwTWppVHFMUklITDFBMGo1SUFERWhmZnJYb25WQTdyRHIzSFFydE8wOXQ1MVZUTW5OOTdURndYb1lPUEw4YjB3UUZoTHo3aQ/callback",
+      "requestBody": {
+        "json": {
+          "type": 5,
+          "data": {}
+        }
+      }
+    }
+[32mINFO[39m [2022-28-08, 3:13:03 PM] (85213): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[32mINFO[39m [2022-28-08, 3:13:08 PM] (85433): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[32mINFO[39m [2022-28-08, 3:13:08 PM] (85213): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[31mERROR[39m [2022-28-08, 3:13:08 PM] (85213): [36mconnect ECONNREFUSED 127.0.0.1:8154[39m
+    err: {
+      "type": "Error",
+      "message": "connect ECONNREFUSED 127.0.0.1:8154",
+      "stack":
+          Error: connect ECONNREFUSED 127.0.0.1:8154
+              at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1247:16)
+              --------------------
+              at Protocol._enqueue (/Users/moonchild/Documents/project/atri/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+              at Protocol.handshake (/Users/moonchild/Documents/project/atri/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+              at PoolConnection.connect (/Users/moonchild/Documents/project/atri/node_modules/mysql/lib/Connection.js:116:18)
+              at Pool.getConnection (/Users/moonchild/Documents/project/atri/node_modules/mysql/lib/Pool.js:48:16)
+              at Pool.query (/Users/moonchild/Documents/project/atri/node_modules/mysql/lib/Pool.js:202:8)
+              at node:internal/util:361:7
+              at new Promise (<anonymous>)
+              at Pool.query (node:internal/util:347:12)
+              at Object.download_link (/Users/moonchild/Documents/project/atri/services/vn_database_service.js:13:34)
+              at /Users/moonchild/Documents/project/atri/services/vn_search.js:17:42
+      "errno": -61,
+      "code": "ECONNREFUSED",
+      "syscall": "connect",
+      "address": "127.0.0.1",
+      "port": 8154,
+      "fatal": true
+    }
+[31mERROR[39m [2022-28-08, 3:13:08 PM] (85213): [36mCannot read properties of undefined (reading 'en')[39m
+    err: {
+      "type": "TypeError",
+      "message": "Cannot read properties of undefined (reading 'en')",
+      "stack":
+          TypeError: Cannot read properties of undefined (reading 'en')
+              at /Users/moonchild/Documents/project/atri/services/vn_search.js:19:47
+              at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+              at async /Users/moonchild/Documents/project/atri/services/vn_search.js:17:24
+              at async Object.info (/Users/moonchild/Documents/project/atri/services/vn_search.js:11:16)
+              at async InteractionCollector.<anonymous> (/Users/moonchild/Documents/project/atri/commands/visualnovel.js:77:50)
+    }
+[31mERROR[39m [2022-28-08, 3:13:09 PM] (85213): [36mCannot send an empty message[39m
+    err: {
+      "type": "DiscordAPIError",
+      "message": "Cannot send an empty message",
+      "stack":
+          DiscordAPIError[50006]: Cannot send an empty message
+              at SequentialHandler.runRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:287:15)
+              at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+              at async SequentialHandler.queueRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:99:14)
+              at async REST.request (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/REST.cjs:52:22)
+              at async InteractionWebhook.send (/Users/moonchild/Documents/project/atri/node_modules/discord.js/src/structures/Webhook.js:214:15)
+              at async InteractionCollector.<anonymous> (/Users/moonchild/Documents/project/atri/commands/visualnovel.js:78:37)
+      "rawError": {
+        "message": "Cannot send an empty message",
+        "code": 50006
+      },
+      "code": 50006,
+      "status": 400,
+      "method": "POST",
+      "url": "https://discord.com/api/v10/webhooks/1003008258962886766/aW50ZXJhY3Rpb246MTAxMzQ2NjI1MTI1NjkzNDQ5MTowZHd2aEJaUmxDamN5cnJmN3M5WGswNTFkZjd2REMweHA5RzFMN3ZLSVU3NDlZRmREUGU5d2xUR1AwTWppVHFMUklITDFBMGo1SUFERWhmZnJYb25WQTdyRHIzSFFydE8wOXQ1MVZUTW5OOTdURndYb1lPUEw4YjB3UUZoTHo3aQ?wait=true",
+      "requestBody": {
+        "files": [],
+        "json": {
+          "tts": false
+        }
+      }
+    }
+[32mINFO[39m [2022-28-08, 3:13:51 PM] (85583): [36mSystem Ready, Logged as ATRI Tester#8292[39m
+[32mINFO[39m [2022-28-08, 3:13:51 PM] (85583): [36mUptime: Sun Aug 28 2022 22:13:51 GMT+0700 (Western Indonesia Time)[39m
+[32mINFO[39m [2022-28-08, 3:13:57 PM] (85583): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[32mINFO[39m [2022-28-08, 3:14:01 PM] (85583): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[32mINFO[39m [2022-28-08, 3:14:02 PM] (85584): [36mSystem Ready, Logged as ATRI Tester#8292[39m
+[32mINFO[39m [2022-28-08, 3:14:02 PM] (85584): [36mUptime: Sun Aug 28 2022 22:14:02 GMT+0700 (Western Indonesia Time)[39m
+[31mERROR[39m [2022-28-08, 3:14:02 PM] (85583): [36mInvalid Form Body
+embeds[0].fields[1].value[BASE_TYPE_REQUIRED]: This field is required[39m
+    err: {
+      "type": "DiscordAPIError",
+      "message": "Invalid Form Body\nembeds[0].fields[1].value[BASE_TYPE_REQUIRED]: This field is required",
+      "stack":
+          DiscordAPIError[50035]: Invalid Form Body
+          embeds[0].fields[1].value[BASE_TYPE_REQUIRED]: This field is required
+              at SequentialHandler.runRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:287:15)
+              at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+              at async SequentialHandler.queueRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:99:14)
+              at async REST.request (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/REST.cjs:52:22)
+              at async InteractionWebhook.send (/Users/moonchild/Documents/project/atri/node_modules/discord.js/src/structures/Webhook.js:214:15)
+              at async InteractionCollector.<anonymous> (/Users/moonchild/Documents/project/atri/commands/visualnovel.js:78:37)
+      "rawError": {
+        "code": 50035,
+        "errors": {
+          "embeds": {
+            "0": {
+              "fields": {
+                "1": {
+                  "value": {
+                    "_errors": [
+                      {
+                        "code": "BASE_TYPE_REQUIRED",
+                        "message": "This field is required"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "message": "Invalid Form Body"
+      },
+      "code": 50035,
+      "status": 400,
+      "method": "POST",
+      "url": "https://discord.com/api/v10/webhooks/1003008258962886766/aW50ZXJhY3Rpb246MTAxMzQ2NjQ3NjgzMDc5MzgyOTpzWXFMS3M1Uk1RaGt1V3JpeG1Ba0FRVDJqREVwc1E0eXg3YTdRa09hR2xSV1Y4TWp6VEZMVGdSM2FjVGdnbEJVc0xpYWo5ZGxPbkFCUVlWVUZhZ3QzOWdtaXlIQzVId3BIazFjNk9CN1M3dmViYTVYYVhaQ2QxSGJkVHk4dVFqMQ?wait=true",
+      "requestBody": {
+        "files": [],
+        "json": {
+          "tts": false,
+          "embeds": [
+            {
+              "color": 6164953,
+              "title": "Sousaku Kanojo no Ren'ai Koushiki",
+              "author": {
+                "name": "ATRI Visual Novel Search Engine"
+              },
+              "description": "Our protagonist, Kagami Toshiki, is headed to Tokyo, where he will begin living with his cousin and her family. \nUnbeknownst to others, he harbors a desire within himself.\n\nHe wants to rekindle that creative spark he has all but lost now. \n\nOnce young, Toshiki had a dear childhood friend.\nHer name was Ayase Aisa. \n\nThey were always side-by-side, competing to create the better stories between them. \nHowever, as Toshiki grew older, he started to feel the gap between them grow ever larger. \nAnd soon thereafter, because of familial circumstances, Aisa moved to Tokyo.\n\nThe then separated Aisa and Toshiki would still exchange letters, writing about their daily lives and, of course, the stories they had created. \nHowever, once the prospect of entering high school drew close, the letters from Aisa ceased. \n\nNonetheless, Toshiki continued writing stories, making doujin games and the like;\nEventually, he landed himself his first commercial light novel debut.\n\nAnd while he could have continued his current growth ever more, \na certain event six months prior had placed him in a slump.\nAnd so, he postulated that perhaps spending time with similarly aged creators would help him break free of his slump. Steeling himself, Toshiki enrolled in Saika Private Academy, a school designed for creators to gather in one place.\n\nAnd soon enough, spring had arrived.\n\nToshiki has settled in Tokyo now, ready to start his new school life. And it is there, that by pure coincidence, he will be reunited with Aisa once more. \n\n[Translated from the [url=http://ainolinks.com/]official website[/url]]",
+              "timestamp": {},
+              "footer": {
+                "text": "ATRI Version: 0.2.0-alpha.6"
+              },
+              "url": "https://vndb.org/v31136",
+              "thumbnail": {
+                "url": "https://s2.vndb.org/cv/86/51386.jpg"
+              },
+              "fields": [
+                {
+                  "name": "Aliases",
+                  "value": "Create girls → started to walk.",
+                  "inline": true
+                },
+                {
+                  "name": "Length",
+                  "inline": true
+                },
+                {
+                  "name": "Rating",
+                  "value": "7.38",
+                  "inline": true
+                },
+                {
+                  "name": "​",
+                  "value": "**Download Link**"
+                },
+                {
+                  "name": "JP",
+                  "value": "[Drive 1](https://drive.google.com/drive/u/2/folders/1SQ3MeWJ9bRwN62peiHY81LFUuFtlBwaT) "
+                }
+              ]
+            }
+          ],
+          "components": [
+            {
+              "type": 1,
+              "components": [
+                {
+                  "type": 2,
+                  "custom_id": "vn-dl-request-31136",
+                  "label": "Request VN",
+                  "style": 1,
+                  "disabled": false
+                },
+                {
+                  "type": 2,
+                  "emoji": {
+                    "name": "🚩",
+                    "animated": false
+                  },
+                  "custom_id": "vn-dl-report-31136",
+                  "label": "Report Link",
+                  "style": 2
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+[32mINFO[39m [2022-28-08, 3:14:10 PM] (85584): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[32mINFO[39m [2022-28-08, 3:14:10 PM] (85583): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[31mERROR[39m [2022-28-08, 3:14:10 PM] (85583): [36mUnknown interaction[39m
+    err: {
+      "type": "DiscordAPIError",
+      "message": "Unknown interaction",
+      "stack":
+          DiscordAPIError[10062]: Unknown interaction
+              at SequentialHandler.runRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:287:15)
+              at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+              at async SequentialHandler.queueRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:99:14)
+              at async REST.request (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/REST.cjs:52:22)
+              at async ChatInputCommandInteraction.deferReply (/Users/moonchild/Documents/project/atri/node_modules/discord.js/src/structures/interfaces/InteractionResponses.js:68:5)
+              at async Object.execute (/Users/moonchild/Documents/project/atri/commands/visualnovel.js:46:17)
+              at async Object.execute (/Users/moonchild/Documents/project/atri/events/interactionCreate.js:18:5)
+      "rawError": {
+        "message": "Unknown interaction",
+        "code": 10062
+      },
+      "code": 10062,
+      "status": 404,
+      "method": "POST",
+      "url": "https://discord.com/api/v10/interactions/1013466531109281852/aW50ZXJhY3Rpb246MTAxMzQ2NjUzMTEwOTI4MTg1MjpIQ2NRd1B1WUMwOTJ4Z29INmVWaE9jZVVHSG1vRmNjRTB0U1FCcjIzdzdFaFh4cURSdHRsdTlVUDhycWFqSlkyT0t2ZU5oOGFKQ3JmNThRdEtwVWIwUXRKaHRJQTZsUHhiZ25wck5PS1g2cE1sOXlvQzZ4UjJiQ3V1WnF3bTRsSw/callback",
+      "requestBody": {
+        "json": {
+          "type": 5,
+          "data": {}
+        }
+      }
+    }
+[32mINFO[39m [2022-28-08, 3:14:15 PM] (85584): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[31mERROR[39m [2022-28-08, 3:14:15 PM] (85584): [36mInvalid Form Body
+embeds[0].fields[1].value[BASE_TYPE_REQUIRED]: This field is required[39m
+    err: {
+      "type": "DiscordAPIError",
+      "message": "Invalid Form Body\nembeds[0].fields[1].value[BASE_TYPE_REQUIRED]: This field is required",
+      "stack":
+          DiscordAPIError[50035]: Invalid Form Body
+          embeds[0].fields[1].value[BASE_TYPE_REQUIRED]: This field is required
+              at SequentialHandler.runRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:287:15)
+              at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+              at async SequentialHandler.queueRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:99:14)
+              at async REST.request (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/REST.cjs:52:22)
+              at async InteractionWebhook.send (/Users/moonchild/Documents/project/atri/node_modules/discord.js/src/structures/Webhook.js:214:15)
+              at async InteractionCollector.<anonymous> (/Users/moonchild/Documents/project/atri/commands/visualnovel.js:78:37)
+      "rawError": {
+        "code": 50035,
+        "errors": {
+          "embeds": {
+            "0": {
+              "fields": {
+                "1": {
+                  "value": {
+                    "_errors": [
+                      {
+                        "code": "BASE_TYPE_REQUIRED",
+                        "message": "This field is required"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "message": "Invalid Form Body"
+      },
+      "code": 50035,
+      "status": 400,
+      "method": "POST",
+      "url": "https://discord.com/api/v10/webhooks/1003008258962886766/aW50ZXJhY3Rpb246MTAxMzQ2NjUzMTEwOTI4MTg1MjpIQ2NRd1B1WUMwOTJ4Z29INmVWaE9jZVVHSG1vRmNjRTB0U1FCcjIzdzdFaFh4cURSdHRsdTlVUDhycWFqSlkyT0t2ZU5oOGFKQ3JmNThRdEtwVWIwUXRKaHRJQTZsUHhiZ25wck5PS1g2cE1sOXlvQzZ4UjJiQ3V1WnF3bTRsSw?wait=true",
+      "requestBody": {
+        "files": [],
+        "json": {
+          "tts": false,
+          "embeds": [
+            {
+              "color": 6164953,
+              "title": "Sousaku Kanojo no Ren'ai Koushiki",
+              "author": {
+                "name": "ATRI Visual Novel Search Engine"
+              },
+              "description": "Our protagonist, Kagami Toshiki, is headed to Tokyo, where he will begin living with his cousin and her family. \nUnbeknownst to others, he harbors a desire within himself.\n\nHe wants to rekindle that creative spark he has all but lost now. \n\nOnce young, Toshiki had a dear childhood friend.\nHer name was Ayase Aisa. \n\nThey were always side-by-side, competing to create the better stories between them. \nHowever, as Toshiki grew older, he started to feel the gap between them grow ever larger. \nAnd soon thereafter, because of familial circumstances, Aisa moved to Tokyo.\n\nThe then separated Aisa and Toshiki would still exchange letters, writing about their daily lives and, of course, the stories they had created. \nHowever, once the prospect of entering high school drew close, the letters from Aisa ceased. \n\nNonetheless, Toshiki continued writing stories, making doujin games and the like;\nEventually, he landed himself his first commercial light novel debut.\n\nAnd while he could have continued his current growth ever more, \na certain event six months prior had placed him in a slump.\nAnd so, he postulated that perhaps spending time with similarly aged creators would help him break free of his slump. Steeling himself, Toshiki enrolled in Saika Private Academy, a school designed for creators to gather in one place.\n\nAnd soon enough, spring had arrived.\n\nToshiki has settled in Tokyo now, ready to start his new school life. And it is there, that by pure coincidence, he will be reunited with Aisa once more. \n\n[Translated from the [url=http://ainolinks.com/]official website[/url]]",
+              "timestamp": {},
+              "footer": {
+                "text": "ATRI Version: 0.2.0-alpha.6"
+              },
+              "url": "https://vndb.org/v31136",
+              "thumbnail": {
+                "url": "https://s2.vndb.org/cv/86/51386.jpg"
+              },
+              "fields": [
+                {
+                  "name": "Aliases",
+                  "value": "Create girls → started to walk.",
+                  "inline": true
+                },
+                {
+                  "name": "Length",
+                  "inline": true
+                },
+                {
+                  "name": "Rating",
+                  "value": "7.38",
+                  "inline": true
+                },
+                {
+                  "name": "​",
+                  "value": "**Download Link**"
+                },
+                {
+                  "name": "JP",
+                  "value": "[Drive 1](https://drive.google.com/drive/u/2/folders/1SQ3MeWJ9bRwN62peiHY81LFUuFtlBwaT) "
+                }
+              ]
+            }
+          ],
+          "components": [
+            {
+              "type": 1,
+              "components": [
+                {
+                  "type": 2,
+                  "custom_id": "vn-dl-request-31136",
+                  "label": "Request VN",
+                  "style": 1,
+                  "disabled": false
+                },
+                {
+                  "type": 2,
+                  "emoji": {
+                    "name": "🚩",
+                    "animated": false
+                  },
+                  "custom_id": "vn-dl-report-31136",
+                  "label": "Report Link",
+                  "style": 2
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+[32mINFO[39m [2022-28-08, 3:14:15 PM] (85583): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[32mINFO[39m [2022-28-08, 3:14:50 PM] (85711): [36mSystem Ready, Logged as ATRI Tester#8292[39m
+[32mINFO[39m [2022-28-08, 3:14:50 PM] (85711): [36mUptime: Sun Aug 28 2022 22:14:50 GMT+0700 (Western Indonesia Time)[39m
+[32mINFO[39m [2022-28-08, 3:14:57 PM] (85711): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[32mINFO[39m [2022-28-08, 3:15:01 PM] (85712): [36mSystem Ready, Logged as ATRI Tester#8292[39m
+[32mINFO[39m [2022-28-08, 3:15:01 PM] (85712): [36mUptime: Sun Aug 28 2022 22:15:01 GMT+0700 (Western Indonesia Time)[39m
+[32mINFO[39m [2022-28-08, 3:15:02 PM] (85712): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[32mINFO[39m [2022-28-08, 3:15:02 PM] (85711): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[31mERROR[39m [2022-28-08, 3:15:03 PM] (85711): [36mInvalid Form Body
+embeds[0].fields[1].value[BASE_TYPE_REQUIRED]: This field is required[39m
+    err: {
+      "type": "DiscordAPIError",
+      "message": "Invalid Form Body\nembeds[0].fields[1].value[BASE_TYPE_REQUIRED]: This field is required",
+      "stack":
+          DiscordAPIError[50035]: Invalid Form Body
+          embeds[0].fields[1].value[BASE_TYPE_REQUIRED]: This field is required
+              at SequentialHandler.runRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:287:15)
+              at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+              at async SequentialHandler.queueRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:99:14)
+              at async REST.request (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/REST.cjs:52:22)
+              at async InteractionWebhook.send (/Users/moonchild/Documents/project/atri/node_modules/discord.js/src/structures/Webhook.js:214:15)
+              at async InteractionCollector.<anonymous> (/Users/moonchild/Documents/project/atri/commands/visualnovel.js:78:37)
+      "rawError": {
+        "code": 50035,
+        "errors": {
+          "embeds": {
+            "0": {
+              "fields": {
+                "1": {
+                  "value": {
+                    "_errors": [
+                      {
+                        "code": "BASE_TYPE_REQUIRED",
+                        "message": "This field is required"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "message": "Invalid Form Body"
+      },
+      "code": 50035,
+      "status": 400,
+      "method": "POST",
+      "url": "https://discord.com/api/v10/webhooks/1003008258962886766/aW50ZXJhY3Rpb246MTAxMzQ2NjcyNzg2ODI4MDg3MzpjNzY1NE8yTUo2RkhVbUN4bUJ5TlpiaVVKQm5SVUtUTm02SEM1TGMxeGN5amRwaTB3dFF0MkhpTFhWWEM2a2hBcVNQaEJoWDNCR3FJZVJJUWkzS1lMUDdndU0xYjNEaWtDY0dKdlhxU0pjT0k4eThmYlJueVFsWFBjbUlqWG5VWQ?wait=true",
+      "requestBody": {
+        "files": [],
+        "json": {
+          "tts": false,
+          "embeds": [
+            {
+              "color": 6164953,
+              "title": "Sousaku Kanojo no Ren'ai Koushiki",
+              "author": {
+                "name": "ATRI Visual Novel Search Engine"
+              },
+              "description": "Our protagonist, Kagami Toshiki, is headed to Tokyo, where he will begin living with his cousin and her family. \nUnbeknownst to others, he harbors a desire within himself.\n\nHe wants to rekindle that creative spark he has all but lost now. \n\nOnce young, Toshiki had a dear childhood friend.\nHer name was Ayase Aisa. \n\nThey were always side-by-side, competing to create the better stories between them. \nHowever, as Toshiki grew older, he started to feel the gap between them grow ever larger. \nAnd soon thereafter, because of familial circumstances, Aisa moved to Tokyo.\n\nThe then separated Aisa and Toshiki would still exchange letters, writing about their daily lives and, of course, the stories they had created. \nHowever, once the prospect of entering high school drew close, the letters from Aisa ceased. \n\nNonetheless, Toshiki continued writing stories, making doujin games and the like;\nEventually, he landed himself his first commercial light novel debut.\n\nAnd while he could have continued his current growth ever more, \na certain event six months prior had placed him in a slump.\nAnd so, he postulated that perhaps spending time with similarly aged creators would help him break free of his slump. Steeling himself, Toshiki enrolled in Saika Private Academy, a school designed for creators to gather in one place.\n\nAnd soon enough, spring had arrived.\n\nToshiki has settled in Tokyo now, ready to start his new school life. And it is there, that by pure coincidence, he will be reunited with Aisa once more. \n\n[Translated from the [url=http://ainolinks.com/]official website[/url]]",
+              "timestamp": {},
+              "footer": {
+                "text": "ATRI Version: 0.2.0-alpha.6"
+              },
+              "url": "https://vndb.org/v31136",
+              "thumbnail": {
+                "url": "https://s2.vndb.org/cv/86/51386.jpg"
+              },
+              "fields": [
+                {
+                  "name": "Aliases",
+                  "value": "Create girls → started to walk.",
+                  "inline": true
+                },
+                {
+                  "name": "Length",
+                  "inline": true
+                },
+                {
+                  "name": "Rating",
+                  "value": "7.38",
+                  "inline": true
+                },
+                {
+                  "name": "​",
+                  "value": "**Download Link**"
+                },
+                {
+                  "name": "JP",
+                  "value": "[Drive 1](https://drive.google.com/drive/u/2/folders/1SQ3MeWJ9bRwN62peiHY81LFUuFtlBwaT) "
+                }
+              ]
+            }
+          ],
+          "components": [
+            {
+              "type": 1,
+              "components": [
+                {
+                  "type": 2,
+                  "custom_id": "vn-dl-request-31136",
+                  "label": "Request VN",
+                  "style": 1,
+                  "disabled": false
+                },
+                {
+                  "type": 2,
+                  "emoji": {
+                    "name": "🚩",
+                    "animated": false
+                  },
+                  "custom_id": "vn-dl-report-31136",
+                  "label": "Report Link",
+                  "style": 2
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+[32mINFO[39m [2022-28-08, 3:15:46 PM] (85833): [36mSystem Ready, Logged as ATRI Tester#8292[39m
+[32mINFO[39m [2022-28-08, 3:15:46 PM] (85833): [36mUptime: Sun Aug 28 2022 22:15:46 GMT+0700 (Western Indonesia Time)[39m
+[32mINFO[39m [2022-28-08, 3:15:57 PM] (85834): [36mSystem Ready, Logged as ATRI Tester#8292[39m
+[32mINFO[39m [2022-28-08, 3:15:57 PM] (85834): [36mUptime: Sun Aug 28 2022 22:15:57 GMT+0700 (Western Indonesia Time)[39m
+[32mINFO[39m [2022-28-08, 3:15:57 PM] (85834): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[32mINFO[39m [2022-28-08, 3:15:57 PM] (85833): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[31mERROR[39m [2022-28-08, 3:15:57 PM] (85833): [36mUnknown interaction[39m
+    err: {
+      "type": "DiscordAPIError",
+      "message": "Unknown interaction",
+      "stack":
+          DiscordAPIError[10062]: Unknown interaction
+              at SequentialHandler.runRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:287:15)
+              at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+              at async SequentialHandler.queueRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:99:14)
+              at async REST.request (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/REST.cjs:52:22)
+              at async ChatInputCommandInteraction.deferReply (/Users/moonchild/Documents/project/atri/node_modules/discord.js/src/structures/interfaces/InteractionResponses.js:68:5)
+              at async Object.execute (/Users/moonchild/Documents/project/atri/commands/visualnovel.js:46:17)
+              at async Object.execute (/Users/moonchild/Documents/project/atri/events/interactionCreate.js:18:5)
+      "rawError": {
+        "message": "Unknown interaction",
+        "code": 10062
+      },
+      "code": 10062,
+      "status": 404,
+      "method": "POST",
+      "url": "https://discord.com/api/v10/interactions/1013466977827831868/aW50ZXJhY3Rpb246MTAxMzQ2Njk3NzgyNzgzMTg2ODpvM1dxcE1CejAzdzVWRXYzb3U2MFV4QzR0SGxIYzVaR25Ya0RzSGo0UGdhTkZKTXRJQjJLb2xNcUc1aDZXeWJRWkxJUjF5dWNKWVhHQnpWYkprVm84MEFIa3Z1bGdRdXZWVjhZaW4xcVZYM3UwaXo3TjhTcVhCQ3M2SUpKbk91Ug/callback",
+      "requestBody": {
+        "json": {
+          "type": 5,
+          "data": {}
+        }
+      }
+    }
+[32mINFO[39m [2022-28-08, 3:16:08 PM] (85834): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[31mERROR[39m [2022-28-08, 3:16:09 PM] (85834): [36mInvalid Form Body
+embeds[0].fields[1].value[BASE_TYPE_REQUIRED]: This field is required[39m
+    err: {
+      "type": "DiscordAPIError",
+      "message": "Invalid Form Body\nembeds[0].fields[1].value[BASE_TYPE_REQUIRED]: This field is required",
+      "stack":
+          DiscordAPIError[50035]: Invalid Form Body
+          embeds[0].fields[1].value[BASE_TYPE_REQUIRED]: This field is required
+              at SequentialHandler.runRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:287:15)
+              at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+              at async SequentialHandler.queueRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:99:14)
+              at async REST.request (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/REST.cjs:52:22)
+              at async InteractionWebhook.send (/Users/moonchild/Documents/project/atri/node_modules/discord.js/src/structures/Webhook.js:214:15)
+              at async InteractionCollector.<anonymous> (/Users/moonchild/Documents/project/atri/commands/visualnovel.js:78:37)
+      "rawError": {
+        "code": 50035,
+        "errors": {
+          "embeds": {
+            "0": {
+              "fields": {
+                "1": {
+                  "value": {
+                    "_errors": [
+                      {
+                        "code": "BASE_TYPE_REQUIRED",
+                        "message": "This field is required"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "message": "Invalid Form Body"
+      },
+      "code": 50035,
+      "status": 400,
+      "method": "POST",
+      "url": "https://discord.com/api/v10/webhooks/1003008258962886766/aW50ZXJhY3Rpb246MTAxMzQ2Njk3NzgyNzgzMTg2ODpvM1dxcE1CejAzdzVWRXYzb3U2MFV4QzR0SGxIYzVaR25Ya0RzSGo0UGdhTkZKTXRJQjJLb2xNcUc1aDZXeWJRWkxJUjF5dWNKWVhHQnpWYkprVm84MEFIa3Z1bGdRdXZWVjhZaW4xcVZYM3UwaXo3TjhTcVhCQ3M2SUpKbk91Ug?wait=true",
+      "requestBody": {
+        "files": [],
+        "json": {
+          "tts": false,
+          "embeds": [
+            {
+              "color": 6164953,
+              "title": "Sousaku Kanojo no Ren'ai Koushiki",
+              "author": {
+                "name": "ATRI Visual Novel Search Engine"
+              },
+              "description": "Our protagonist, Kagami Toshiki, is headed to Tokyo, where he will begin living with his cousin and her family. \nUnbeknownst to others, he harbors a desire within himself.\n\nHe wants to rekindle that creative spark he has all but lost now. \n\nOnce young, Toshiki had a dear childhood friend.\nHer name was Ayase Aisa. \n\nThey were always side-by-side, competing to create the better stories between them. \nHowever, as Toshiki grew older, he started to feel the gap between them grow ever larger. \nAnd soon thereafter, because of familial circumstances, Aisa moved to Tokyo.\n\nThe then separated Aisa and Toshiki would still exchange letters, writing about their daily lives and, of course, the stories they had created. \nHowever, once the prospect of entering high school drew close, the letters from Aisa ceased. \n\nNonetheless, Toshiki continued writing stories, making doujin games and the like;\nEventually, he landed himself his first commercial light novel debut.\n\nAnd while he could have continued his current growth ever more, \na certain event six months prior had placed him in a slump.\nAnd so, he postulated that perhaps spending time with similarly aged creators would help him break free of his slump. Steeling himself, Toshiki enrolled in Saika Private Academy, a school designed for creators to gather in one place.\n\nAnd soon enough, spring had arrived.\n\nToshiki has settled in Tokyo now, ready to start his new school life. And it is there, that by pure coincidence, he will be reunited with Aisa once more. \n\n[Translated from the [url=http://ainolinks.com/]official website[/url]]",
+              "timestamp": {},
+              "footer": {
+                "text": "ATRI Version: 0.2.0-alpha.6"
+              },
+              "url": "https://vndb.org/v31136",
+              "thumbnail": {
+                "url": "https://s2.vndb.org/cv/86/51386.jpg"
+              },
+              "fields": [
+                {
+                  "name": "Aliases",
+                  "value": "Create girls → started to walk.",
+                  "inline": true
+                },
+                {
+                  "name": "Length",
+                  "inline": true
+                },
+                {
+                  "name": "Rating",
+                  "value": "7.38",
+                  "inline": true
+                },
+                {
+                  "name": "​",
+                  "value": "**Download Link**"
+                },
+                {
+                  "name": "JP",
+                  "value": "[Drive 1](https://drive.google.com/drive/u/2/folders/1SQ3MeWJ9bRwN62peiHY81LFUuFtlBwaT) "
+                }
+              ]
+            }
+          ],
+          "components": [
+            {
+              "type": 1,
+              "components": [
+                {
+                  "type": 2,
+                  "custom_id": "vn-dl-request-31136",
+                  "label": "Request VN",
+                  "style": 1,
+                  "disabled": false
+                },
+                {
+                  "type": 2,
+                  "emoji": {
+                    "name": "🚩",
+                    "animated": false
+                  },
+                  "custom_id": "vn-dl-report-31136",
+                  "label": "Report Link",
+                  "style": 2
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+[32mINFO[39m [2022-28-08, 3:16:08 PM] (85833): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[32mINFO[39m [2022-28-08, 3:16:18 PM] (85940): [36mSystem Ready, Logged as ATRI Tester#8292[39m
+[32mINFO[39m [2022-28-08, 3:16:18 PM] (85940): [36mUptime: Sun Aug 28 2022 22:16:18 GMT+0700 (Western Indonesia Time)[39m
+[32mINFO[39m [2022-28-08, 3:16:24 PM] (85940): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[32mINFO[39m [2022-28-08, 3:16:28 PM] (85916): [36mSystem Ready, Logged as ATRI Tester#8292[39m
+[32mINFO[39m [2022-28-08, 3:16:28 PM] (85916): [36mUptime: Sun Aug 28 2022 22:16:28 GMT+0700 (Western Indonesia Time)[39m
+[32mINFO[39m [2022-28-08, 3:16:29 PM] (85916): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[32mINFO[39m [2022-28-08, 3:16:29 PM] (85940): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[31mERROR[39m [2022-28-08, 3:16:30 PM] (85940): [36mInvalid Form Body
+embeds[0].fields[1].value[BASE_TYPE_REQUIRED]: This field is required[39m
+    err: {
+      "type": "DiscordAPIError",
+      "message": "Invalid Form Body\nembeds[0].fields[1].value[BASE_TYPE_REQUIRED]: This field is required",
+      "stack":
+          DiscordAPIError[50035]: Invalid Form Body
+          embeds[0].fields[1].value[BASE_TYPE_REQUIRED]: This field is required
+              at SequentialHandler.runRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:287:15)
+              at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+              at async SequentialHandler.queueRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:99:14)
+              at async REST.request (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/REST.cjs:52:22)
+              at async InteractionWebhook.send (/Users/moonchild/Documents/project/atri/node_modules/discord.js/src/structures/Webhook.js:214:15)
+              at async InteractionCollector.<anonymous> (/Users/moonchild/Documents/project/atri/commands/visualnovel.js:78:37)
+      "rawError": {
+        "code": 50035,
+        "errors": {
+          "embeds": {
+            "0": {
+              "fields": {
+                "1": {
+                  "value": {
+                    "_errors": [
+                      {
+                        "code": "BASE_TYPE_REQUIRED",
+                        "message": "This field is required"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "message": "Invalid Form Body"
+      },
+      "code": 50035,
+      "status": 400,
+      "method": "POST",
+      "url": "https://discord.com/api/v10/webhooks/1003008258962886766/aW50ZXJhY3Rpb246MTAxMzQ2NzA5MTk1NDg0Nzc4NDowZnZ3Z3dndDVYS0VhTTFKNDJDeDhXSmJCQ1phQ2ptYUZxejNHWmMyTHVsWUU3RE9CWFpwdGo5ZE51UFZlbEdkcWpoMjFRVU5TanRxRU9RcXNaVEtYeFRpdjRWVDd4U1NyaHJkelk5TjBCS1owSlZwSUNGMmlzT1NRblRuVHUzdg?wait=true",
+      "requestBody": {
+        "files": [],
+        "json": {
+          "tts": false,
+          "embeds": [
+            {
+              "color": 6164953,
+              "title": "Sousaku Kanojo no Ren'ai Koushiki",
+              "author": {
+                "name": "ATRI Visual Novel Search Engine"
+              },
+              "description": "Our protagonist, Kagami Toshiki, is headed to Tokyo, where he will begin living with his cousin and her family. \nUnbeknownst to others, he harbors a desire within himself.\n\nHe wants to rekindle that creative spark he has all but lost now. \n\nOnce young, Toshiki had a dear childhood friend.\nHer name was Ayase Aisa. \n\nThey were always side-by-side, competing to create the better stories between them. \nHowever, as Toshiki grew older, he started to feel the gap between them grow ever larger. \nAnd soon thereafter, because of familial circumstances, Aisa moved to Tokyo.\n\nThe then separated Aisa and Toshiki would still exchange letters, writing about their daily lives and, of course, the stories they had created. \nHowever, once the prospect of entering high school drew close, the letters from Aisa ceased. \n\nNonetheless, Toshiki continued writing stories, making doujin games and the like;\nEventually, he landed himself his first commercial light novel debut.\n\nAnd while he could have continued his current growth ever more, \na certain event six months prior had placed him in a slump.\nAnd so, he postulated that perhaps spending time with similarly aged creators would help him break free of his slump. Steeling himself, Toshiki enrolled in Saika Private Academy, a school designed for creators to gather in one place.\n\nAnd soon enough, spring had arrived.\n\nToshiki has settled in Tokyo now, ready to start his new school life. And it is there, that by pure coincidence, he will be reunited with Aisa once more. \n\n[Translated from the [url=http://ainolinks.com/]official website[/url]]",
+              "timestamp": {},
+              "footer": {
+                "text": "ATRI Version: 0.2.0-alpha.6"
+              },
+              "url": "https://vndb.org/v31136",
+              "thumbnail": {
+                "url": "https://s2.vndb.org/cv/86/51386.jpg"
+              },
+              "fields": [
+                {
+                  "name": "Aliases",
+                  "value": "Create girls → started to walk.",
+                  "inline": true
+                },
+                {
+                  "name": "Length",
+                  "inline": true
+                },
+                {
+                  "name": "Rating",
+                  "value": "7.38",
+                  "inline": true
+                },
+                {
+                  "name": "​",
+                  "value": "**Download Link**"
+                },
+                {
+                  "name": "JP",
+                  "value": "[Drive 1](https://drive.google.com/drive/u/2/folders/1SQ3MeWJ9bRwN62peiHY81LFUuFtlBwaT) "
+                }
+              ]
+            }
+          ],
+          "components": [
+            {
+              "type": 1,
+              "components": [
+                {
+                  "type": 2,
+                  "custom_id": "vn-dl-request-31136",
+                  "label": "Request VN",
+                  "style": 1,
+                  "disabled": false
+                },
+                {
+                  "type": 2,
+                  "emoji": {
+                    "name": "🚩",
+                    "animated": false
+                  },
+                  "custom_id": "vn-dl-report-31136",
+                  "label": "Report Link",
+                  "style": 2
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+[32mINFO[39m [2022-28-08, 3:16:39 PM] (85916): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[32mINFO[39m [2022-28-08, 3:16:39 PM] (85940): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[31mERROR[39m [2022-28-08, 3:16:39 PM] (85940): [36mInvalid Form Body
+embeds[0].fields[1].value[BASE_TYPE_REQUIRED]: This field is required[39m
+    err: {
+      "type": "DiscordAPIError",
+      "message": "Invalid Form Body\nembeds[0].fields[1].value[BASE_TYPE_REQUIRED]: This field is required",
+      "stack":
+          DiscordAPIError[50035]: Invalid Form Body
+          embeds[0].fields[1].value[BASE_TYPE_REQUIRED]: This field is required
+              at SequentialHandler.runRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:287:15)
+              at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+              at async SequentialHandler.queueRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:99:14)
+              at async REST.request (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/REST.cjs:52:22)
+              at async InteractionWebhook.send (/Users/moonchild/Documents/project/atri/node_modules/discord.js/src/structures/Webhook.js:214:15)
+              at async InteractionCollector.<anonymous> (/Users/moonchild/Documents/project/atri/commands/visualnovel.js:78:37)
+      "rawError": {
+        "code": 50035,
+        "errors": {
+          "embeds": {
+            "0": {
+              "fields": {
+                "1": {
+                  "value": {
+                    "_errors": [
+                      {
+                        "code": "BASE_TYPE_REQUIRED",
+                        "message": "This field is required"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "message": "Invalid Form Body"
+      },
+      "code": 50035,
+      "status": 400,
+      "method": "POST",
+      "url": "https://discord.com/api/v10/webhooks/1003008258962886766/aW50ZXJhY3Rpb246MTAxMzQ2NzA5MTk1NDg0Nzc4NDowZnZ3Z3dndDVYS0VhTTFKNDJDeDhXSmJCQ1phQ2ptYUZxejNHWmMyTHVsWUU3RE9CWFpwdGo5ZE51UFZlbEdkcWpoMjFRVU5TanRxRU9RcXNaVEtYeFRpdjRWVDd4U1NyaHJkelk5TjBCS1owSlZwSUNGMmlzT1NRblRuVHUzdg?wait=true",
+      "requestBody": {
+        "files": [],
+        "json": {
+          "tts": false,
+          "embeds": [
+            {
+              "color": 6164953,
+              "title": "Sousaku Kanojo no Ren'ai Koushiki",
+              "author": {
+                "name": "ATRI Visual Novel Search Engine"
+              },
+              "description": "Our protagonist, Kagami Toshiki, is headed to Tokyo, where he will begin living with his cousin and her family. \nUnbeknownst to others, he harbors a desire within himself.\n\nHe wants to rekindle that creative spark he has all but lost now. \n\nOnce young, Toshiki had a dear childhood friend.\nHer name was Ayase Aisa. \n\nThey were always side-by-side, competing to create the better stories between them. \nHowever, as Toshiki grew older, he started to feel the gap between them grow ever larger. \nAnd soon thereafter, because of familial circumstances, Aisa moved to Tokyo.\n\nThe then separated Aisa and Toshiki would still exchange letters, writing about their daily lives and, of course, the stories they had created. \nHowever, once the prospect of entering high school drew close, the letters from Aisa ceased. \n\nNonetheless, Toshiki continued writing stories, making doujin games and the like;\nEventually, he landed himself his first commercial light novel debut.\n\nAnd while he could have continued his current growth ever more, \na certain event six months prior had placed him in a slump.\nAnd so, he postulated that perhaps spending time with similarly aged creators would help him break free of his slump. Steeling himself, Toshiki enrolled in Saika Private Academy, a school designed for creators to gather in one place.\n\nAnd soon enough, spring had arrived.\n\nToshiki has settled in Tokyo now, ready to start his new school life. And it is there, that by pure coincidence, he will be reunited with Aisa once more. \n\n[Translated from the [url=http://ainolinks.com/]official website[/url]]",
+              "timestamp": {},
+              "footer": {
+                "text": "ATRI Version: 0.2.0-alpha.6"
+              },
+              "url": "https://vndb.org/v31136",
+              "thumbnail": {
+                "url": "https://s2.vndb.org/cv/86/51386.jpg"
+              },
+              "fields": [
+                {
+                  "name": "Aliases",
+                  "value": "Create girls → started to walk.",
+                  "inline": true
+                },
+                {
+                  "name": "Length",
+                  "inline": true
+                },
+                {
+                  "name": "Rating",
+                  "value": "7.38",
+                  "inline": true
+                },
+                {
+                  "name": "​",
+                  "value": "**Download Link**"
+                },
+                {
+                  "name": "JP",
+                  "value": "[Drive 1](https://drive.google.com/drive/u/2/folders/1SQ3MeWJ9bRwN62peiHY81LFUuFtlBwaT) "
+                }
+              ]
+            }
+          ],
+          "components": [
+            {
+              "type": 1,
+              "components": [
+                {
+                  "type": 2,
+                  "custom_id": "vn-dl-request-31136",
+                  "label": "Request VN",
+                  "style": 1,
+                  "disabled": false
+                },
+                {
+                  "type": 2,
+                  "emoji": {
+                    "name": "🚩",
+                    "animated": false
+                  },
+                  "custom_id": "vn-dl-report-31136",
+                  "label": "Report Link",
+                  "style": 2
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+[32mINFO[39m [2022-28-08, 3:16:51 PM] (86030): [36mSystem Ready, Logged as ATRI Tester#8292[39m
+[32mINFO[39m [2022-28-08, 3:16:51 PM] (86030): [36mUptime: Sun Aug 28 2022 22:16:51 GMT+0700 (Western Indonesia Time)[39m
+[32mINFO[39m [2022-28-08, 3:17:01 PM] (86030): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[32mINFO[39m [2022-28-08, 3:17:01 PM] (86043): [36mSystem Ready, Logged as ATRI Tester#8292[39m
+[32mINFO[39m [2022-28-08, 3:17:01 PM] (86043): [36mUptime: Sun Aug 28 2022 22:17:01 GMT+0700 (Western Indonesia Time)[39m
+[32mINFO[39m [2022-28-08, 3:17:05 PM] (86043): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[32mINFO[39m [2022-28-08, 3:17:05 PM] (86030): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[31mERROR[39m [2022-28-08, 3:17:06 PM] (86030): [36mInvalid Form Body
+embeds[0].fields[1].value[BASE_TYPE_REQUIRED]: This field is required[39m
+    err: {
+      "type": "DiscordAPIError",
+      "message": "Invalid Form Body\nembeds[0].fields[1].value[BASE_TYPE_REQUIRED]: This field is required",
+      "stack":
+          DiscordAPIError[50035]: Invalid Form Body
+          embeds[0].fields[1].value[BASE_TYPE_REQUIRED]: This field is required
+              at SequentialHandler.runRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:287:15)
+              at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+              at async SequentialHandler.queueRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:99:14)
+              at async REST.request (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/REST.cjs:52:22)
+              at async InteractionWebhook.send (/Users/moonchild/Documents/project/atri/node_modules/discord.js/src/structures/Webhook.js:214:15)
+              at async InteractionCollector.<anonymous> (/Users/moonchild/Documents/project/atri/commands/visualnovel.js:78:37)
+      "rawError": {
+        "code": 50035,
+        "errors": {
+          "embeds": {
+            "0": {
+              "fields": {
+                "1": {
+                  "value": {
+                    "_errors": [
+                      {
+                        "code": "BASE_TYPE_REQUIRED",
+                        "message": "This field is required"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "message": "Invalid Form Body"
+      },
+      "code": 50035,
+      "status": 400,
+      "method": "POST",
+      "url": "https://discord.com/api/v10/webhooks/1003008258962886766/aW50ZXJhY3Rpb246MTAxMzQ2NzI0NzUyOTk1OTQzNDpzNFNFYXBuWDJncmRvR1k4UnpBdVRiTjRTc1h1cFo3dDJyZUZ5OUxRNzMyQ3FHclgxSzc4c3p3TDJvTGNOZFpGNG5BNUw5YjhqSVRENmNObldwbVFQSUtKcEdGR1hGWEJYamRlSUY1T0tvRU15ZGxLU05heDVsNlZTeHRPSWplTA?wait=true",
+      "requestBody": {
+        "files": [],
+        "json": {
+          "tts": false,
+          "embeds": [
+            {
+              "color": 6164953,
+              "title": "Sousaku Kanojo no Ren'ai Koushiki",
+              "author": {
+                "name": "ATRI Visual Novel Search Engine"
+              },
+              "description": "Our protagonist, Kagami Toshiki, is headed to Tokyo, where he will begin living with his cousin and her family. \nUnbeknownst to others, he harbors a desire within himself.\n\nHe wants to rekindle that creative spark he has all but lost now. \n\nOnce young, Toshiki had a dear childhood friend.\nHer name was Ayase Aisa. \n\nThey were always side-by-side, competing to create the better stories between them. \nHowever, as Toshiki grew older, he started to feel the gap between them grow ever larger. \nAnd soon thereafter, because of familial circumstances, Aisa moved to Tokyo.\n\nThe then separated Aisa and Toshiki would still exchange letters, writing about their daily lives and, of course, the stories they had created. \nHowever, once the prospect of entering high school drew close, the letters from Aisa ceased. \n\nNonetheless, Toshiki continued writing stories, making doujin games and the like;\nEventually, he landed himself his first commercial light novel debut.\n\nAnd while he could have continued his current growth ever more, \na certain event six months prior had placed him in a slump.\nAnd so, he postulated that perhaps spending time with similarly aged creators would help him break free of his slump. Steeling himself, Toshiki enrolled in Saika Private Academy, a school designed for creators to gather in one place.\n\nAnd soon enough, spring had arrived.\n\nToshiki has settled in Tokyo now, ready to start his new school life. And it is there, that by pure coincidence, he will be reunited with Aisa once more. \n\n[Translated from the [url=http://ainolinks.com/]official website[/url]]",
+              "timestamp": {},
+              "footer": {
+                "text": "ATRI Version: 0.2.0-alpha.6"
+              },
+              "url": "https://vndb.org/v31136",
+              "thumbnail": {
+                "url": "https://s2.vndb.org/cv/86/51386.jpg"
+              },
+              "fields": [
+                {
+                  "name": "Aliases",
+                  "value": "Create girls → started to walk.",
+                  "inline": true
+                },
+                {
+                  "name": "Length",
+                  "inline": true
+                },
+                {
+                  "name": "Rating",
+                  "value": "7.38",
+                  "inline": true
+                },
+                {
+                  "name": "​",
+                  "value": "**Download Link**"
+                },
+                {
+                  "name": "JP",
+                  "value": "[Drive 1](https://drive.google.com/drive/u/2/folders/1SQ3MeWJ9bRwN62peiHY81LFUuFtlBwaT) "
+                }
+              ]
+            }
+          ],
+          "components": [
+            {
+              "type": 1,
+              "components": [
+                {
+                  "type": 2,
+                  "custom_id": "vn-dl-request-31136",
+                  "label": "Request VN",
+                  "style": 1,
+                  "disabled": false
+                },
+                {
+                  "type": 2,
+                  "emoji": {
+                    "name": "🚩",
+                    "animated": false
+                  },
+                  "custom_id": "vn-dl-report-31136",
+                  "label": "Report Link",
+                  "style": 2
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+[32mINFO[39m [2022-28-08, 3:17:37 PM] (86159): [36mSystem Ready, Logged as ATRI Tester#8292[39m
+[32mINFO[39m [2022-28-08, 3:17:37 PM] (86159): [36mUptime: Sun Aug 28 2022 22:17:37 GMT+0700 (Western Indonesia Time)[39m
+[32mINFO[39m [2022-28-08, 3:17:48 PM] (86135): [36mSystem Ready, Logged as ATRI Tester#8292[39m
+[32mINFO[39m [2022-28-08, 3:17:48 PM] (86135): [36mUptime: Sun Aug 28 2022 22:17:48 GMT+0700 (Western Indonesia Time)[39m
+[32mINFO[39m [2022-28-08, 3:17:52 PM] (86135): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[32mINFO[39m [2022-28-08, 3:17:52 PM] (86159): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[31mERROR[39m [2022-28-08, 3:17:52 PM] (86159): [36mUnknown interaction[39m
+    err: {
+      "type": "DiscordAPIError",
+      "message": "Unknown interaction",
+      "stack":
+          DiscordAPIError[10062]: Unknown interaction
+              at SequentialHandler.runRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:287:15)
+              at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+              at async SequentialHandler.queueRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:99:14)
+              at async REST.request (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/REST.cjs:52:22)
+              at async ChatInputCommandInteraction.deferReply (/Users/moonchild/Documents/project/atri/node_modules/discord.js/src/structures/interfaces/InteractionResponses.js:68:5)
+              at async Object.execute (/Users/moonchild/Documents/project/atri/commands/visualnovel.js:46:17)
+              at async Object.execute (/Users/moonchild/Documents/project/atri/events/interactionCreate.js:18:5)
+      "rawError": {
+        "message": "Unknown interaction",
+        "code": 10062
+      },
+      "code": 10062,
+      "status": 404,
+      "method": "POST",
+      "url": "https://discord.com/api/v10/interactions/1013467461619810365/aW50ZXJhY3Rpb246MTAxMzQ2NzQ2MTYxOTgxMDM2NTpYOVVRUVl2TFB1ZkMzbEk1Y2NBM0NBTlZrT2VZRFNZWEc3a3lVQUw1SGJJUm9HNW15RVlOODNzNWtQNW1jdTJWSHlWTXRtN1VNS3VhcnBxYjNReUUwaVpXTnE5V1BuNEp5TEwxaU03RHQxZWwyTldQaFNLRE1BUzNTdVhJYmYyeQ/callback",
+      "requestBody": {
+        "json": {
+          "type": 5,
+          "data": {}
+        }
+      }
+    }
+[32mINFO[39m [2022-28-08, 3:17:57 PM] (86135): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[31mERROR[39m [2022-28-08, 3:17:57 PM] (86135): [36mInvalid Form Body
+embeds[0].fields[1].value[BASE_TYPE_REQUIRED]: This field is required[39m
+    err: {
+      "type": "DiscordAPIError",
+      "message": "Invalid Form Body\nembeds[0].fields[1].value[BASE_TYPE_REQUIRED]: This field is required",
+      "stack":
+          DiscordAPIError[50035]: Invalid Form Body
+          embeds[0].fields[1].value[BASE_TYPE_REQUIRED]: This field is required
+              at SequentialHandler.runRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:287:15)
+              at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+              at async SequentialHandler.queueRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:99:14)
+              at async REST.request (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/REST.cjs:52:22)
+              at async InteractionWebhook.send (/Users/moonchild/Documents/project/atri/node_modules/discord.js/src/structures/Webhook.js:214:15)
+              at async InteractionCollector.<anonymous> (/Users/moonchild/Documents/project/atri/commands/visualnovel.js:78:37)
+      "rawError": {
+        "code": 50035,
+        "errors": {
+          "embeds": {
+            "0": {
+              "fields": {
+                "1": {
+                  "value": {
+                    "_errors": [
+                      {
+                        "code": "BASE_TYPE_REQUIRED",
+                        "message": "This field is required"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "message": "Invalid Form Body"
+      },
+      "code": 50035,
+      "status": 400,
+      "method": "POST",
+      "url": "https://discord.com/api/v10/webhooks/1003008258962886766/aW50ZXJhY3Rpb246MTAxMzQ2NzQ2MTYxOTgxMDM2NTpYOVVRUVl2TFB1ZkMzbEk1Y2NBM0NBTlZrT2VZRFNZWEc3a3lVQUw1SGJJUm9HNW15RVlOODNzNWtQNW1jdTJWSHlWTXRtN1VNS3VhcnBxYjNReUUwaVpXTnE5V1BuNEp5TEwxaU03RHQxZWwyTldQaFNLRE1BUzNTdVhJYmYyeQ?wait=true",
+      "requestBody": {
+        "files": [],
+        "json": {
+          "tts": false,
+          "embeds": [
+            {
+              "color": 6164953,
+              "title": "Sousaku Kanojo no Ren'ai Koushiki",
+              "author": {
+                "name": "ATRI Visual Novel Search Engine"
+              },
+              "description": "Our protagonist, Kagami Toshiki, is headed to Tokyo, where he will begin living with his cousin and her family. \nUnbeknownst to others, he harbors a desire within himself.\n\nHe wants to rekindle that creative spark he has all but lost now. \n\nOnce young, Toshiki had a dear childhood friend.\nHer name was Ayase Aisa. \n\nThey were always side-by-side, competing to create the better stories between them. \nHowever, as Toshiki grew older, he started to feel the gap between them grow ever larger. \nAnd soon thereafter, because of familial circumstances, Aisa moved to Tokyo.\n\nThe then separated Aisa and Toshiki would still exchange letters, writing about their daily lives and, of course, the stories they had created. \nHowever, once the prospect of entering high school drew close, the letters from Aisa ceased. \n\nNonetheless, Toshiki continued writing stories, making doujin games and the like;\nEventually, he landed himself his first commercial light novel debut.\n\nAnd while he could have continued his current growth ever more, \na certain event six months prior had placed him in a slump.\nAnd so, he postulated that perhaps spending time with similarly aged creators would help him break free of his slump. Steeling himself, Toshiki enrolled in Saika Private Academy, a school designed for creators to gather in one place.\n\nAnd soon enough, spring had arrived.\n\nToshiki has settled in Tokyo now, ready to start his new school life. And it is there, that by pure coincidence, he will be reunited with Aisa once more. \n\n[Translated from the [url=http://ainolinks.com/]official website[/url]]",
+              "timestamp": {},
+              "footer": {
+                "text": "ATRI Version: 0.2.0-alpha.6"
+              },
+              "url": "https://vndb.org/v31136",
+              "thumbnail": {
+                "url": "https://s2.vndb.org/cv/86/51386.jpg"
+              },
+              "fields": [
+                {
+                  "name": "Aliases",
+                  "value": "Create girls → started to walk.",
+                  "inline": true
+                },
+                {
+                  "name": "Length",
+                  "inline": true
+                },
+                {
+                  "name": "Rating",
+                  "value": "7.38",
+                  "inline": true
+                },
+                {
+                  "name": "​",
+                  "value": "**Download Link**"
+                },
+                {
+                  "name": "JP",
+                  "value": "[Drive 1](https://drive.google.com/drive/u/2/folders/1SQ3MeWJ9bRwN62peiHY81LFUuFtlBwaT) "
+                }
+              ]
+            }
+          ],
+          "components": [
+            {
+              "type": 1,
+              "components": [
+                {
+                  "type": 2,
+                  "custom_id": "vn-dl-request-31136",
+                  "label": "Request VN",
+                  "style": 1,
+                  "disabled": false
+                },
+                {
+                  "type": 2,
+                  "emoji": {
+                    "name": "🚩",
+                    "animated": false
+                  },
+                  "custom_id": "vn-dl-report-31136",
+                  "label": "Report Link",
+                  "style": 2
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+[32mINFO[39m [2022-28-08, 3:17:57 PM] (86159): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[32mINFO[39m [2022-28-08, 3:19:20 PM] (86337): [36mSystem Ready, Logged as ATRI Tester#8292[39m
+[32mINFO[39m [2022-28-08, 3:19:20 PM] (86337): [36mUptime: Sun Aug 28 2022 22:19:20 GMT+0700 (Western Indonesia Time)[39m
+[32mINFO[39m [2022-28-08, 3:19:25 PM] (86337): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[32mINFO[39m [2022-28-08, 3:19:29 PM] (86337): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[32mINFO[39m [2022-28-08, 3:19:30 PM] (86313): [36mSystem Ready, Logged as ATRI Tester#8292[39m
+[32mINFO[39m [2022-28-08, 3:19:30 PM] (86313): [36mUptime: Sun Aug 28 2022 22:19:30 GMT+0700 (Western Indonesia Time)[39m
+[31mERROR[39m [2022-28-08, 3:19:31 PM] (86337): [36mInvalid Form Body
+embeds[0].fields[1].value[BASE_TYPE_REQUIRED]: This field is required[39m
+    err: {
+      "type": "DiscordAPIError",
+      "message": "Invalid Form Body\nembeds[0].fields[1].value[BASE_TYPE_REQUIRED]: This field is required",
+      "stack":
+          DiscordAPIError[50035]: Invalid Form Body
+          embeds[0].fields[1].value[BASE_TYPE_REQUIRED]: This field is required
+              at SequentialHandler.runRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:287:15)
+              at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+              at async SequentialHandler.queueRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:99:14)
+              at async REST.request (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/REST.cjs:52:22)
+              at async InteractionWebhook.send (/Users/moonchild/Documents/project/atri/node_modules/discord.js/src/structures/Webhook.js:214:15)
+              at async InteractionCollector.<anonymous> (/Users/moonchild/Documents/project/atri/commands/visualnovel.js:78:37)
+      "rawError": {
+        "code": 50035,
+        "errors": {
+          "embeds": {
+            "0": {
+              "fields": {
+                "1": {
+                  "value": {
+                    "_errors": [
+                      {
+                        "code": "BASE_TYPE_REQUIRED",
+                        "message": "This field is required"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "message": "Invalid Form Body"
+      },
+      "code": 50035,
+      "status": 400,
+      "method": "POST",
+      "url": "https://discord.com/api/v10/webhooks/1003008258962886766/aW50ZXJhY3Rpb246MTAxMzQ2Nzg1MDcxNzAxNjEzNTpMejBjb2Y4aEVWSWw0VnJjQmF4bDhRUlVmT1Nla2sySXQycERIb0Njc1paMkYyU21wWWRaQXZtdFYzOW1ac2xFbEpJTzdVV3psRWJxRDhmRVFsYnZnZkFITEhKbVVBOW5sajRUb205NHVmMkhYaXoyU1BXVzByWjB6clo0MTRLVA?wait=true",
+      "requestBody": {
+        "files": [],
+        "json": {
+          "tts": false,
+          "embeds": [
+            {
+              "color": 6164953,
+              "title": "Sousaku Kanojo no Ren'ai Koushiki",
+              "author": {
+                "name": "ATRI Visual Novel Search Engine"
+              },
+              "description": "Our protagonist, Kagami Toshiki, is headed to Tokyo, where he will begin living with his cousin and her family. \nUnbeknownst to others, he harbors a desire within himself.\n\nHe wants to rekindle that creative spark he has all but lost now. \n\nOnce young, Toshiki had a dear childhood friend.\nHer name was Ayase Aisa. \n\nThey were always side-by-side, competing to create the better stories between them. \nHowever, as Toshiki grew older, he started to feel the gap between them grow ever larger. \nAnd soon thereafter, because of familial circumstances, Aisa moved to Tokyo.\n\nThe then separated Aisa and Toshiki would still exchange letters, writing about their daily lives and, of course, the stories they had created. \nHowever, once the prospect of entering high school drew close, the letters from Aisa ceased. \n\nNonetheless, Toshiki continued writing stories, making doujin games and the like;\nEventually, he landed himself his first commercial light novel debut.\n\nAnd while he could have continued his current growth ever more, \na certain event six months prior had placed him in a slump.\nAnd so, he postulated that perhaps spending time with similarly aged creators would help him break free of his slump. Steeling himself, Toshiki enrolled in Saika Private Academy, a school designed for creators to gather in one place.\n\nAnd soon enough, spring had arrived.\n\nToshiki has settled in Tokyo now, ready to start his new school life. And it is there, that by pure coincidence, he will be reunited with Aisa once more. \n\n[Translated from the [url=http://ainolinks.com/]official website[/url]]",
+              "timestamp": {},
+              "footer": {
+                "text": "ATRI Version: 0.2.0-alpha.6"
+              },
+              "url": "https://vndb.org/v31136",
+              "thumbnail": {
+                "url": "https://s2.vndb.org/cv/86/51386.jpg"
+              },
+              "fields": [
+                {
+                  "name": "Aliases",
+                  "value": "Create girls → started to walk.",
+                  "inline": true
+                },
+                {
+                  "name": "Length",
+                  "inline": true
+                },
+                {
+                  "name": "Rating",
+                  "value": "7.38",
+                  "inline": true
+                },
+                {
+                  "name": "​",
+                  "value": "**Download Link**"
+                },
+                {
+                  "name": "JP",
+                  "value": "[Drive 1](https://drive.google.com/drive/u/2/folders/1SQ3MeWJ9bRwN62peiHY81LFUuFtlBwaT) "
+                }
+              ]
+            }
+          ],
+          "components": [
+            {
+              "type": 1,
+              "components": [
+                {
+                  "type": 2,
+                  "custom_id": "vn-dl-request-31136",
+                  "label": "Request VN",
+                  "style": 1,
+                  "disabled": false
+                },
+                {
+                  "type": 2,
+                  "emoji": {
+                    "name": "🚩",
+                    "animated": false
+                  },
+                  "custom_id": "vn-dl-report-31136",
+                  "label": "Report Link",
+                  "style": 2
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+[32mINFO[39m [2022-28-08, 3:19:40 PM] (86403): [36mSystem Ready, Logged as ATRI Tester#8292[39m
+[32mINFO[39m [2022-28-08, 3:19:40 PM] (86403): [36mUptime: Sun Aug 28 2022 22:19:40 GMT+0700 (Western Indonesia Time)[39m
+[32mINFO[39m [2022-28-08, 3:19:50 PM] (86427): [36mSystem Ready, Logged as ATRI Tester#8292[39m
+[32mINFO[39m [2022-28-08, 3:19:50 PM] (86427): [36mUptime: Sun Aug 28 2022 22:19:50 GMT+0700 (Western Indonesia Time)[39m
+[32mINFO[39m [2022-28-08, 3:19:59 PM] (86403): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[31mERROR[39m [2022-28-08, 3:19:59 PM] (86403): [36mUnknown interaction[39m
+    err: {
+      "type": "DiscordAPIError",
+      "message": "Unknown interaction",
+      "stack":
+          DiscordAPIError[10062]: Unknown interaction
+              at SequentialHandler.runRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:287:15)
+              at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+              at async SequentialHandler.queueRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:99:14)
+              at async REST.request (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/REST.cjs:52:22)
+              at async ChatInputCommandInteraction.deferReply (/Users/moonchild/Documents/project/atri/node_modules/discord.js/src/structures/interfaces/InteractionResponses.js:68:5)
+              at async Object.execute (/Users/moonchild/Documents/project/atri/commands/visualnovel.js:46:17)
+              at async Object.execute (/Users/moonchild/Documents/project/atri/events/interactionCreate.js:18:5)
+      "rawError": {
+        "message": "Unknown interaction",
+        "code": 10062
+      },
+      "code": 10062,
+      "status": 404,
+      "method": "POST",
+      "url": "https://discord.com/api/v10/interactions/1013467994069938307/aW50ZXJhY3Rpb246MTAxMzQ2Nzk5NDA2OTkzODMwNzpyd3l5TVZsTGI4ZlpYbmsxUk1jT3I3VVlmRkZEbDRHUXZVeW5NVmdtUlgxMVNMd1Q2eVY2Vm5LQ0ltdk1rU1AzRXo3RTJUUmNrVE1jaFUxdWRiZHhjU3dlWmhEcWhQVFZFaTB4WjZOV1Y5bHliNFp5VnJhM0lLTDFnOVo4azZ2Sg/callback",
+      "requestBody": {
+        "json": {
+          "type": 5,
+          "data": {}
+        }
+      }
+    }
+[32mINFO[39m [2022-28-08, 3:19:59 PM] (86427): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[32mINFO[39m [2022-28-08, 3:20:03 PM] (86403): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[32mINFO[39m [2022-28-08, 3:20:03 PM] (86427): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[31mERROR[39m [2022-28-08, 3:20:04 PM] (86427): [36mInvalid Form Body
+embeds[0].fields[1].value[BASE_TYPE_REQUIRED]: This field is required[39m
+    err: {
+      "type": "DiscordAPIError",
+      "message": "Invalid Form Body\nembeds[0].fields[1].value[BASE_TYPE_REQUIRED]: This field is required",
+      "stack":
+          DiscordAPIError[50035]: Invalid Form Body
+          embeds[0].fields[1].value[BASE_TYPE_REQUIRED]: This field is required
+              at SequentialHandler.runRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:287:15)
+              at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+              at async SequentialHandler.queueRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:99:14)
+              at async REST.request (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/REST.cjs:52:22)
+              at async InteractionWebhook.send (/Users/moonchild/Documents/project/atri/node_modules/discord.js/src/structures/Webhook.js:214:15)
+              at async InteractionCollector.<anonymous> (/Users/moonchild/Documents/project/atri/commands/visualnovel.js:78:37)
+      "rawError": {
+        "code": 50035,
+        "errors": {
+          "embeds": {
+            "0": {
+              "fields": {
+                "1": {
+                  "value": {
+                    "_errors": [
+                      {
+                        "code": "BASE_TYPE_REQUIRED",
+                        "message": "This field is required"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "message": "Invalid Form Body"
+      },
+      "code": 50035,
+      "status": 400,
+      "method": "POST",
+      "url": "https://discord.com/api/v10/webhooks/1003008258962886766/aW50ZXJhY3Rpb246MTAxMzQ2Nzk5NDA2OTkzODMwNzpyd3l5TVZsTGI4ZlpYbmsxUk1jT3I3VVlmRkZEbDRHUXZVeW5NVmdtUlgxMVNMd1Q2eVY2Vm5LQ0ltdk1rU1AzRXo3RTJUUmNrVE1jaFUxdWRiZHhjU3dlWmhEcWhQVFZFaTB4WjZOV1Y5bHliNFp5VnJhM0lLTDFnOVo4azZ2Sg?wait=true",
+      "requestBody": {
+        "files": [],
+        "json": {
+          "tts": false,
+          "embeds": [
+            {
+              "color": 6164953,
+              "title": "Sousaku Kanojo no Ren'ai Koushiki",
+              "author": {
+                "name": "ATRI Visual Novel Search Engine"
+              },
+              "description": "Our protagonist, Kagami Toshiki, is headed to Tokyo, where he will begin living with his cousin and her family. \nUnbeknownst to others, he harbors a desire within himself.\n\nHe wants to rekindle that creative spark he has all but lost now. \n\nOnce young, Toshiki had a dear childhood friend.\nHer name was Ayase Aisa. \n\nThey were always side-by-side, competing to create the better stories between them. \nHowever, as Toshiki grew older, he started to feel the gap between them grow ever larger. \nAnd soon thereafter, because of familial circumstances, Aisa moved to Tokyo.\n\nThe then separated Aisa and Toshiki would still exchange letters, writing about their daily lives and, of course, the stories they had created. \nHowever, once the prospect of entering high school drew close, the letters from Aisa ceased. \n\nNonetheless, Toshiki continued writing stories, making doujin games and the like;\nEventually, he landed himself his first commercial light novel debut.\n\nAnd while he could have continued his current growth ever more, \na certain event six months prior had placed him in a slump.\nAnd so, he postulated that perhaps spending time with similarly aged creators would help him break free of his slump. Steeling himself, Toshiki enrolled in Saika Private Academy, a school designed for creators to gather in one place.\n\nAnd soon enough, spring had arrived.\n\nToshiki has settled in Tokyo now, ready to start his new school life. And it is there, that by pure coincidence, he will be reunited with Aisa once more. \n\n[Translated from the [url=http://ainolinks.com/]official website[/url]]",
+              "timestamp": {},
+              "footer": {
+                "text": "ATRI Version: 0.2.0-alpha.6"
+              },
+              "url": "https://vndb.org/v31136",
+              "thumbnail": {
+                "url": "https://s2.vndb.org/cv/86/51386.jpg"
+              },
+              "fields": [
+                {
+                  "name": "Aliases",
+                  "value": "Create girls → started to walk.",
+                  "inline": true
+                },
+                {
+                  "name": "Length",
+                  "inline": true
+                },
+                {
+                  "name": "Rating",
+                  "value": "7.38",
+                  "inline": true
+                },
+                {
+                  "name": "​",
+                  "value": "**Download Link**"
+                },
+                {
+                  "name": "JP",
+                  "value": "[Drive 1](https://drive.google.com/drive/u/2/folders/1SQ3MeWJ9bRwN62peiHY81LFUuFtlBwaT) "
+                }
+              ]
+            }
+          ],
+          "components": [
+            {
+              "type": 1,
+              "components": [
+                {
+                  "type": 2,
+                  "custom_id": "vn-dl-request-31136",
+                  "label": "Request VN",
+                  "style": 1,
+                  "disabled": false
+                },
+                {
+                  "type": 2,
+                  "emoji": {
+                    "name": "🚩",
+                    "animated": false
+                  },
+                  "custom_id": "vn-dl-report-31136",
+                  "label": "Report Link",
+                  "style": 2
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+[32mINFO[39m [2022-28-08, 3:21:03 PM] (86570): [36mSystem Ready, Logged as ATRI Tester#8292[39m
+[32mINFO[39m [2022-28-08, 3:21:03 PM] (86570): [36mUptime: Sun Aug 28 2022 22:21:03 GMT+0700 (Western Indonesia Time)[39m
+[32mINFO[39m [2022-28-08, 3:21:13 PM] (86546): [36mSystem Ready, Logged as ATRI Tester#8292[39m
+[32mINFO[39m [2022-28-08, 3:21:13 PM] (86546): [36mUptime: Sun Aug 28 2022 22:21:13 GMT+0700 (Western Indonesia Time)[39m
+[32mINFO[39m [2022-28-08, 3:21:19 PM] (86546): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[32mINFO[39m [2022-28-08, 3:21:19 PM] (86570): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[31mERROR[39m [2022-28-08, 3:21:19 PM] (86570): [36mUnknown interaction[39m
+    err: {
+      "type": "DiscordAPIError",
+      "message": "Unknown interaction",
+      "stack":
+          DiscordAPIError[10062]: Unknown interaction
+              at SequentialHandler.runRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:287:15)
+              at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+              at async SequentialHandler.queueRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:99:14)
+              at async REST.request (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/REST.cjs:52:22)
+              at async ChatInputCommandInteraction.deferReply (/Users/moonchild/Documents/project/atri/node_modules/discord.js/src/structures/interfaces/InteractionResponses.js:68:5)
+              at async Object.execute (/Users/moonchild/Documents/project/atri/commands/visualnovel.js:46:17)
+              at async Object.execute (/Users/moonchild/Documents/project/atri/events/interactionCreate.js:18:5)
+      "rawError": {
+        "message": "Unknown interaction",
+        "code": 10062
+      },
+      "code": 10062,
+      "status": 404,
+      "method": "POST",
+      "url": "https://discord.com/api/v10/interactions/1013468330046267565/aW50ZXJhY3Rpb246MTAxMzQ2ODMzMDA0NjI2NzU2NTozdGNUVU5yNkluZGRPWGRYb2cyZkE5cWVPdFByeWRnanhXdDBrNGdSbmtuY0thdTN3NVo1Y0M0NHQwd3dOVlZ6UUk3WktwVzVoSDZMTkFWdjRTMzVGeGhDb3RGU1pncUhRTnBOTmc3R0pVT1FFTEZiU0tEaHZFRDlZcTlSUG5oVg/callback",
+      "requestBody": {
+        "json": {
+          "type": 5,
+          "data": {}
+        }
+      }
+    }
+[32mINFO[39m [2022-28-08, 3:21:23 PM] (86570): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[32mINFO[39m [2022-28-08, 3:21:23 PM] (86546): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[32mINFO[39m [2022-28-08, 3:21:45 PM] (86691): [36mSystem Ready, Logged as ATRI Tester#8292[39m
+[32mINFO[39m [2022-28-08, 3:21:45 PM] (86691): [36mUptime: Sun Aug 28 2022 22:21:45 GMT+0700 (Western Indonesia Time)[39m
+[32mINFO[39m [2022-28-08, 3:21:49 PM] (86691): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[32mINFO[39m [2022-28-08, 3:21:54 PM] (86691): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[32mINFO[39m [2022-28-08, 3:21:55 PM] (86690): [36mSystem Ready, Logged as ATRI Tester#8292[39m
+[32mINFO[39m [2022-28-08, 3:21:55 PM] (86690): [36mUptime: Sun Aug 28 2022 22:21:55 GMT+0700 (Western Indonesia Time)[39m
+[32mINFO[39m [2022-28-08, 3:22:06 PM] (86772): [36mSystem Ready, Logged as ATRI Tester#8292[39m
+[32mINFO[39m [2022-28-08, 3:22:06 PM] (86772): [36mUptime: Sun Aug 28 2022 22:22:06 GMT+0700 (Western Indonesia Time)[39m
+[32mINFO[39m [2022-28-08, 3:22:16 PM] (86784): [36mSystem Ready, Logged as ATRI Tester#8292[39m
+[32mINFO[39m [2022-28-08, 3:22:16 PM] (86784): [36mUptime: Sun Aug 28 2022 22:22:16 GMT+0700 (Western Indonesia Time)[39m
+[32mINFO[39m [2022-28-08, 3:22:22 PM] (86772): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[32mINFO[39m [2022-28-08, 3:22:22 PM] (86784): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[31mERROR[39m [2022-28-08, 3:22:23 PM] (86784): [36mUnknown interaction[39m
+    err: {
+      "type": "DiscordAPIError",
+      "message": "Unknown interaction",
+      "stack":
+          DiscordAPIError[10062]: Unknown interaction
+              at SequentialHandler.runRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:287:15)
+              at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+              at async SequentialHandler.queueRequest (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/handlers/SequentialHandler.cjs:99:14)
+              at async REST.request (/Users/moonchild/Documents/project/atri/node_modules/@discordjs/rest/dist/lib/REST.cjs:52:22)
+              at async ChatInputCommandInteraction.deferReply (/Users/moonchild/Documents/project/atri/node_modules/discord.js/src/structures/interfaces/InteractionResponses.js:68:5)
+              at async Object.execute (/Users/moonchild/Documents/project/atri/commands/visualnovel.js:46:17)
+              at async Object.execute (/Users/moonchild/Documents/project/atri/events/interactionCreate.js:18:5)
+      "rawError": {
+        "message": "Unknown interaction",
+        "code": 10062
+      },
+      "code": 10062,
+      "status": 404,
+      "method": "POST",
+      "url": "https://discord.com/api/v10/interactions/1013468595633795113/aW50ZXJhY3Rpb246MTAxMzQ2ODU5NTYzMzc5NTExMzp4NHliMlRBcXVwR3YzenpxNU5ZMzlaMDQ2QlI2U0N4dk1TR3Flc2lRcDUzN3V3eHJPNGliZjd1cGx3TWFDZ2VsMXVZOFFPT3VveWNUcEc1ZVBhREMyWkRlN0JZcDZnUG5RNXVIOVIxQU5jNGpGWXVHdE45N1NSOXFRc0ZkQWpodA/callback",
+      "requestBody": {
+        "json": {
+          "type": 5,
+          "data": {}
+        }
+      }
+    }
+[32mINFO[39m [2022-28-08, 3:22:29 PM] (86772): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[32mINFO[39m [2022-28-08, 3:22:29 PM] (86784): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m
+[32mINFO[39m [2022-28-08, 3:22:37 PM] (86884): [36mSystem Ready, Logged as ATRI Tester#8292[39m
+[32mINFO[39m [2022-28-08, 3:22:37 PM] (86884): [36mUptime: Sun Aug 28 2022 22:22:37 GMT+0700 (Western Indonesia Time)[39m
+[32mINFO[39m [2022-28-08, 3:22:47 PM] (86885): [36mSystem Ready, Logged as ATRI Tester#8292[39m
+[32mINFO[39m [2022-28-08, 3:22:47 PM] (86885): [36mUptime: Sun Aug 28 2022 22:22:47 GMT+0700 (Western Indonesia Time)[39m
