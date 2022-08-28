@@ -21,20 +21,20 @@ module.exports = {
 			if (message.mentions.has(client.user.id)) {
 				console.info(`${message.author.username} mentions Me`);
 				logger.info(`${message.author.username} mentions Me`);
-				// Kalau Mention Bot tanpa pesan
-				if (message.content === `<@${client.user.id}>`) {
-					const msg = random[Math.floor(Math.random() * 9)];
-					message.channel.send((msg == ' Hentai!') ? `<@${message.author.id}> ${msg}`
-						: `${msg}`);
-				}
 				// Kalau ATRI Ultah (28 Agustus)
-				else if (moment().month() == 7 && moment().date() == 28) {
+				if (moment().month() == 7 && moment().date() == 28) {
 					console.log('Birthday Time');
 					logger.info('Birthday Time');
 					const content = message.content.toLowerCase();
 					if (content.includes('birthday') || content.includes('ulang tahun') || content.includes('tanjoubi')) {
 						message.channel.send(`Thank you ucapannya, <@${message.author.id}>... Atri bahagia deh jadinya :slight_smile:`);
 					}
+				}
+				// Kalau Mention Bot tanpa pesan
+				if (message.content === `<@${client.user.id}>`) {
+					const msg = random[Math.floor(Math.random() * 9)];
+					message.channel.send((msg == ' Hentai!') ? `<@${message.author.id}> ${msg}`
+						: `${msg}`);
 				}
 				// Respon ketika ada ucapan Pagi dan malam
 				else if (message.content.toLowerCase().match(/\bohayou\b|\bpagi\b/i)) {
