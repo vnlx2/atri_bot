@@ -6,6 +6,7 @@
 const VNDB = require('vndb-api');
 const embed_maker = require('../helpers/embed');
 const dotenv = require('dotenv');
+const logger = require('./logger_service');
 dotenv.config();
 
 const vndb = new VNDB('atri', {
@@ -23,36 +24,42 @@ const vn_length = [
 ];
 
 module.exports.getInfo = async (client, id) => {
-  const result = await vndb
-    .query('get vn basic,details,stats (id = ' + id + ')')
-    .then((res) => {
-      res = res.items[0];
-      if (res === null) {
-        ({ embeds: [this.errorEmbed('Not Found', 'Sorry, we didn\'t find the vn you are looking for, please check the vn id again.', client)] });
-      }
-      const fields = [
-        {
-          name: 'Aliases',
-          value: (res.aliases === null) ? '-' : res.aliases,
-          inline: true,
-        },
-        {
-          name: 'Length',
-          value: vn_length[res.length],
-          inline: true,
-        },
-        {
-          name: 'Rating',
-          value: res.rating.toString(),
-          inline: true,
-        },
-      ];
-      return embed_maker.embed(client.user.avatarURL, res.title, res.description, 0x5e11d9, `https://vndb.org/v${id}`, fields, res.image);
-    })
-    .catch((ex) => {
-      return ex.code;
-    });
-  return result;
+  try {
+    const result = await vndb
+      .query('get vn basic,details,stats (id = ' + id + ')')
+      .then((res) => {
+        res = res.items[0];
+        if (res === null) {
+          ({ embeds: [this.errorEmbed('Not Found', 'Sorry, we didn\'t find the vn you are looking for, please check the vn id again.', client)] });
+        }
+        const fields = [
+          {
+            name: 'Aliases',
+            value: (res.aliases === null) ? '-' : res.aliases,
+            inline: true,
+          },
+          {
+            name: 'Length',
+            value: vn_length[res.length],
+            inline: true,
+          },
+          {
+            name: 'Rating',
+            value: res.rating.toString(),
+            inline: true,
+          },
+        ];
+        return embed_maker.embed(client.user.avatarURL, res.title, res.description, 0x5e11d9, `https://vndb.org/v${id}`, fields, res.image);
+      })
+      .catch((ex) => {
+        return ex.code;
+      });
+    return result;
+  }
+  catch (err) {
+    console.error(err);
+    logger.error(err);
+  }
 };
 
 module.exports.findByTitle = async (client, name, page = 1) => {
@@ -94,6 +101,7 @@ module.exports.findByTitle = async (client, name, page = 1) => {
   }
   catch (err) {
     console.error(err);
+    logger.error(err);
   }
 };
 

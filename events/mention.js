@@ -1,6 +1,6 @@
 /* eslint-disable indent */
 const moment = require('moment');
-// const VndbService = require('../services/vndb_service');
+const logger = require('../services/logger_service');
 
 // const vndbService = VndbService
 
@@ -36,6 +36,7 @@ module.exports = {
 		}
 		catch (err) {
 			console.error(err);
+			logger.error(err);
 		}
 	},
 };

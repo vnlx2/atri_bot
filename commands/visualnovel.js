@@ -3,6 +3,7 @@ const { SlashCommandBuilder } = require('discord.js');
 const vn_search = require('../services/vn_search');
 const embed_make = require('../helpers/embed');
 const vn_info_tools = require('../events/vnInfoToolCollect');
+const logger = require('../services/logger_service');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -94,6 +95,7 @@ module.exports = {
         }
         catch (err) {
             console.error(err);
+            logger.error(err);
             embed_make.embed(client.user.avatarURL, 'Error', 'An error was occured', 0xe01212);
         }
     },

@@ -1,6 +1,7 @@
 /* eslint-disable indent */
 const vn_search = require('../services/vn_search');
 const { ModalBuilder, ActionRowBuilder, TextInputBuilder, TextInputStyle } = require('discord.js');
+const logger = require('../services/logger_service');
 
 module.exports = async (interaction, client, msg = null) => {
     const infoToolCollect = interaction.channel.createMessageComponentCollector();
@@ -52,6 +53,7 @@ module.exports = async (interaction, client, msg = null) => {
         }
         catch (err) {
             console.error(err);
+            logger.error(err);
         }
     });
 

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "start.dev": "nodemon -L index.js",
+    "start.dev": "nodemon -L index.js | pino-pretty",
     "deploy.cmd": "node deploy-command.js"
   },
   "author": "Moonchild",
@@ -20,6 +20,7 @@
     "node-cron": "^3.0.1",
     "node-schedule": "^2.1.0",
     "pino": "^7.0.0-rc.9",
+    "pino-pretty": "^9.1.0",
     "vndb-api": "^1.0.3"
   },
   "devDependencies": {

@@ -2,6 +2,7 @@
 
 const { InteractionType } = require('discord.js');
 const vn_search = require('../services/vn_search');
+const logger = require('../services/logger_service');
 
 /* eslint-disable no-trailing-spaces */ 
 module.exports = {
@@ -28,6 +29,7 @@ module.exports = {
 		}
 		catch (err) {
 			console.error(err);
+			logger.error(err);
 			await interaction.reply({
 				content: `An Error has occured. ${err}`,
 				ephemeral: true,

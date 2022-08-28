@@ -1,5 +1,6 @@
 /* eslint-disable indent */
 const pool = require('../helpers/database');
+const logger = require('./logger_service');
 
 const download_link = async (id) => {
     try {
@@ -32,6 +33,7 @@ const download_link = async (id) => {
     }
     catch (err) {
         console.error(err);
+        logger.error(err);
     }
 };
 

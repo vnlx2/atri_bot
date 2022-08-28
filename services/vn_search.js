@@ -2,6 +2,7 @@
 const vndb_service = require('./vndb_service');
 const vn_database = require('./vn_database_service');
 const embed_maker = require('../helpers/embed');
+const logger = require('./logger_service');
 const { ActionRowBuilder, ButtonBuilder, ButtonStyle, SelectMenuBuilder } = require('discord.js');
 
 
@@ -74,6 +75,7 @@ const info = async (id, client) => {
     }
     catch (err) {
         console.error(err);
+        logger.error(err);
     }
 };
 
@@ -110,6 +112,7 @@ const search = async (title, client, page = 1) => {
     }
     catch (err) {
         console.error(err);
+        logger.error(err);
     }
 };
 
@@ -119,6 +122,7 @@ const request = async (id, title, client) => {
     }
     catch (err) {
         console.error(err);
+        logger.error(err);
     }
 };
 
@@ -128,6 +132,7 @@ const report = async (id, title, link, reason, client) => {
     }
     catch (err) {
         console.error(err);
+        logger.error(err);
     }
 };
 
