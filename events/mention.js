@@ -44,7 +44,7 @@ module.exports = {
 					else if (moment().hour() >= 16 && moment().hour() < 19) {
 						message.channel.send(`<@${message.author.id}>-san, sudah sore loh...`);
 					}
-					else if (moment().hour() >= 19 && moment().hour() < 0) {
+					else if (moment().hour() >= 19 && moment().hour() < 24) {
 						message.channel.send(`<@${message.author.id}>-san, sudah malam loh...`);
 					}
 					else if (message.author.id === process.env.REI_ID) {
