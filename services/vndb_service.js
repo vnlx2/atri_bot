@@ -3,17 +3,14 @@
  * VNDB Method Controller
  */
 
-import VNDB from 'vndb-api';
+
+import VNDB from '../models/VNDB.js';
 import embed_maker from '../helpers/embed.js';
 import logger from './logger_service.js';
 import dotenv from 'dotenv';
+import embed from '../helpers/embed.js';
 
 dotenv.config();
-
-const vndb = new VNDB('atri', {
-  minConnection: 1,
-  maxConnection: 10,
-});
 
 const vn_length = [
   'Unknown',
@@ -26,36 +23,28 @@ const vn_length = [
 
 const getInfo = async (client, id) => {
   try {
-    const result = await vndb
-      .query('get vn basic,details,stats (id = ' + id + ')')
-      .then((res) => {
-        res = res.items[0];
-        if (res === null) {
-          ({ embeds: [this.errorEmbed('Not Found', 'Sorry, we didn\'t find the vn you are looking for, please check the vn id again.', client)] });
-        }
-        const fields = [
-          {
-            name: 'Aliases',
-            value: (res.aliases === null) ? '-' : res.aliases,
-            inline: true,
-          },
-          {
-            name: 'Length',
-            value: (res.length === null) ? '-' : vn_length[res.length],
-            inline: true,
-          },
-          {
-            name: 'Rating',
-            value: res.rating.toString(),
-            inline: true,
-          },
-        ];
-        return embed_maker.embed(client.user.avatarURL, res.title, res.description, 0x5e11d9, `https://vndb.org/v${id}`, fields, res.image);
-      })
-      .catch((ex) => {
-        return ex.code;
-      });
-    return result;
+    const result = await VNDB.findOne({ code: id }).select('-__v -createdAt -updatedAt');
+    if (!result) {
+      return embed_maker.errorEmbed('Not Found', 'Sorry, we didn\'t find the vn you are looking for, please check the vn id again.', client);
+    }
+    const fields = [
+      {
+        name: 'Aliases',
+        value: (result.aliases === null) ? '-' : result.aliases,
+        inline: true,
+      },
+      {
+        name: 'Length',
+        value: (result.length === null) ? '-' : vn_length[result.length],
+        inline: true,
+      },
+      {
+        name: 'Rating',
+        value: result.rating.toString(),
+        inline: true,
+      },
+    ];
+    return embed_maker.embed(client.user.avatarURL, result.title, result.description, 0x5e11d9, `https://vndb.org/v${id}`, fields, result.image);
   }
   catch (err) {
     console.error(err);

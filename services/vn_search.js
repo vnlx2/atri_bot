@@ -1,105 +1,83 @@
 /* eslint-disable indent */
 import vndb_service from './vndb_service.js';
-import vn_database from './vn_database_service.js';
 import embed_maker from '../helpers/embed.js';
 import logger from './logger_service.js';
 import { ActionRowBuilder, ButtonBuilder, SelectMenuBuilder } from '@discordjs/builders';
 import { ButtonStyle } from 'discord.js';
+import VisualNovel from '../models/VisualNovel.js';
 
+function addDownloadLink(information, downloadUrls) {
+    // Add Download Link Header
+    information.fields.push({ name: '\u200B', value: '**Download Link**' });
 
+    // Add Hyperlinks
+    const languages = {'JP': downloadUrls.jp_link, 'EN': downloadUrls.en_link, 'ID': downloadUrls.id_link};
+    for (const [language, urls] of Object.entries(languages)) {
+        let links = '';
+        let provider = '';
+        let index = 1;
+        for (const url of urls) {
+            if(provider != url.provider) {
+                index = 1;
+                provider = url.provider;
+            }
+            links += `[${provider} ${index}](${url.url}) `;
+            index++;
+        }
+        if(links) {
+            information.fields.push({ name: language, value: links });
+        }
+    }
+    return information;
+}
+
+// Show VN information and download links
 const info = async (id, client) => {
     try {
-        return await vndb_service.getInfo(client, id)
-            .then(async (res) => {
-                if (res === null) {
-                    return ({ embeds: [errorEmbed('Not Found', 'Sorry, we didn\'t find the vn you are looking for, please check the vn id again.', client)] });
-                }
-                // Add Download Link
-                // return await vn_database.download_link(id)
-                //     .then((vn_download_links) => {
-                //         if (vn_download_links.en.length > 0 || vn_download_links.jp.length > 0) {
-                //             res.fields.push({
-                //                 name: '\u200B',
-                //                 value: '**Download Link**',
-                //             });
-                //             let links = '';
-                //             let index;
-                //             let _provider = '';
-                //             if (vn_download_links.en.length > 0) {
-                //                 for (const link_data of vn_download_links.en) {
-                //                     if (_provider != link_data.provider) {
-                //                         _provider = link_data.provider;
-                //                         index = 1;
-                //                     }
-                //                     links += `[${link_data.provider} ${index}](${link_data.link}) `;
-                //                     index++;
-                //                 }
-                //                 res.fields.push({
-                //                     name: 'EN',
-                //                     value: links,
-                //                 });
-                //             }
-                //             if (vn_download_links.jp.length > 0) {
-                //                 links = '';
-                //                 index = 1;
-                //                 _provider = '';
-                //                 for (const link_data of vn_download_links.jp) {
-                //                     if (_provider != link_data.provider) {
-                //                         _provider = link_data.provider;
-                //                         index = 1;
-                //                     }
-                //                     links += `[${link_data.provider} ${index}](${link_data.link}) `;
-                //                     index++;
-                //                 }
-                //                 res.fields.push({
-                //                     name: 'JP',
-                //                     value: links,
-                //                 });
-                //             }
-                //         }
-                //         // VN DL Tool
-                //         const requestDL = new ButtonBuilder()
-                //                             .setCustomId(`vn-dl-request-${id}`)
-                //                             .setLabel('Request VN')
-                //                             .setStyle(ButtonStyle.Primary)
-                //                             .setDisabled(false);
-                //         const reportDL = new ButtonBuilder()
-                //                             .setCustomId(`vn-dl-report-${id}`)
-                //                             .setLabel('Report Link')
-                //                             .setStyle(ButtonStyle.Secondary)
-                //                             .setEmoji('🚩');
-                //         const VNDownloadTool = new ActionRowBuilder()
-                //                     .addComponents([requestDL, reportDL]);
-                //         return { embeds: [res], ephemeral: false, components: [VNDownloadTool] };
-                //     });
-                // VN DL Tool
-                const requestDL = new ButtonBuilder()
-                .setCustomId(`vn-dl-request-${id}`)
-                .setLabel('Request VN')
-                .setStyle(ButtonStyle.Primary)
-                .setDisabled(false);
-const reportDL = new ButtonBuilder()
+        const information = await vndb_service.getInfo(client, id);
+        if (information.title === 'Not Found') {
+            return { embeds: [information], ephemeral: false };
+        }
+
+        // Fetch Download link
+        const dlLinks = await VisualNovel.findOne({ code: id }).select('-__v -createdAt -updatedAt');
+
+        // Create VN request button
+        const requestDL = new ButtonBuilder()
+            .setCustomId(`vn-dl-request-${id}`)
+            .setLabel('Request VN')
+            .setStyle(ButtonStyle.Primary)
+            .setDisabled(false);
+        const VNDownloadTool = new ActionRowBuilder()
+        .addComponents([requestDL]);
+
+        // Add Download Link (if available)
+        if (dlLinks && (dlLinks.jp_link.length || dlLinks.en_link.length || dlLinks.id_link.length)) {
+            addDownloadLink(information, dlLinks);
+            
+            // VN Report Link
+            const reportDL = new ButtonBuilder()
                 .setCustomId(`vn-dl-report-${id}`)
                 .setLabel('Report Link')
-                .setStyle(ButtonStyle.Secondary)
-                .setEmoji('🚩');
-const VNDownloadTool = new ActionRowBuilder()
-        .addComponents([requestDL, reportDL]);
-return { embeds: [res], ephemeral: false, components: [VNDownloadTool] };
-            });
+                .setStyle(ButtonStyle.Secondary);
+            VNDownloadTool.addComponents(reportDL);
+        }
+        return { embeds: [information], ephemeral: false, components: [VNDownloadTool] };
     }
     catch (err) {
         console.error(err);
         logger.error(err);
+        return ({ embeds: [embed_maker.errorEmbed('Error', 'Waaahhhh....!!! An error was occured.\nPlease try again...~', client)] });
     }
 };
 
+// Find VN based on title
 const search = async (title, client, page = 1) => {
     try {
         return await vndb_service.findByTitle(client, title, page)
             .then((res) => {
                 if (res == null) {
-                    return ({ embeds: [errorEmbed('Not Found', 'Sorry, we didn\'t find the vn you are looking for, please try with another keyword.', client)] });
+                    return ({ embeds: [embed_maker.errorEmbed('Not Found', 'Sorry, we didn\'t find the vn you are looking for, please try with another keyword.', client)] });
                 }
                 // Pagination Button
                 const nextPageBtn = new ButtonBuilder()
@@ -128,9 +106,11 @@ const search = async (title, client, page = 1) => {
     catch (err) {
         console.error(err);
         logger.error(err);
+        return ({ embeds: [embed_maker.errorEmbed('Error', 'Waaahhhh....!!! An error was occured.\nPlease try again...~', client)] });
     }
 };
 
+// Send download link request
 const request = async (id, title, client) => {
     try {
         return await client.channels.cache.get(process.env.VNL_REQUEST_CHANNEL_ID).send({ embeds: [embed_maker.embed(client.user.avatarURL(), 'Request Visual Novel', `**${title}**\nLink\n[https://vndb.org/v${id}](https://vndb.org/v${id})`, 0x325aab, `https://vndb.org/v${id}`)] });
@@ -141,6 +121,7 @@ const request = async (id, title, client) => {
     }
 };
 
+// Send report link
 const report = async (id, title, link, reason, client) => {
     try {
         return await client.channels.cache.get(process.env.VNL_REPORT_CHANNEL_ID).send({ embeds: [embed_maker.embed(client.user.avatarURL(), 'Report Visual Novel', `**${title}**\nVNDB Link : [https://vndb.org/v${id}](https://vndb.org/v${id})\nLink Name : ${link}\nReason : ${reason}`, 0x325aab, `https://vndb.org/v${id}`)] });
@@ -149,22 +130,6 @@ const report = async (id, title, link, reason, client) => {
         console.error(err);
         logger.error(err);
     }
-};
-
-const errorEmbed = (title, message, client) => {
-    return {
-        color: 0xe01212,
-        title: title, message,
-        author: {
-            name: 'ATRI Visual Novel Search Engine',
-            icon_url: client.user.avatarURL(),
-        },
-        description: message,
-        timestamp: new Date(),
-        footer: {
-            text: `ATRI Version: ${process.env.VERSION}`,
-        },
-    };
 };
 
 export default {

@@ -29,4 +29,23 @@ const embed = (icon_url, title, description, color = 0x5e11d9, url = null, field
     return embed_data;
 };
 
-export default embed;
+const errorEmbed = (title, message, client) => {
+    return {
+        color: 0xe01212,
+        title: title, message,
+        author: {
+            name: 'ATRI Visual Novel Search Engine',
+            icon_url: client.user.avatarURL(),
+        },
+        description: message,
+        timestamp: new Date(),
+        footer: {
+            text: `ATRI Version: ${process.env.VERSION}`,
+        },
+    };
+};
+
+export default {
+    embed,
+    errorEmbed
+};

@@ -11,17 +11,17 @@ export default {
         .addSubcommand(subcommand =>
             subcommand
                 .setName('search')
-                .setDescription('Find Visual Novel By Title')
+                .setDescription('Find Visual Novel by Title')
                 .addStringOption(option =>
                     option.setName('title')
-                        .setDescription('Please enter the title keyword you want to search')
+                        .setDescription('Please enter the title you want to search')
                         .setRequired(true),
             ),
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('info')
-                .setDescription('Get Visual Novel Info and Download Link')
+                .setDescription('Get Visual Novel info from VNDB and Download link')
                 .addIntegerOption(option =>
                     option.setName('id')
                         .setDescription('Visual Novel ID from VNDB (Only ID not include \'v\')')
