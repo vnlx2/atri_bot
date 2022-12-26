@@ -1881,3 +1881,84 @@ embeds[0].fields[1].value[BASE_TYPE_REQUIRED]: This field is required[39m
 [32mINFO[39m [2022-28-08, 3:22:37 PM] (86884): [36mUptime: Sun Aug 28 2022 22:22:37 GMT+0700 (Western Indonesia Time)[39m
 [32mINFO[39m [2022-28-08, 3:22:47 PM] (86885): [36mSystem Ready, Logged as ATRI Tester#8292[39m
 [32mINFO[39m [2022-28-08, 3:22:47 PM] (86885): [36mUptime: Sun Aug 28 2022 22:22:47 GMT+0700 (Western Indonesia Time)[39m
+[31mERROR[39m [2022-26-12, 11:58:40 AM] (185388): [36mCannot find module 'mysql'
+Require stack:
+- /home/moonchild/workplace/personal_project/atri/helpers/database.js
+- /home/moonchild/workplace/personal_project/atri/services/vn_database_service.js
+- /home/moonchild/workplace/personal_project/atri/services/vn_search.js
+- /home/moonchild/workplace/personal_project/atri/events/interactionCreate.js
+- /home/moonchild/workplace/personal_project/atri/index.js[39m
+    err: {
+      "type": "Error",
+      "message": "Cannot find module 'mysql'\nRequire stack:\n- /home/moonchild/workplace/personal_project/atri/helpers/database.js\n- /home/moonchild/workplace/personal_project/atri/services/vn_database_service.js\n- /home/moonchild/workplace/personal_project/atri/services/vn_search.js\n- /home/moonchild/workplace/personal_project/atri/events/interactionCreate.js\n- /home/moonchild/workplace/personal_project/atri/index.js",
+      "stack":
+          Error: Cannot find module 'mysql'
+          Require stack:
+          - /home/moonchild/workplace/personal_project/atri/helpers/database.js
+          - /home/moonchild/workplace/personal_project/atri/services/vn_database_service.js
+          - /home/moonchild/workplace/personal_project/atri/services/vn_search.js
+          - /home/moonchild/workplace/personal_project/atri/events/interactionCreate.js
+          - /home/moonchild/workplace/personal_project/atri/index.js
+              at Module._resolveFilename (node:internal/modules/cjs/loader:995:15)
+              at Module._load (node:internal/modules/cjs/loader:841:27)
+              at Module.require (node:internal/modules/cjs/loader:1061:19)
+              at require (node:internal/modules/cjs/helpers:103:18)
+              at Object.<anonymous> (/home/moonchild/workplace/personal_project/atri/helpers/database.js:2:15)
+              at Module._compile (node:internal/modules/cjs/loader:1159:14)
+              at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)
+              at Module.load (node:internal/modules/cjs/loader:1037:32)
+              at Module._load (node:internal/modules/cjs/loader:878:12)
+              at Module.require (node:internal/modules/cjs/loader:1061:19)
+      "code": "MODULE_NOT_FOUND",
+      "requireStack": [
+        "/home/moonchild/workplace/personal_project/atri/helpers/database.js",
+        "/home/moonchild/workplace/personal_project/atri/services/vn_database_service.js",
+        "/home/moonchild/workplace/personal_project/atri/services/vn_search.js",
+        "/home/moonchild/workplace/personal_project/atri/events/interactionCreate.js",
+        "/home/moonchild/workplace/personal_project/atri/index.js"
+      ]
+    }
+[31mERROR[39m [2022-26-12, 11:59:12 AM] (185714): [36mCannot find module 'mysql'
+Require stack:
+- /home/moonchild/workplace/personal_project/atri/helpers/database.js
+- /home/moonchild/workplace/personal_project/atri/services/vn_database_service.js
+- /home/moonchild/workplace/personal_project/atri/services/vn_search.js
+- /home/moonchild/workplace/personal_project/atri/events/interactionCreate.js
+- /home/moonchild/workplace/personal_project/atri/index.js[39m
+    err: {
+      "type": "Error",
+      "message": "Cannot find module 'mysql'\nRequire stack:\n- /home/moonchild/workplace/personal_project/atri/helpers/database.js\n- /home/moonchild/workplace/personal_project/atri/services/vn_database_service.js\n- /home/moonchild/workplace/personal_project/atri/services/vn_search.js\n- /home/moonchild/workplace/personal_project/atri/events/interactionCreate.js\n- /home/moonchild/workplace/personal_project/atri/index.js",
+      "stack":
+          Error: Cannot find module 'mysql'
+          Require stack:
+          - /home/moonchild/workplace/personal_project/atri/helpers/database.js
+          - /home/moonchild/workplace/personal_project/atri/services/vn_database_service.js
+          - /home/moonchild/workplace/personal_project/atri/services/vn_search.js
+          - /home/moonchild/workplace/personal_project/atri/events/interactionCreate.js
+          - /home/moonchild/workplace/personal_project/atri/index.js
+              at Module._resolveFilename (node:internal/modules/cjs/loader:995:15)
+              at Module._load (node:internal/modules/cjs/loader:841:27)
+              at Module.require (node:internal/modules/cjs/loader:1061:19)
+              at require (node:internal/modules/cjs/helpers:103:18)
+              at Object.<anonymous> (/home/moonchild/workplace/personal_project/atri/helpers/database.js:2:15)
+              at Module._compile (node:internal/modules/cjs/loader:1159:14)
+              at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)
+              at Module.load (node:internal/modules/cjs/loader:1037:32)
+              at Module._load (node:internal/modules/cjs/loader:878:12)
+              at Module.require (node:internal/modules/cjs/loader:1061:19)
+      "code": "MODULE_NOT_FOUND",
+      "requireStack": [
+        "/home/moonchild/workplace/personal_project/atri/helpers/database.js",
+        "/home/moonchild/workplace/personal_project/atri/services/vn_database_service.js",
+        "/home/moonchild/workplace/personal_project/atri/services/vn_search.js",
+        "/home/moonchild/workplace/personal_project/atri/events/interactionCreate.js",
+        "/home/moonchild/workplace/personal_project/atri/index.js"
+      ]
+    }
+[32mINFO[39m [2022-26-12, 11:59:19 AM] (185766): [36mSystem Ready, Logged as ATRI Tester#8292[39m
+[32mINFO[39m [2022-26-12, 11:59:19 AM] (185766): [36mUptime: Mon Dec 26 2022 18:59:19 GMT+0700 (Western Indonesia Time)[39m
+[32mINFO[39m [2022-26-12, 11:59:39 AM] (185949): [36mSystem Ready, Logged as ATRI Tester#8292[39m
+[32mINFO[39m [2022-26-12, 11:59:39 AM] (185949): [36mUptime: Mon Dec 26 2022 18:59:39 GMT+0700 (Western Indonesia Time)[39m
+[32mINFO[39m [2022-26-12, 12:00:10 PM] (186127): [36mSystem Ready, Logged as ATRI Tester#8292[39m
+[32mINFO[39m [2022-26-12, 12:00:10 PM] (186127): [36mUptime: Mon Dec 26 2022 19:00:10 GMT+0700 (Western Indonesia Time)[39m
+[32mINFO[39m [2022-26-12, 12:04:19 PM] (186127): [36mmoonchild#1680 in #atri-tester triggered an interaction.[39m

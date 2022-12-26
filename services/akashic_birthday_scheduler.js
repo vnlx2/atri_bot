@@ -1,6 +1,6 @@
 /* eslint-disable indent */
 /* eslint-disable no-trailing-spaces */
-const pool = require('../helpers/database');
+// const pool = require('../helpers/database');
 const schedule = require('node-schedule');
 const moment = require('moment');
 const dotenv = require('dotenv');

@@ -23,6 +23,9 @@ try {
         GatewayIntentBits.GuildMessages,
         GatewayIntentBits.GuildMessageReactions] });
     
+    // Login to Discord with your token
+    client.login(token);
+    
     // Import All Events
     const eventsPath = path.join(__dirname, 'events');
     const eventFiles = fs.readdirSync(eventsPath).filter(file => file.endsWith('.js'));
@@ -48,9 +51,8 @@ try {
         const command = require(filePath);
         client.commands.set(command.data.name, command);
     }
+    console.log(client);
 
-    // Login to Discord with your token
-    client.login(token);
 }
 catch (ex) {
     logger.error(ex);
