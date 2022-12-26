@@ -27,7 +27,8 @@ export default {
                         .setDescription('Visual Novel ID from VNDB (Only ID not include \'v\')')
                         .setRequired(true),
                 ),
-        ),
+        )
+        .setDMPermission(false),
 
     async execute(interaction, client) {
         try {
