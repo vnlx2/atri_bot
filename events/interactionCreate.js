@@ -1,10 +1,7 @@
-/* eslint-disable indent */
+import { InteractionType } from 'discord.js';
+import vn_search from '../services/vn_search.js';
+import logger from '../services/logger_service.js';
 
-const { InteractionType } = require('discord.js');
-const vn_search = require('../services/vn_search');
-const logger = require('../services/logger_service');
-
-/* eslint-disable no-trailing-spaces */ 
 module.exports = {
 	name: 'interactionCreate',
 	async execute(interaction, client) {

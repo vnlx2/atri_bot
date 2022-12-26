@@ -1,5 +1,5 @@
-const birthday = require('../services/akashic_birthday_scheduler');
-const logger = require('../services/logger_service');
+import birthday from '../services/akashic_birthday_scheduler.js';
+import logger from '../services/logger_service.js';
 
 module.exports = {
 	name: 'ready',

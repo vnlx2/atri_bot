@@ -3,10 +3,11 @@
  * VNDB Method Controller
  */
 
-const VNDB = require('vndb-api');
-const embed_maker = require('../helpers/embed');
-const dotenv = require('dotenv');
-const logger = require('./logger_service');
+import VNDB from 'vndb-api';
+import embed_maker from '../helpers/embed.js';
+import logger from './logger_service.js';
+import dotenv from 'dotenv';
+
 dotenv.config();
 
 const vndb = new VNDB('atri', {

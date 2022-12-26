@@ -1,9 +1,9 @@
 /* eslint-disable indent */
-const vndb_service = require('./vndb_service');
-const vn_database = require('./vn_database_service');
-const embed_maker = require('../helpers/embed');
-const logger = require('./logger_service');
-const { ActionRowBuilder, ButtonBuilder, ButtonStyle, SelectMenuBuilder } = require('discord.js');
+import vndb_service from './vndb_service.js';
+import vn_database from './vn_database_service.js';
+import embed_maker from '../helpers/embed.js';
+import logger from './logger_service.js';
+import { ActionRowBuilder, ButtonBuilder, ButtonStyle, SelectMenuBuilder } from '@discordjs/builders';
 
 
 const info = async (id, client) => {
@@ -14,63 +14,77 @@ const info = async (id, client) => {
                     return ({ embeds: [errorEmbed('Not Found', 'Sorry, we didn\'t find the vn you are looking for, please check the vn id again.', client)] });
                 }
                 // Add Download Link
-                return await vn_database.download_link(id)
-                    .then((vn_download_links) => {
-                        if (vn_download_links.en.length > 0 || vn_download_links.jp.length > 0) {
-                            res.fields.push({
-                                name: '\u200B',
-                                value: '**Download Link**',
-                            });
-                            let links = '';
-                            let index;
-                            let _provider = '';
-                            if (vn_download_links.en.length > 0) {
-                                for (const link_data of vn_download_links.en) {
-                                    if (_provider != link_data.provider) {
-                                        _provider = link_data.provider;
-                                        index = 1;
-                                    }
-                                    links += `[${link_data.provider} ${index}](${link_data.link}) `;
-                                    index++;
-                                }
-                                res.fields.push({
-                                    name: 'EN',
-                                    value: links,
-                                });
-                            }
-                            if (vn_download_links.jp.length > 0) {
-                                links = '';
-                                index = 1;
-                                _provider = '';
-                                for (const link_data of vn_download_links.jp) {
-                                    if (_provider != link_data.provider) {
-                                        _provider = link_data.provider;
-                                        index = 1;
-                                    }
-                                    links += `[${link_data.provider} ${index}](${link_data.link}) `;
-                                    index++;
-                                }
-                                res.fields.push({
-                                    name: 'JP',
-                                    value: links,
-                                });
-                            }
-                        }
-                        // VN DL Tool
-                        const requestDL = new ButtonBuilder()
-                                            .setCustomId(`vn-dl-request-${id}`)
-                                            .setLabel('Request VN')
-                                            .setStyle(ButtonStyle.Primary)
-                                            .setDisabled(false);
-                        const reportDL = new ButtonBuilder()
-                                            .setCustomId(`vn-dl-report-${id}`)
-                                            .setLabel('Report Link')
-                                            .setStyle(ButtonStyle.Secondary)
-                                            .setEmoji('🚩');
-                        const VNDownloadTool = new ActionRowBuilder()
-                                    .addComponents([requestDL, reportDL]);
-                        return { embeds: [res], ephemeral: false, components: [VNDownloadTool] };
-                    });
+                // return await vn_database.download_link(id)
+                //     .then((vn_download_links) => {
+                //         if (vn_download_links.en.length > 0 || vn_download_links.jp.length > 0) {
+                //             res.fields.push({
+                //                 name: '\u200B',
+                //                 value: '**Download Link**',
+                //             });
+                //             let links = '';
+                //             let index;
+                //             let _provider = '';
+                //             if (vn_download_links.en.length > 0) {
+                //                 for (const link_data of vn_download_links.en) {
+                //                     if (_provider != link_data.provider) {
+                //                         _provider = link_data.provider;
+                //                         index = 1;
+                //                     }
+                //                     links += `[${link_data.provider} ${index}](${link_data.link}) `;
+                //                     index++;
+                //                 }
+                //                 res.fields.push({
+                //                     name: 'EN',
+                //                     value: links,
+                //                 });
+                //             }
+                //             if (vn_download_links.jp.length > 0) {
+                //                 links = '';
+                //                 index = 1;
+                //                 _provider = '';
+                //                 for (const link_data of vn_download_links.jp) {
+                //                     if (_provider != link_data.provider) {
+                //                         _provider = link_data.provider;
+                //                         index = 1;
+                //                     }
+                //                     links += `[${link_data.provider} ${index}](${link_data.link}) `;
+                //                     index++;
+                //                 }
+                //                 res.fields.push({
+                //                     name: 'JP',
+                //                     value: links,
+                //                 });
+                //             }
+                //         }
+                //         // VN DL Tool
+                //         const requestDL = new ButtonBuilder()
+                //                             .setCustomId(`vn-dl-request-${id}`)
+                //                             .setLabel('Request VN')
+                //                             .setStyle(ButtonStyle.Primary)
+                //                             .setDisabled(false);
+                //         const reportDL = new ButtonBuilder()
+                //                             .setCustomId(`vn-dl-report-${id}`)
+                //                             .setLabel('Report Link')
+                //                             .setStyle(ButtonStyle.Secondary)
+                //                             .setEmoji('🚩');
+                //         const VNDownloadTool = new ActionRowBuilder()
+                //                     .addComponents([requestDL, reportDL]);
+                //         return { embeds: [res], ephemeral: false, components: [VNDownloadTool] };
+                //     });
+                // VN DL Tool
+                const requestDL = new ButtonBuilder()
+                .setCustomId(`vn-dl-request-${id}`)
+                .setLabel('Request VN')
+                .setStyle(ButtonStyle.Primary)
+                .setDisabled(false);
+const reportDL = new ButtonBuilder()
+                .setCustomId(`vn-dl-report-${id}`)
+                .setLabel('Report Link')
+                .setStyle(ButtonStyle.Secondary)
+                .setEmoji('🚩');
+const VNDownloadTool = new ActionRowBuilder()
+        .addComponents([requestDL, reportDL]);
+return { embeds: [res], ephemeral: false, components: [VNDownloadTool] };
             });
     }
     catch (err) {

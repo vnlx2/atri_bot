@@ -1,6 +1,6 @@
 /* eslint-disable indent */
-const pool = require('../helpers/database');
-const logger = require('./logger_service');
+// const pool = require('../helpers/database');
+import logger from "./logger_service";
 
 const download_link = async (id) => {
     try {

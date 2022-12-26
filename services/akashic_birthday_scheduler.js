@@ -1,10 +1,8 @@
-/* eslint-disable indent */
-/* eslint-disable no-trailing-spaces */
-const pool = require('../helpers/database');
-const schedule = require('node-schedule');
-const moment = require('moment');
-const dotenv = require('dotenv');
-const logger = require('./logger_service');
+// const pool = require('../helpers/database');
+import { schedule } from 'node-cron';
+import moment from 'moment';
+import dotenv from 'dotenv';
+import logger from './logger_service.js';
 
 dotenv.config();
 

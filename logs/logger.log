@@ -1881,3 +1881,558 @@ embeds[0].fields[1].value[BASE_TYPE_REQUIRED]: This field is required[39m
 [32mINFO[39m [2022-28-08, 3:22:37 PM] (86884): [36mUptime: Sun Aug 28 2022 22:22:37 GMT+0700 (Western Indonesia Time)[39m
 [32mINFO[39m [2022-28-08, 3:22:47 PM] (86885): [36mSystem Ready, Logged as ATRI Tester#8292[39m
 [32mINFO[39m [2022-28-08, 3:22:47 PM] (86885): [36mUptime: Sun Aug 28 2022 22:22:47 GMT+0700 (Western Indonesia Time)[39m
+[32mINFO[39m [2022-14-10, 7:58:43 AM] (998094): [36mSystem Ready, Logged as ATRI Tester#8292[39m
+[32mINFO[39m [2022-14-10, 7:58:43 AM] (998094): [36mUptime: Fri Oct 14 2022 14:58:43 GMT+0700 (Western Indonesia Time)[39m
+[32mINFO[39m [2022-14-10, 7:59:08 AM] (998094): [36mmoonchild#1680 in #atri-tester-request triggered an interaction.[39m
+[31mERROR[39m [2022-14-10, 7:59:11 AM] (998094): [36mER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol requested by server; consider upgrading MySQL client[39m
+    err: {
+      "type": "Error",
+      "message": "ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol requested by server; consider upgrading MySQL client",
+      "stack":
+          Error: ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol requested by server; consider upgrading MySQL client
+              at Handshake.Sequence._packetToError (/home/moonchild/workplace/personal_project/atri/node_modules/mysql/lib/protocol/sequences/Sequence.js:47:14)
+              at Handshake.ErrorPacket (/home/moonchild/workplace/personal_project/atri/node_modules/mysql/lib/protocol/sequences/Handshake.js:123:18)
+              at Protocol._parsePacket (/home/moonchild/workplace/personal_project/atri/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+              at Parser._parsePacket (/home/moonchild/workplace/personal_project/atri/node_modules/mysql/lib/protocol/Parser.js:433:10)
+              at Parser.write (/home/moonchild/workplace/personal_project/atri/node_modules/mysql/lib/protocol/Parser.js:43:10)
+              at Protocol.write (/home/moonchild/workplace/personal_project/atri/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+              at Socket.<anonymous> (/home/moonchild/workplace/personal_project/atri/node_modules/mysql/lib/Connection.js:88:28)
+              at Socket.<anonymous> (/home/moonchild/workplace/personal_project/atri/node_modules/mysql/lib/Connection.js:526:10)
+              at Socket.emit (node:events:513:28)
+              at addChunk (node:internal/streams/readable:315:12)
+              --------------------
+              at Protocol._enqueue (/home/moonchild/workplace/personal_project/atri/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+              at Protocol.handshake (/home/moonchild/workplace/personal_project/atri/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+              at PoolConnection.connect (/home/moonchild/workplace/personal_project/atri/node_modules/mysql/lib/Connection.js:116:18)
+              at Pool.getConnection (/home/moonchild/workplace/personal_project/atri/node_modules/mysql/lib/Pool.js:48:16)
+              at Pool.query (/home/moonchild/workplace/personal_project/atri/node_modules/mysql/lib/Pool.js:202:8)
+              at node:internal/util:364:7
+              at new Promise (<anonymous>)
+              at Pool.query (node:internal/util:350:12)
+              at Object.download_link (/home/moonchild/workplace/personal_project/atri/services/vn_database_service.js:13:34)
+              at /home/moonchild/workplace/personal_project/atri/services/vn_search.js:17:42
+      "code": "ER_NOT_SUPPORTED_AUTH_MODE",
+      "errno": 1251,
+      "sqlMessage": "Client does not support authentication protocol requested by server; consider upgrading MySQL client",
+      "sqlState": "08004",
+      "fatal": true
+    }
+[31mERROR[39m [2022-14-10, 7:59:11 AM] (998094): [36mCannot read properties of undefined (reading 'en')[39m
+    err: {
+      "type": "TypeError",
+      "message": "Cannot read properties of undefined (reading 'en')",
+      "stack":
+          TypeError: Cannot read properties of undefined (reading 'en')
+              at /home/moonchild/workplace/personal_project/atri/services/vn_search.js:19:47
+              at processTicksAndRejections (node:internal/process/task_queues:96:5)
+              at async /home/moonchild/workplace/personal_project/atri/services/vn_search.js:17:24
+              at async Object.info (/home/moonchild/workplace/personal_project/atri/services/vn_search.js:11:16)
+              at async Object.execute (/home/moonchild/workplace/personal_project/atri/commands/visualnovel.js:38:32)
+              at async Object.execute (/home/moonchild/workplace/personal_project/atri/events/interactionCreate.js:18:5)
+    }
+[31mERROR[39m [2022-14-10, 7:59:11 AM] (998094): [36mCannot send an empty message[39m
+    err: {
+      "type": "DiscordAPIError",
+      "message": "Cannot send an empty message",
+      "stack":
+          DiscordAPIError[50006]: Cannot send an empty message
+              at SequentialHandler.runRequest (/home/moonchild/workplace/personal_project/atri/node_modules/@discordjs/rest/dist/index.js:659:15)
+              at processTicksAndRejections (node:internal/process/task_queues:96:5)
+              at async SequentialHandler.queueRequest (/home/moonchild/workplace/personal_project/atri/node_modules/@discordjs/rest/dist/index.js:458:14)
+              at async REST.request (/home/moonchild/workplace/personal_project/atri/node_modules/@discordjs/rest/dist/index.js:902:22)
+              at async InteractionWebhook.editMessage (/home/moonchild/workplace/personal_project/atri/node_modules/discord.js/src/structures/Webhook.js:320:15)
+              at async ChatInputCommandInteraction.editReply (/home/moonchild/workplace/personal_project/atri/node_modules/discord.js/src/structures/interfaces/InteractionResponses.js:151:21)
+              at async Object.execute (/home/moonchild/workplace/personal_project/atri/commands/visualnovel.js:39:17)
+              at async Object.execute (/home/moonchild/workplace/personal_project/atri/events/interactionCreate.js:18:5)
+      "requestBody": {
+        "files": [],
+        "json": {
+          "tts": false
+        }
+      },
+      "rawError": {
+        "message": "Cannot send an empty message",
+        "code": 50006
+      },
+      "code": 50006,
+      "status": 400,
+      "method": "PATCH",
+      "url": "https://discord.com/api/v10/webhooks/1003008258962886766/aW50ZXJhY3Rpb246MTAzMDM4OTI4MDA1MDI1Nzk2MDoxZnBuUnd6d2w5TkVJVDBMSmtpZHFKaWI1UWYzZ1lNcTJ2c2dTTzZvQzVIOGFIbng0OW9HUXVPc2FhejNad3c3eFMxVUlBa3VzRndTWm9jSklzdXNsZWh6QVVsUVJFanNQTG56R0ZQd1lJMjhnYk1VVnllWkNQbXRSWTVaVVZKYg/messages/@original"
+    }
+[32mINFO[39m [2022-14-10, 8:00:58 AM] (998797): [36mSystem Ready, Logged as ATRI Tester#8292[39m
+[32mINFO[39m [2022-14-10, 8:00:58 AM] (998797): [36mUptime: Fri Oct 14 2022 15:00:58 GMT+0700 (Western Indonesia Time)[39m
+[32mINFO[39m [2022-14-10, 8:01:12 AM] (998797): [36mmoonchild#1680 in #atri-tester-request triggered an interaction.[39m
+[32mINFO[39m [2022-14-10, 8:01:23 AM] (998797): [36mmoonchild#1680 in #atri-tester-request triggered an interaction.[39m
+[32mINFO[39m [2022-14-10, 8:01:34 AM] (998797): [36mmoonchild#1680 in #atri-tester-request triggered an interaction.[39m
+[32mINFO[39m [2022-26-12, 9:36:14 AM] (136334): [36mSystem Ready, Logged as ATRI Tester#8292[39m
+[32mINFO[39m [2022-26-12, 9:36:14 AM] (136334): [36mUptime: Mon Dec 26 2022 16:36:14 GMT+0700 (Western Indonesia Time)[39m
+[32mINFO[39m [2022-26-12, 9:36:33 AM] (136334): [36mmoonchild#1680 in #atri-discussion triggered an interaction.[39m
+[32mINFO[39m [2022-26-12, 9:37:42 AM] (136334): [36mmoonchild#1680 in #atri-discussion triggered an interaction.[39m
+[32mINFO[39m [2022-26-12, 9:42:45 AM] (138457): [36mSystem Ready, Logged as ATRI Tester#8292[39m
+[32mINFO[39m [2022-26-12, 9:42:45 AM] (138457): [36mUptime: Mon Dec 26 2022 16:42:45 GMT+0700 (Western Indonesia Time)[39m
+[32mINFO[39m [2022-26-12, 9:43:27 AM] (138864): [36mSystem Ready, Logged as ATRI Tester#8292[39m
+[32mINFO[39m [2022-26-12, 9:43:27 AM] (138864): [36mUptime: Mon Dec 26 2022 16:43:27 GMT+0700 (Western Indonesia Time)[39m
+[31mERROR[39m [2022-26-12, 9:44:02 AM] (139310): [36mCannot find module 'mysql'
+Require stack:
+- /home/moonchild/workplace/personal_project/atri/helpers/database.js
+- /home/moonchild/workplace/personal_project/atri/services/vn_database_service.js
+- /home/moonchild/workplace/personal_project/atri/services/vn_search.js
+- /home/moonchild/workplace/personal_project/atri/events/interactionCreate.js
+- /home/moonchild/workplace/personal_project/atri/index.js[39m
+    err: {
+      "type": "Error",
+      "message": "Cannot find module 'mysql'\nRequire stack:\n- /home/moonchild/workplace/personal_project/atri/helpers/database.js\n- /home/moonchild/workplace/personal_project/atri/services/vn_database_service.js\n- /home/moonchild/workplace/personal_project/atri/services/vn_search.js\n- /home/moonchild/workplace/personal_project/atri/events/interactionCreate.js\n- /home/moonchild/workplace/personal_project/atri/index.js",
+      "stack":
+          Error: Cannot find module 'mysql'
+          Require stack:
+          - /home/moonchild/workplace/personal_project/atri/helpers/database.js
+          - /home/moonchild/workplace/personal_project/atri/services/vn_database_service.js
+          - /home/moonchild/workplace/personal_project/atri/services/vn_search.js
+          - /home/moonchild/workplace/personal_project/atri/events/interactionCreate.js
+          - /home/moonchild/workplace/personal_project/atri/index.js
+              at Module._resolveFilename (node:internal/modules/cjs/loader:995:15)
+              at Module._load (node:internal/modules/cjs/loader:841:27)
+              at Module.require (node:internal/modules/cjs/loader:1061:19)
+              at require (node:internal/modules/cjs/helpers:103:18)
+              at Object.<anonymous> (/home/moonchild/workplace/personal_project/atri/helpers/database.js:2:15)
+              at Module._compile (node:internal/modules/cjs/loader:1159:14)
+              at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)
+              at Module.load (node:internal/modules/cjs/loader:1037:32)
+              at Module._load (node:internal/modules/cjs/loader:878:12)
+              at Module.require (node:internal/modules/cjs/loader:1061:19)
+      "code": "MODULE_NOT_FOUND",
+      "requireStack": [
+        "/home/moonchild/workplace/personal_project/atri/helpers/database.js",
+        "/home/moonchild/workplace/personal_project/atri/services/vn_database_service.js",
+        "/home/moonchild/workplace/personal_project/atri/services/vn_search.js",
+        "/home/moonchild/workplace/personal_project/atri/events/interactionCreate.js",
+        "/home/moonchild/workplace/personal_project/atri/index.js"
+      ]
+    }
+[31mERROR[39m [2022-26-12, 9:45:22 AM] (140173): [36mCannot find module 'mysql'
+Require stack:
+- /home/moonchild/workplace/personal_project/atri/helpers/database.js
+- /home/moonchild/workplace/personal_project/atri/services/vn_database_service.js
+- /home/moonchild/workplace/personal_project/atri/services/vn_search.js
+- /home/moonchild/workplace/personal_project/atri/events/interactionCreate.js
+- /home/moonchild/workplace/personal_project/atri/index.js[39m
+    err: {
+      "type": "Error",
+      "message": "Cannot find module 'mysql'\nRequire stack:\n- /home/moonchild/workplace/personal_project/atri/helpers/database.js\n- /home/moonchild/workplace/personal_project/atri/services/vn_database_service.js\n- /home/moonchild/workplace/personal_project/atri/services/vn_search.js\n- /home/moonchild/workplace/personal_project/atri/events/interactionCreate.js\n- /home/moonchild/workplace/personal_project/atri/index.js",
+      "stack":
+          Error: Cannot find module 'mysql'
+          Require stack:
+          - /home/moonchild/workplace/personal_project/atri/helpers/database.js
+          - /home/moonchild/workplace/personal_project/atri/services/vn_database_service.js
+          - /home/moonchild/workplace/personal_project/atri/services/vn_search.js
+          - /home/moonchild/workplace/personal_project/atri/events/interactionCreate.js
+          - /home/moonchild/workplace/personal_project/atri/index.js
+              at Module._resolveFilename (node:internal/modules/cjs/loader:995:15)
+              at Module._load (node:internal/modules/cjs/loader:841:27)
+              at Module.require (node:internal/modules/cjs/loader:1061:19)
+              at require (node:internal/modules/cjs/helpers:103:18)
+              at Object.<anonymous> (/home/moonchild/workplace/personal_project/atri/helpers/database.js:2:15)
+              at Module._compile (node:internal/modules/cjs/loader:1159:14)
+              at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)
+              at Module.load (node:internal/modules/cjs/loader:1037:32)
+              at Module._load (node:internal/modules/cjs/loader:878:12)
+              at Module.require (node:internal/modules/cjs/loader:1061:19)
+      "code": "MODULE_NOT_FOUND",
+      "requireStack": [
+        "/home/moonchild/workplace/personal_project/atri/helpers/database.js",
+        "/home/moonchild/workplace/personal_project/atri/services/vn_database_service.js",
+        "/home/moonchild/workplace/personal_project/atri/services/vn_search.js",
+        "/home/moonchild/workplace/personal_project/atri/events/interactionCreate.js",
+        "/home/moonchild/workplace/personal_project/atri/index.js"
+      ]
+    }
+[31mERROR[39m [2022-26-12, 9:52:46 AM] (142909): [36mCannot find module 'mysql'
+Require stack:
+- /home/moonchild/workplace/personal_project/atri/helpers/database.js
+- /home/moonchild/workplace/personal_project/atri/services/vn_database_service.js
+- /home/moonchild/workplace/personal_project/atri/services/vn_search.js
+- /home/moonchild/workplace/personal_project/atri/events/interactionCreate.js
+- /home/moonchild/workplace/personal_project/atri/index.js[39m
+    err: {
+      "type": "Error",
+      "message": "Cannot find module 'mysql'\nRequire stack:\n- /home/moonchild/workplace/personal_project/atri/helpers/database.js\n- /home/moonchild/workplace/personal_project/atri/services/vn_database_service.js\n- /home/moonchild/workplace/personal_project/atri/services/vn_search.js\n- /home/moonchild/workplace/personal_project/atri/events/interactionCreate.js\n- /home/moonchild/workplace/personal_project/atri/index.js",
+      "stack":
+          Error: Cannot find module 'mysql'
+          Require stack:
+          - /home/moonchild/workplace/personal_project/atri/helpers/database.js
+          - /home/moonchild/workplace/personal_project/atri/services/vn_database_service.js
+          - /home/moonchild/workplace/personal_project/atri/services/vn_search.js
+          - /home/moonchild/workplace/personal_project/atri/events/interactionCreate.js
+          - /home/moonchild/workplace/personal_project/atri/index.js
+              at Module._resolveFilename (node:internal/modules/cjs/loader:995:15)
+              at Module._load (node:internal/modules/cjs/loader:841:27)
+              at Module.require (node:internal/modules/cjs/loader:1061:19)
+              at require (node:internal/modules/cjs/helpers:103:18)
+              at Object.<anonymous> (/home/moonchild/workplace/personal_project/atri/helpers/database.js:2:15)
+              at Module._compile (node:internal/modules/cjs/loader:1159:14)
+              at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)
+              at Module.load (node:internal/modules/cjs/loader:1037:32)
+              at Module._load (node:internal/modules/cjs/loader:878:12)
+              at Module.require (node:internal/modules/cjs/loader:1061:19)
+      "code": "MODULE_NOT_FOUND",
+      "requireStack": [
+        "/home/moonchild/workplace/personal_project/atri/helpers/database.js",
+        "/home/moonchild/workplace/personal_project/atri/services/vn_database_service.js",
+        "/home/moonchild/workplace/personal_project/atri/services/vn_search.js",
+        "/home/moonchild/workplace/personal_project/atri/events/interactionCreate.js",
+        "/home/moonchild/workplace/personal_project/atri/index.js"
+      ]
+    }
+[31mERROR[39m [2022-26-12, 9:53:04 AM] (143235): [36mCannot find module 'mysql'
+Require stack:
+- /home/moonchild/workplace/personal_project/atri/helpers/database.js
+- /home/moonchild/workplace/personal_project/atri/services/vn_database_service.js
+- /home/moonchild/workplace/personal_project/atri/services/vn_search.js
+- /home/moonchild/workplace/personal_project/atri/events/interactionCreate.js
+- /home/moonchild/workplace/personal_project/atri/index.js[39m
+    err: {
+      "type": "Error",
+      "message": "Cannot find module 'mysql'\nRequire stack:\n- /home/moonchild/workplace/personal_project/atri/helpers/database.js\n- /home/moonchild/workplace/personal_project/atri/services/vn_database_service.js\n- /home/moonchild/workplace/personal_project/atri/services/vn_search.js\n- /home/moonchild/workplace/personal_project/atri/events/interactionCreate.js\n- /home/moonchild/workplace/personal_project/atri/index.js",
+      "stack":
+          Error: Cannot find module 'mysql'
+          Require stack:
+          - /home/moonchild/workplace/personal_project/atri/helpers/database.js
+          - /home/moonchild/workplace/personal_project/atri/services/vn_database_service.js
+          - /home/moonchild/workplace/personal_project/atri/services/vn_search.js
+          - /home/moonchild/workplace/personal_project/atri/events/interactionCreate.js
+          - /home/moonchild/workplace/personal_project/atri/index.js
+              at Module._resolveFilename (node:internal/modules/cjs/loader:995:15)
+              at Module._load (node:internal/modules/cjs/loader:841:27)
+              at Module.require (node:internal/modules/cjs/loader:1061:19)
+              at require (node:internal/modules/cjs/helpers:103:18)
+              at Object.<anonymous> (/home/moonchild/workplace/personal_project/atri/helpers/database.js:2:15)
+              at Module._compile (node:internal/modules/cjs/loader:1159:14)
+              at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)
+              at Module.load (node:internal/modules/cjs/loader:1037:32)
+              at Module._load (node:internal/modules/cjs/loader:878:12)
+              at Module.require (node:internal/modules/cjs/loader:1061:19)
+      "code": "MODULE_NOT_FOUND",
+      "requireStack": [
+        "/home/moonchild/workplace/personal_project/atri/helpers/database.js",
+        "/home/moonchild/workplace/personal_project/atri/services/vn_database_service.js",
+        "/home/moonchild/workplace/personal_project/atri/services/vn_search.js",
+        "/home/moonchild/workplace/personal_project/atri/events/interactionCreate.js",
+        "/home/moonchild/workplace/personal_project/atri/index.js"
+      ]
+    }
+[31mERROR[39m [2022-26-12, 9:54:00 AM] (143646): [36mCannot find module 'mysql'
+Require stack:
+- /home/moonchild/workplace/personal_project/atri/helpers/database.js
+- /home/moonchild/workplace/personal_project/atri/services/vn_database_service.js
+- /home/moonchild/workplace/personal_project/atri/services/vn_search.js
+- /home/moonchild/workplace/personal_project/atri/events/interactionCreate.js
+- /home/moonchild/workplace/personal_project/atri/index.js[39m
+    err: {
+      "type": "Error",
+      "message": "Cannot find module 'mysql'\nRequire stack:\n- /home/moonchild/workplace/personal_project/atri/helpers/database.js\n- /home/moonchild/workplace/personal_project/atri/services/vn_database_service.js\n- /home/moonchild/workplace/personal_project/atri/services/vn_search.js\n- /home/moonchild/workplace/personal_project/atri/events/interactionCreate.js\n- /home/moonchild/workplace/personal_project/atri/index.js",
+      "stack":
+          Error: Cannot find module 'mysql'
+          Require stack:
+          - /home/moonchild/workplace/personal_project/atri/helpers/database.js
+          - /home/moonchild/workplace/personal_project/atri/services/vn_database_service.js
+          - /home/moonchild/workplace/personal_project/atri/services/vn_search.js
+          - /home/moonchild/workplace/personal_project/atri/events/interactionCreate.js
+          - /home/moonchild/workplace/personal_project/atri/index.js
+              at Module._resolveFilename (node:internal/modules/cjs/loader:995:15)
+              at Module._load (node:internal/modules/cjs/loader:841:27)
+              at Module.require (node:internal/modules/cjs/loader:1061:19)
+              at require (node:internal/modules/cjs/helpers:103:18)
+              at Object.<anonymous> (/home/moonchild/workplace/personal_project/atri/helpers/database.js:2:15)
+              at Module._compile (node:internal/modules/cjs/loader:1159:14)
+              at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)
+              at Module.load (node:internal/modules/cjs/loader:1037:32)
+              at Module._load (node:internal/modules/cjs/loader:878:12)
+              at Module.require (node:internal/modules/cjs/loader:1061:19)
+      "code": "MODULE_NOT_FOUND",
+      "requireStack": [
+        "/home/moonchild/workplace/personal_project/atri/helpers/database.js",
+        "/home/moonchild/workplace/personal_project/atri/services/vn_database_service.js",
+        "/home/moonchild/workplace/personal_project/atri/services/vn_search.js",
+        "/home/moonchild/workplace/personal_project/atri/events/interactionCreate.js",
+        "/home/moonchild/workplace/personal_project/atri/index.js"
+      ]
+    }
+[31mERROR[39m [2022-26-12, 9:54:12 AM] (143828): [36mCannot find module 'mysql'
+Require stack:
+- /home/moonchild/workplace/personal_project/atri/helpers/database.js
+- /home/moonchild/workplace/personal_project/atri/services/vn_database_service.js
+- /home/moonchild/workplace/personal_project/atri/services/vn_search.js
+- /home/moonchild/workplace/personal_project/atri/events/interactionCreate.js
+- /home/moonchild/workplace/personal_project/atri/index.js[39m
+    err: {
+      "type": "Error",
+      "message": "Cannot find module 'mysql'\nRequire stack:\n- /home/moonchild/workplace/personal_project/atri/helpers/database.js\n- /home/moonchild/workplace/personal_project/atri/services/vn_database_service.js\n- /home/moonchild/workplace/personal_project/atri/services/vn_search.js\n- /home/moonchild/workplace/personal_project/atri/events/interactionCreate.js\n- /home/moonchild/workplace/personal_project/atri/index.js",
+      "stack":
+          Error: Cannot find module 'mysql'
+          Require stack:
+          - /home/moonchild/workplace/personal_project/atri/helpers/database.js
+          - /home/moonchild/workplace/personal_project/atri/services/vn_database_service.js
+          - /home/moonchild/workplace/personal_project/atri/services/vn_search.js
+          - /home/moonchild/workplace/personal_project/atri/events/interactionCreate.js
+          - /home/moonchild/workplace/personal_project/atri/index.js
+              at Module._resolveFilename (node:internal/modules/cjs/loader:995:15)
+              at Module._load (node:internal/modules/cjs/loader:841:27)
+              at Module.require (node:internal/modules/cjs/loader:1061:19)
+              at require (node:internal/modules/cjs/helpers:103:18)
+              at Object.<anonymous> (/home/moonchild/workplace/personal_project/atri/helpers/database.js:2:15)
+              at Module._compile (node:internal/modules/cjs/loader:1159:14)
+              at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)
+              at Module.load (node:internal/modules/cjs/loader:1037:32)
+              at Module._load (node:internal/modules/cjs/loader:878:12)
+              at Module.require (node:internal/modules/cjs/loader:1061:19)
+      "code": "MODULE_NOT_FOUND",
+      "requireStack": [
+        "/home/moonchild/workplace/personal_project/atri/helpers/database.js",
+        "/home/moonchild/workplace/personal_project/atri/services/vn_database_service.js",
+        "/home/moonchild/workplace/personal_project/atri/services/vn_search.js",
+        "/home/moonchild/workplace/personal_project/atri/events/interactionCreate.js",
+        "/home/moonchild/workplace/personal_project/atri/index.js"
+      ]
+    }
+[31mERROR[39m [2022-26-12, 9:54:33 AM] (144062): [36mCannot find module 'mysql'
+Require stack:
+- /home/moonchild/workplace/personal_project/atri/helpers/database.js
+- /home/moonchild/workplace/personal_project/atri/services/vn_database_service.js
+- /home/moonchild/workplace/personal_project/atri/services/vn_search.js
+- /home/moonchild/workplace/personal_project/atri/events/interactionCreate.js
+- /home/moonchild/workplace/personal_project/atri/index.js[39m
+    err: {
+      "type": "Error",
+      "message": "Cannot find module 'mysql'\nRequire stack:\n- /home/moonchild/workplace/personal_project/atri/helpers/database.js\n- /home/moonchild/workplace/personal_project/atri/services/vn_database_service.js\n- /home/moonchild/workplace/personal_project/atri/services/vn_search.js\n- /home/moonchild/workplace/personal_project/atri/events/interactionCreate.js\n- /home/moonchild/workplace/personal_project/atri/index.js",
+      "stack":
+          Error: Cannot find module 'mysql'
+          Require stack:
+          - /home/moonchild/workplace/personal_project/atri/helpers/database.js
+          - /home/moonchild/workplace/personal_project/atri/services/vn_database_service.js
+          - /home/moonchild/workplace/personal_project/atri/services/vn_search.js
+          - /home/moonchild/workplace/personal_project/atri/events/interactionCreate.js
+          - /home/moonchild/workplace/personal_project/atri/index.js
+              at Module._resolveFilename (node:internal/modules/cjs/loader:995:15)
+              at Module._load (node:internal/modules/cjs/loader:841:27)
+              at Module.require (node:internal/modules/cjs/loader:1061:19)
+              at require (node:internal/modules/cjs/helpers:103:18)
+              at Object.<anonymous> (/home/moonchild/workplace/personal_project/atri/helpers/database.js:2:15)
+              at Module._compile (node:internal/modules/cjs/loader:1159:14)
+              at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)
+              at Module.load (node:internal/modules/cjs/loader:1037:32)
+              at Module._load (node:internal/modules/cjs/loader:878:12)
+              at Module.require (node:internal/modules/cjs/loader:1061:19)
+      "code": "MODULE_NOT_FOUND",
+      "requireStack": [
+        "/home/moonchild/workplace/personal_project/atri/helpers/database.js",
+        "/home/moonchild/workplace/personal_project/atri/services/vn_database_service.js",
+        "/home/moonchild/workplace/personal_project/atri/services/vn_search.js",
+        "/home/moonchild/workplace/personal_project/atri/events/interactionCreate.js",
+        "/home/moonchild/workplace/personal_project/atri/index.js"
+      ]
+    }
+[32mINFO[39m [2022-26-12, 9:58:45 AM] (145885): [36mSystem Ready, Logged as ATRI Tester#8292[39m
+[32mINFO[39m [2022-26-12, 9:58:45 AM] (145885): [36mUptime: Mon Dec 26 2022 16:58:45 GMT+0700 (Western Indonesia Time)[39m
+[32mINFO[39m [2022-26-12, 9:59:21 AM] (145885): [36mmoonchild#1680 in #atri-discussion triggered an interaction.[39m
+[32mINFO[39m [2022-26-12, 9:59:46 AM] (145885): [36mSuzakuin Reima#4177 in #akashic-record triggered an interaction.[39m
+[32mINFO[39m [2022-26-12, 10:01:33 AM] (146890): [36mSystem Ready, Logged as ATRI Tester#8292[39m
+[32mINFO[39m [2022-26-12, 10:01:33 AM] (146890): [36mUptime: Mon Dec 26 2022 17:01:33 GMT+0700 (Western Indonesia Time)[39m
+[32mINFO[39m [2022-26-12, 10:01:41 AM] (146998): [36mSystem Ready, Logged as ATRI Tester#8292[39m
+[32mINFO[39m [2022-26-12, 10:01:41 AM] (146998): [36mUptime: Mon Dec 26 2022 17:01:41 GMT+0700 (Western Indonesia Time)[39m
+[32mINFO[39m [2022-26-12, 11:17:48 AM] (169484): [36mSystem Ready, Logged as ATRI Tester#8292[39m
+[32mINFO[39m [2022-26-12, 11:17:48 AM] (169484): [36mUptime: Mon Dec 26 2022 18:17:48 GMT+0700 (Western Indonesia Time)[39m
+[31mERROR[39m [2022-26-12, 11:20:49 AM] (170835): [36m__dirname is not defined[39m
+    err: {
+      "type": "ReferenceError",
+      "message": "__dirname is not defined",
+      "stack":
+          ReferenceError: __dirname is not defined
+              at file:///home/moonchild/workplace/personal_project/atri/index.js:24:34
+              at ModuleJob.run (node:internal/modules/esm/module_job:193:25)
+              at async Promise.all (index 0)
+              at async ESMLoader.import (node:internal/modules/esm/loader:530:24)
+              at async loadESM (node:internal/process/esm_loader:91:5)
+              at async handleMainPromise (node:internal/modules/run_main:65:12)
+    }
+[31mERROR[39m [2022-26-12, 11:22:22 AM] (171390): [36m__dirname is not defined[39m
+    err: {
+      "type": "ReferenceError",
+      "message": "__dirname is not defined",
+      "stack":
+          ReferenceError: __dirname is not defined
+              at file:///home/moonchild/workplace/personal_project/atri/index.js:24:34
+              at ModuleJob.run (node:internal/modules/esm/module_job:193:25)
+              at async Promise.all (index 0)
+              at async ESMLoader.import (node:internal/modules/esm/loader:530:24)
+              at async loadESM (node:internal/process/esm_loader:91:5)
+              at async handleMainPromise (node:internal/modules/run_main:65:12)
+    }
+[31mERROR[39m [2022-26-12, 11:22:35 AM] (171502): [36m__dirname is not defined[39m
+    err: {
+      "type": "ReferenceError",
+      "message": "__dirname is not defined",
+      "stack":
+          ReferenceError: __dirname is not defined
+              at file:///home/moonchild/workplace/personal_project/atri/index.js:24:34
+              at ModuleJob.run (node:internal/modules/esm/module_job:193:25)
+              at async Promise.all (index 0)
+              at async ESMLoader.import (node:internal/modules/esm/loader:530:24)
+              at async loadESM (node:internal/process/esm_loader:91:5)
+              at async handleMainPromise (node:internal/modules/run_main:65:12)
+    }
+[31mERROR[39m [2022-26-12, 11:23:46 AM] (171893): [36m__dirname is not defined[39m
+    err: {
+      "type": "ReferenceError",
+      "message": "__dirname is not defined",
+      "stack":
+          ReferenceError: __dirname is not defined
+              at file:///home/moonchild/workplace/personal_project/atri/index.js:24:34
+              at ModuleJob.run (node:internal/modules/esm/module_job:193:25)
+              at async Promise.all (index 0)
+              at async ESMLoader.import (node:internal/modules/esm/loader:530:24)
+              at async loadESM (node:internal/process/esm_loader:91:5)
+              at async handleMainPromise (node:internal/modules/run_main:65:12)
+    }
+[31mERROR[39m [2022-26-12, 11:24:40 AM] (172267): [36m__dirname is not defined[39m
+    err: {
+      "type": "ReferenceError",
+      "message": "__dirname is not defined",
+      "stack":
+          ReferenceError: __dirname is not defined
+              at file:///home/moonchild/workplace/personal_project/atri/index.js:24:34
+              at ModuleJob.run (node:internal/modules/esm/module_job:193:25)
+              at async Promise.all (index 0)
+              at async ESMLoader.import (node:internal/modules/esm/loader:530:24)
+              at async loadESM (node:internal/process/esm_loader:91:5)
+              at async handleMainPromise (node:internal/modules/run_main:65:12)
+    }
+[31mERROR[39m [2022-26-12, 11:25:41 AM] (172626): [36m__dirname is not defined[39m
+    err: {
+      "type": "ReferenceError",
+      "message": "__dirname is not defined",
+      "stack":
+          ReferenceError: __dirname is not defined
+              at file:///home/moonchild/workplace/personal_project/atri/index.js:24:34
+              at ModuleJob.run (node:internal/modules/esm/module_job:193:25)
+              at async Promise.all (index 0)
+              at async ESMLoader.import (node:internal/modules/esm/loader:530:24)
+              at async loadESM (node:internal/process/esm_loader:91:5)
+              at async handleMainPromise (node:internal/modules/run_main:65:12)
+    }
+[31mERROR[39m [2022-26-12, 11:26:09 AM] (172829): [36m__dirname is not defined[39m
+    err: {
+      "type": "ReferenceError",
+      "message": "__dirname is not defined",
+      "stack":
+          ReferenceError: __dirname is not defined
+              at file:///home/moonchild/workplace/personal_project/atri/index.js:24:34
+              at ModuleJob.run (node:internal/modules/esm/module_job:193:25)
+              at async Promise.all (index 0)
+              at async ESMLoader.import (node:internal/modules/esm/loader:530:24)
+              at async loadESM (node:internal/process/esm_loader:91:5)
+              at async handleMainPromise (node:internal/modules/run_main:65:12)
+    }
+[31mERROR[39m [2022-26-12, 11:26:28 AM] (173026): [36m__dirname is not defined[39m
+    err: {
+      "type": "ReferenceError",
+      "message": "__dirname is not defined",
+      "stack":
+          ReferenceError: __dirname is not defined
+              at file:///home/moonchild/workplace/personal_project/atri/index.js:24:34
+              at ModuleJob.run (node:internal/modules/esm/module_job:193:25)
+              at async Promise.all (index 0)
+              at async ESMLoader.import (node:internal/modules/esm/loader:530:24)
+              at async loadESM (node:internal/process/esm_loader:91:5)
+              at async handleMainPromise (node:internal/modules/run_main:65:12)
+    }
+[31mERROR[39m [2022-26-12, 11:27:06 AM] (173262): [36m__dirname is not defined[39m
+    err: {
+      "type": "ReferenceError",
+      "message": "__dirname is not defined",
+      "stack":
+          ReferenceError: __dirname is not defined
+              at file:///home/moonchild/workplace/personal_project/atri/index.js:24:34
+              at ModuleJob.run (node:internal/modules/esm/module_job:193:25)
+              at async Promise.all (index 0)
+              at async ESMLoader.import (node:internal/modules/esm/loader:530:24)
+              at async loadESM (node:internal/process/esm_loader:91:5)
+              at async handleMainPromise (node:internal/modules/run_main:65:12)
+    }
+[31mERROR[39m [2022-26-12, 11:28:24 AM] (173734): [36m__dirname is not defined[39m
+    err: {
+      "type": "ReferenceError",
+      "message": "__dirname is not defined",
+      "stack":
+          ReferenceError: __dirname is not defined
+              at file:///home/moonchild/workplace/personal_project/atri/index.js:24:34
+              at ModuleJob.run (node:internal/modules/esm/module_job:193:25)
+              at async Promise.all (index 0)
+              at async ESMLoader.import (node:internal/modules/esm/loader:530:24)
+              at async loadESM (node:internal/process/esm_loader:91:5)
+              at async handleMainPromise (node:internal/modules/run_main:65:12)
+    }
+[31mERROR[39m [2022-26-12, 11:29:01 AM] (173941): [36m__dirname is not defined[39m
+    err: {
+      "type": "ReferenceError",
+      "message": "__dirname is not defined",
+      "stack":
+          ReferenceError: __dirname is not defined
+              at file:///home/moonchild/workplace/personal_project/atri/index.js:24:34
+              at ModuleJob.run (node:internal/modules/esm/module_job:193:25)
+              at async Promise.all (index 0)
+              at async ESMLoader.import (node:internal/modules/esm/loader:530:24)
+              at async loadESM (node:internal/process/esm_loader:91:5)
+              at async handleMainPromise (node:internal/modules/run_main:65:12)
+    }
+[31mERROR[39m [2022-26-12, 11:38:06 AM] (178310): [36m__dirname is not defined[39m
+    err: {
+      "type": "ReferenceError",
+      "message": "__dirname is not defined",
+      "stack":
+          ReferenceError: __dirname is not defined
+              at file:///home/moonchild/workplace/personal_project/atri/index.js:23:34
+              at ModuleJob.run (node:internal/modules/esm/module_job:193:25)
+              at async Promise.all (index 0)
+              at async ESMLoader.import (node:internal/modules/esm/loader:530:24)
+              at async loadESM (node:internal/process/esm_loader:91:5)
+              at async handleMainPromise (node:internal/modules/run_main:65:12)
+    }
+[31mERROR[39m [2022-26-12, 11:38:18 AM] (178477): [36m__dirname is not defined[39m
+    err: {
+      "type": "ReferenceError",
+      "message": "__dirname is not defined",
+      "stack":
+          ReferenceError: __dirname is not defined
+              at file:///home/moonchild/workplace/personal_project/atri/index.js:23:34
+              at ModuleJob.run (node:internal/modules/esm/module_job:193:25)
+              at async Promise.all (index 0)
+              at async ESMLoader.import (node:internal/modules/esm/loader:530:24)
+              at async loadESM (node:internal/process/esm_loader:91:5)
+              at async handleMainPromise (node:internal/modules/run_main:65:12)
+    }
+[31mERROR[39m [2022-26-12, 11:39:24 AM] (178970): [36mrequire is not defined[39m
+    err: {
+      "type": "ReferenceError",
+      "message": "require is not defined",
+      "stack":
+          ReferenceError: require is not defined
+              at file:///home/moonchild/workplace/personal_project/atri/index.js:28:23
+              at ModuleJob.run (node:internal/modules/esm/module_job:193:25)
+              at async Promise.all (index 0)
+              at async ESMLoader.import (node:internal/modules/esm/loader:530:24)
+              at async loadESM (node:internal/process/esm_loader:91:5)
+              at async handleMainPromise (node:internal/modules/run_main:65:12)
+    }
+[31mERROR[39m [2022-26-12, 11:46:54 AM] (181375): [36mrequire is not defined[39m
+    err: {
+      "type": "ReferenceError",
+      "message": "require is not defined",
+      "stack":
+          ReferenceError: require is not defined
+              at file:///home/moonchild/workplace/personal_project/atri/index.js:31:23
+              at ModuleJob.run (node:internal/modules/esm/module_job:193:25)
+              at async Promise.all (index 0)
+              at async ESMLoader.import (node:internal/modules/esm/loader:530:24)
+              at async loadESM (node:internal/process/esm_loader:91:5)
+              at async handleMainPromise (node:internal/modules/run_main:65:12)
+    }

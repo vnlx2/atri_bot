@@ -1,16 +1,15 @@
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable indent */
-// Import env
-const dotenv = require('dotenv');
-const fs = require('node:fs');
-const path = require('node:path');
-const logger = require('./services/logger_service');
+import dotenv from 'dotenv';
+import fs from 'node:fs';
+import path from 'node:path';
+import logger from './services/logger_service.js';
+import { Client, Collection, GatewayIntentBits } from 'discord.js';
+import { db } from './config/database.js';
+
+// Import Events and Commands
+import mention from './events/mention.js';
 
 // Intialized env
 dotenv.config();
-
-// Import Discord.js
-const { Client, Collection, GatewayIntentBits } = require('discord.js');
 
 // Get Token
 const token = process.env.BOT_TOKEN;
@@ -24,7 +23,7 @@ try {
         GatewayIntentBits.GuildMessageReactions] });
     
     // Import All Events
-    const eventsPath = path.join(__dirname, 'events');
+    const eventsPath = path.join(path.resolve(), 'events');
     const eventFiles = fs.readdirSync(eventsPath).filter(file => file.endsWith('.js'));
     
     for (const file of eventFiles) {
@@ -53,6 +52,7 @@ try {
     client.login(token);
 }
 catch (ex) {
+    console.log(ex);
     logger.error(ex);
 }
 

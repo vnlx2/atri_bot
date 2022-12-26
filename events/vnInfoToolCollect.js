@@ -1,7 +1,6 @@
-/* eslint-disable indent */
-const vn_search = require('../services/vn_search');
-const { ModalBuilder, ActionRowBuilder, TextInputBuilder, TextInputStyle } = require('discord.js');
-const logger = require('../services/logger_service');
+import vn_search from '../services/vn_search.js';
+import { ModalBuilder, ActionRowBuilder, TextInputBuilder, TextInputStyle } from '@discordjs/builders';
+import logger from '../services/logger_service.js';
 
 module.exports = async (interaction, client, msg = null) => {
     const infoToolCollect = interaction.channel.createMessageComponentCollector();

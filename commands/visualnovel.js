@@ -1,9 +1,8 @@
-/* eslint-disable indent */
-const { SlashCommandBuilder } = require('discord.js');
-const vn_search = require('../services/vn_search');
-const embed_make = require('../helpers/embed');
-const vn_info_tools = require('../events/vnInfoToolCollect');
-const logger = require('../services/logger_service');
+import { SlashCommandBuilder } from 'discord.js';
+import vn_search from '../services/vn_search';
+import embed_make from '../helpers/embed';
+import vn_info_tools from '../events/vnInfoToolCollect';
+import logger from '../services/logger_service';
 
 module.exports = {
     data: new SlashCommandBuilder()
