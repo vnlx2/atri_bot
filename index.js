@@ -51,7 +51,6 @@ try {
         const command = require(filePath);
         client.commands.set(command.data.name, command);
     }
-    console.log(client);
 
 }
 catch (ex) {

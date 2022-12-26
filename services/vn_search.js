@@ -4,12 +4,15 @@ const vn_database = require('./vn_database_service');
 const embed_maker = require('../helpers/embed');
 const logger = require('./logger_service');
 const { ActionRowBuilder, ButtonBuilder, ButtonStyle, SelectMenuBuilder } = require('discord.js');
+const sorryImg = 'https://media.discordapp.net/attachments/889918535139201064/929442009163391036/unknown.png';
 
 
 const info = async (id, client) => {
     try {
+        // Dev Mode
+        return ({ embeds: [errorEmbed('Under Development', `Sorry, this feature is under development to make it better than before. We will resolve as soon as possible :pensive:.\n\n\nSincery, \nATRI Developer`, client, sorryImg)] });
         return await vndb_service.getInfo(client, id)
-            .then(async (res) => {
+            .then(async (res) => {                
                 if (res === null) {
                     return ({ embeds: [errorEmbed('Not Found', 'Sorry, we didn\'t find the vn you are looking for, please check the vn id again.', client)] });
                 }
@@ -81,6 +84,8 @@ const info = async (id, client) => {
 
 const search = async (title, client, page = 1) => {
     try {
+        // Dev Mode
+        return ({ embeds: [errorEmbed('Under Development', `Sorry, this feature is under development to make it better than before. We will resolve as soon as possible :pensive:.\n\n\nSincery, \nATRI Developer`, client, sorryImg)] });
         return await vndb_service.findByTitle(client, title, page)
             .then((res) => {
                 if (res == null) {
@@ -136,8 +141,8 @@ const report = async (id, title, link, reason, client) => {
     }
 };
 
-const errorEmbed = (title, message, client) => {
-    return {
+const errorEmbed = (title, message, client, image='') => {
+    const body = {
         color: 0xe01212,
         title: title, message,
         author: {
@@ -148,8 +153,14 @@ const errorEmbed = (title, message, client) => {
         timestamp: new Date(),
         footer: {
             text: `ATRI Version: ${process.env.VERSION}`,
-        },
+        }
     };
+    if(image != '') {
+        body.image = {
+            url: image
+        };
+    }
+    return body;
 };
 
 module.exports = {
