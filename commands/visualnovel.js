@@ -1,10 +1,10 @@
 import { SlashCommandBuilder } from 'discord.js';
-import vn_search from '../services/vn_search';
-import embed_make from '../helpers/embed';
-import vn_info_tools from '../events/vnInfoToolCollect';
-import logger from '../services/logger_service';
+import vn_search from '../services/vn_search.js';
+import embed_make from '../helpers/embed.js';
+import vn_info_tools from '../events/vnInfoToolCollect.js';
+import logger from '../services/logger_service.js';
 
-module.exports = {
+export default {
     data: new SlashCommandBuilder()
         .setName('vn')
         .setDescription('Visual Novel Search Engine')

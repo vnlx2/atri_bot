@@ -1,8 +1,9 @@
 import vn_search from '../services/vn_search.js';
-import { ModalBuilder, ActionRowBuilder, TextInputBuilder, TextInputStyle } from '@discordjs/builders';
+import { ModalBuilder, ActionRowBuilder, TextInputBuilder } from '@discordjs/builders';
 import logger from '../services/logger_service.js';
+import { TextInputStyle } from 'discord.js';
 
-module.exports = async (interaction, client, msg = null) => {
+export default async (interaction, client, msg = null) => {
     const infoToolCollect = interaction.channel.createMessageComponentCollector();
 
     infoToolCollect.on('collect', async (i) => {

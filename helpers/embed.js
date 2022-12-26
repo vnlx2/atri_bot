@@ -29,6 +29,4 @@ const embed = (icon_url, title, description, color = 0x5e11d9, url = null, field
     return embed_data;
 };
 
-module.exports = {
-    embed,
-};
+export default embed;

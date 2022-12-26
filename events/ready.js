@@ -1,7 +1,7 @@
 import birthday from '../services/akashic_birthday_scheduler.js';
 import logger from '../services/logger_service.js';
 
-module.exports = {
+export default {
 	name: 'ready',
 	once: true,
 	execute(client) {
@@ -9,6 +9,6 @@ module.exports = {
 		console.log(`Uptime: ${Date(Date.now()).toString()}`);
 		logger.info(`System Ready, Logged as ${client.user.tag}`);
 		logger.info(`Uptime: ${Date(Date.now()).toString()}`);
-		birthday.set_schedule(client);
+		// birthday.set_schedule(client);
 	},
 };

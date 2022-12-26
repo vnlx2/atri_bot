@@ -3,7 +3,8 @@ import vndb_service from './vndb_service.js';
 import vn_database from './vn_database_service.js';
 import embed_maker from '../helpers/embed.js';
 import logger from './logger_service.js';
-import { ActionRowBuilder, ButtonBuilder, ButtonStyle, SelectMenuBuilder } from '@discordjs/builders';
+import { ActionRowBuilder, ButtonBuilder, SelectMenuBuilder } from '@discordjs/builders';
+import { ButtonStyle } from 'discord.js';
 
 
 const info = async (id, client) => {
@@ -166,7 +167,7 @@ const errorEmbed = (title, message, client) => {
     };
 };
 
-module.exports = {
+export default {
     info,
     search,
     request,

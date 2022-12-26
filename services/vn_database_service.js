@@ -1,6 +1,6 @@
 /* eslint-disable indent */
 // const pool = require('../helpers/database');
-import logger from "./logger_service";
+import logger from "./logger_service.js";
 
 const download_link = async (id) => {
     try {
@@ -37,6 +37,4 @@ const download_link = async (id) => {
     }
 };
 
-module.exports = {
-    download_link,
-};
+export default download_link;

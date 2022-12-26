@@ -61,4 +61,4 @@ class AkashicBirthday {
     }
 }
 
-module.exports = new AkashicBirthday;
+export default new AkashicBirthday();

@@ -2,7 +2,7 @@ import { InteractionType } from 'discord.js';
 import vn_search from '../services/vn_search.js';
 import logger from '../services/logger_service.js';
 
-module.exports = {
+export default {
 	name: 'interactionCreate',
 	async execute(interaction, client) {
 		console.log(`${interaction.user.tag} in #${interaction.channel.name} triggered an interaction.`);

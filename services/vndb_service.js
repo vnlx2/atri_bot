@@ -24,7 +24,7 @@ const vn_length = [
   'Very Long (> 50 hours)',
 ];
 
-module.exports.getInfo = async (client, id) => {
+const getInfo = async (client, id) => {
   try {
     const result = await vndb
       .query('get vn basic,details,stats (id = ' + id + ')')
@@ -63,7 +63,7 @@ module.exports.getInfo = async (client, id) => {
   }
 };
 
-module.exports.findByTitle = async (client, name, page = 1) => {
+const findByTitle = async (client, name, page = 1) => {
   try {
     return vndb
       .query('get vn basic (search ~ "' + name + '") { "page": ' + page + ', "results": ' + 5 + ' }')
@@ -106,6 +106,12 @@ module.exports.findByTitle = async (client, name, page = 1) => {
   }
 };
 
-module.exports.clearConnection = async () => {
+const clearConnection = async () => {
   vndb.destroy();
+};
+
+export default {
+  getInfo,
+  findByTitle,
+  clearConnection
 };
