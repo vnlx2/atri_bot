@@ -11,20 +11,20 @@ function addDownloadLink(information, downloadUrls) {
     information.fields.push({ name: '\u200B', value: '**Download Link**' });
 
     // Add Hyperlinks
-    const languages = {'JP': downloadUrls.jp_link, 'EN': downloadUrls.en_link, 'ID': downloadUrls.id_link};
+    const languages = { 'JP': downloadUrls.jp_link, 'EN': downloadUrls.en_link, 'ID': downloadUrls.id_link };
     for (const [language, urls] of Object.entries(languages)) {
         let links = '';
         let provider = '';
         let index = 1;
         for (const url of urls) {
-            if(provider != url.provider) {
+            if (provider != url.provider) {
                 index = 1;
                 provider = url.provider;
             }
             links += `[${provider} ${index}](${url.url}) `;
             index++;
         }
-        if(links) {
+        if (links) {
             information.fields.push({ name: language, value: links });
         }
     }
@@ -48,21 +48,20 @@ const info = async (id, client) => {
             .setLabel('Request VN')
             .setStyle(ButtonStyle.Primary)
             .setDisabled(false)
-            // .setEmoji({id:"965818066812424274", name: ":aqusungkem:"});
-            .setEmoji({id: "1017802961767895100", name:":ichiko_haha:"})
+            .setEmoji({ id: "1017802961767895100", name: ":ichiko_haha:" })
         const VNDownloadTool = new ActionRowBuilder()
-        .addComponents([requestDL]);
+            .addComponents([requestDL]);
 
         // Add Download Link (if available)
         if (dlLinks && (dlLinks.jp_link.length || dlLinks.en_link.length || dlLinks.id_link.length)) {
             addDownloadLink(information, dlLinks);
-            
+
             // VN Report Link
             const reportDL = new ButtonBuilder()
                 .setCustomId(`vn-dl-report-${id}`)
                 .setLabel('Report Link')
                 .setStyle(ButtonStyle.Secondary)
-                .setEmoji({name: "🚩"});
+                .setEmoji({ name: "🚩" });
             VNDownloadTool.addComponents(reportDL);
         }
         return { embeds: [information], ephemeral: false, components: [VNDownloadTool] };
@@ -77,40 +76,38 @@ const info = async (id, client) => {
 // Find VN based on title
 const search = async (title, client, page = 1) => {
     try {
-        return await vndb_service.findByTitle(client, title, page)
-            .then((res) => {
-                if (res == null) {
-                    return ({ embeds: [embed_maker.errorEmbed('Not Found', 'Sorry, we didn\'t find the vn you are looking for, please try with another keyword.', client)] });
-                }
-                // Pagination Button
-                const nextPageBtn = new ButtonBuilder()
-                                        .setCustomId(`${title}-next-page-${page + 1}`)
-                                        .setLabel('Next')
-                                        .setStyle(ButtonStyle.Primary)
-                                        .setDisabled(!res.next_page);
-                const prevPageBtn = new ButtonBuilder()
-                                        .setCustomId(`${title}-prev-page-${page - 1}`)
-                                        .setLabel('Previous')
-                                        .setStyle(ButtonStyle.Primary)
-                                        .setDisabled((page == 1) ? true : false);
-                const paginationBtns = new ActionRowBuilder()
-                            .addComponents([prevPageBtn, nextPageBtn]);
-                // Search Result Options Menu
-                const options = new ActionRowBuilder()
-                        .addComponents(
-                            new SelectMenuBuilder()
-                                .setCustomId('selected-result')
-                                .setPlaceholder('Please Select a Visual Novel')
-                                .addOptions(res.items),
-                        );
-                return { embeds: [res.results], ephemeral: false, components: [paginationBtns, options], fetchReply: true };
-            });
+        const result = await vndb_service.findByTitle(client, title, page)
+        if (!result.items.length) {
+            return ({ embeds: [embed_maker.errorEmbed('Not Found', 'Sorry, we didn\'t find the vn you are looking for, please try with another keyword.', client)] });
+        }
+        // Pagination Button
+        const nextPageBtn = new ButtonBuilder()
+            .setCustomId(`${title}-next-page-${page + 1}`)
+            .setLabel('Next')
+            .setStyle(ButtonStyle.Primary)
+            .setDisabled(!result.next_page);
+        const prevPageBtn = new ButtonBuilder()
+            .setCustomId(`${title}-prev-page-${page - 1}`)
+            .setLabel('Previous')
+            .setStyle(ButtonStyle.Primary)
+            .setDisabled((page == 1) ? true : false);
+        const paginationBtns = new ActionRowBuilder()
+            .addComponents([prevPageBtn, nextPageBtn]);
+        // Search Result Options Menu
+        const options = new ActionRowBuilder()
+            .addComponents(
+                new SelectMenuBuilder()
+                    .setCustomId('selected-result')
+                    .setPlaceholder('Please Select a Visual Novel')
+                    .addOptions(result.items),
+            );
+        return { embeds: [result.results], ephemeral: false, components: [paginationBtns, options], fetchReply: true };
     }
     catch (err) {
-        console.error(err);
-        logger.error(err);
-        return ({ embeds: [embed_maker.errorEmbed('Error', 'Waaahhhh....!!! An error was occured.\nPlease try again...~', client)] });
-    }
+    console.error(err);
+    logger.error(err);
+    return ({ embeds: [embed_maker.errorEmbed('Error', 'Waaahhhh....!!! An error was occured.\nPlease try again...~', client)] });
+}
 };
 
 // Send download link request
