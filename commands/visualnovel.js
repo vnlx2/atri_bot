@@ -1,6 +1,5 @@
 import { SlashCommandBuilder } from 'discord.js';
 import vn_search from '../services/vn_search.js';
-import embed_make from '../helpers/embed.js';
 import vn_info_tools from '../events/vnInfoToolCollect.js';
 import logger from '../services/logger_service.js';
 
@@ -97,7 +96,7 @@ export default {
         catch (err) {
             console.error(err);
             logger.error(err);
-            embed_make.embed(client.user.avatarURL, 'Error', 'An error was occured', 0xe01212);
+            // await interaction.editReply(embed_make.embed(client.user.avatarURL, 'Error', 'An error was occured', 0xe01212));            
         }
     },
 };

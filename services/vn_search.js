@@ -47,7 +47,9 @@ const info = async (id, client) => {
             .setCustomId(`vn-dl-request-${id}`)
             .setLabel('Request VN')
             .setStyle(ButtonStyle.Primary)
-            .setDisabled(false);
+            .setDisabled(false)
+            // .setEmoji({id:"965818066812424274", name: ":aqusungkem:"});
+            .setEmoji({id: "1017802961767895100", name:":ichiko_haha:"})
         const VNDownloadTool = new ActionRowBuilder()
         .addComponents([requestDL]);
 
@@ -59,7 +61,8 @@ const info = async (id, client) => {
             const reportDL = new ButtonBuilder()
                 .setCustomId(`vn-dl-report-${id}`)
                 .setLabel('Report Link')
-                .setStyle(ButtonStyle.Secondary);
+                .setStyle(ButtonStyle.Secondary)
+                .setEmoji({name: "🚩"});
             VNDownloadTool.addComponents(reportDL);
         }
         return { embeds: [information], ephemeral: false, components: [VNDownloadTool] };
