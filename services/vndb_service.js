@@ -8,7 +8,6 @@ import VNDB from '../models/VNDB.js';
 import embed_maker from '../helpers/embed.js';
 import logger from './logger_service.js';
 import dotenv from 'dotenv';
-import embed from '../helpers/embed.js';
 
 dotenv.config();
 

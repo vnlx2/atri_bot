@@ -4,6 +4,7 @@ import vn_info_tools from '../events/vnInfoToolCollect.js';
 import logger from '../services/logger_service.js';
 import embed from '../helpers/embed.js';
 
+// Handle VN Search navigation collect
 async function handle(interaction, originInteraction, navigationCollect, client) {
 	try {
 		if (interaction.user.id != originInteraction.user.id) {
@@ -90,6 +91,7 @@ export default {
 					try {
 						await handle(i, interaction, navigationCollect, client);
 					} catch(error) {
+						logger.error(error);
 						await interaction.followUp({ embeds: [embed.errorEmbed('Error', 'Waaahhhh....!!! An error was occured.\nPlease try again...~', client)] });
 						navigationCollect.stop(['VN was Selected']);
 					}

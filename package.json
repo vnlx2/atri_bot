@@ -20,8 +20,7 @@
     "node-cron": "^3.0.1",
     "node-schedule": "^2.1.0",
     "pino": "^7.0.0-rc.9",
-    "pino-pretty": "^9.1.0",
-    "vndb-api": "^1.0.3"
+    "pino-pretty": "^9.1.0"
   },
   "devDependencies": {
     "eslint": "^8.20.0"
