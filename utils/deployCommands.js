@@ -19,8 +19,7 @@ rest.put(Routes.applicationGuildCommands(process.env.APP_ID, process.env.AKASHIC
 	.catch(console.error);
 
 if(!process.env.DEBUG_MODE) {
-	console.log("Mugyuu~");
-	// rest.put(Routes.applicationGuildCommands(process.env.APP_ID, process.env.VNL_SERVER_ID), { body:jsonCommands })
-	// 	.then(() => console.log('Application Commands register succesfully in VNL Server.'))
-	// 	.catch(console.error);
+	rest.put(Routes.applicationGuildCommands(process.env.APP_ID, process.env.VNL_SERVER_ID), { body:jsonCommands })
+		.then(() => console.log('Application Commands register succesfully in VNL Server.'))
+		.catch(console.error);
 }
