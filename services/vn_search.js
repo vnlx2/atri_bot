@@ -116,19 +116,20 @@ const request = async (id, title, client) => {
         const channel = await client.channels.cache.get(process.env.VNL_FORUM_ID);
         return await channel.threads.create(
             { 
-                name: `[Request] ${title}`, 
-                message: { 
+                name: `[Request] ${title}`,
+                message: {
                     embeds: [
                         embed_maker.embed(
                             client.user.avatarURL(), 
                             'Request Visual Novel', 
-                            `**${title}**\nLink\n[https://vndb.org/v${id}](https://vndb.org/v${id})`, 
-                            0x325aab, 
-                            `https://vndb.org/v${id}`
-                            )
+                            `**${title}**\n
+                            Link\n[https://vndb.org/v${id}](https://vndb.org/v${id})
+                            \nRequest by: `
+                            , 0x325aab, `https://vndb.org/v${id}`)
                         ] 
-                    } 
-                });
+                },
+                appliedTags: [process.env.VNL_REQUEST_TAG_ID]
+            });
     }
     catch (err) {
         console.error(err);
@@ -142,19 +143,18 @@ const report = async (id, title, link, reason, client) => {
         const channel = await client.channels.cache.get(process.env.VNL_FORUM_ID);
         return await channel.threads.create(
             { 
-                name: `[Report] ${title}`, 
+                name: `[Report] ${title}`,
                 message: { 
                     embeds: [
                         embed_maker.embed(
                             client.user.avatarURL(), 
                             'Report Visual Novel', 
                             `**${title}**\nVNDB Link : [https://vndb.org/v${id}](https://vndb.org/v${id})\nLink Name : ${link}\nReason : ${reason}`, 
-                            0x325aab, 
-                            `https://vndb.org/v${id}`
-                            )
-                        ] 
-                    } 
-                });
+                            0x325aab, `https://vndb.org/v${id}`)
+                        ]  
+                },
+                appliedTags: [process.env.VNL_REPORT_TAG_ID]
+        });
     }
     catch (err) {
         console.error(err);
