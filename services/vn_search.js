@@ -14,15 +14,15 @@ function addDownloadLink(information, downloadUrls) {
     const languages = { 'JP': downloadUrls.jp_link, 'EN': downloadUrls.en_link, 'ID': downloadUrls.id_link };
     for (const [language, urls] of Object.entries(languages)) {
         let links = '';
-        let provider = '';
-        let index = 1;
+        let providers = {};
         for (const url of urls) {
-            if (provider != url.provider) {
-                index = 1;
-                provider = url.provider;
+            if (providers[url.provider] === undefined) {
+                providers[url.provider] = 1;
             }
-            links += `[${provider} ${index}](${url.url}) `;
-            index++;
+            else {
+                providers[url.provider] += 1;
+            }
+            links += `[${url.provider} ${providers[url.provider]}](${url.url}) `;
         }
         if (links) {
             information.fields.push({ name: language, value: links });
