@@ -13,13 +13,13 @@ export default async (interaction, client, msg = null) => {
                     infoToolCollect.resetTimer();
                     const id = parseInt(i.customId.split('-')[3]);
                     const title = i.message.embeds[0].data.title;
-                    await vn_search.request(id, title, client)
-                        .then(async () => {
-                            if (msg === null) {
-                                i.update({ content: 'Your request has been sent.', embeds: [], components: [] });
-                            }
-                            await infoToolCollect.stop('Your request has been sent.');
-                        });
+                    const thumbnail = i.message.embeds[0].thumbnail.url;
+                    const author = interaction.user.id;
+                    await vn_search.request(id, title, thumbnail, client, author);
+                    if (msg === null) {
+                        i.update({ content: 'Your request has been sent.', embeds: [], components: [] });
+                    }
+                    await infoToolCollect.stop();
                 }
                 else if (i.customId.includes('vn-dl-report')) {
                     infoToolCollect.resetTimer();
@@ -54,12 +54,6 @@ export default async (interaction, client, msg = null) => {
         catch (err) {
             console.error(err);
             logger.error(err);
-        }
-    });
-
-    infoToolCollect.on('end', async (collect, message) => {
-        if (msg != null) {
-            await msg.edit({ content: message, embeds: [], components: [] });
         }
     });
 };

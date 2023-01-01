@@ -111,7 +111,7 @@ const search = async (title, client, page = 1) => {
 };
 
 // Send download link request
-const request = async (id, title, client) => {
+const request = async (id, title, thumbnail, client, author) => {
     try {
         const channel = await client.channels.cache.get(process.env.VNL_FORUM_ID);
         return await channel.threads.create(
@@ -124,8 +124,9 @@ const request = async (id, title, client) => {
                             'Request Visual Novel', 
                             `**${title}**\n
                             Link\n[https://vndb.org/v${id}](https://vndb.org/v${id})
-                            \nRequest by: `
-                            , 0x325aab, `https://vndb.org/v${id}`)
+                            \nRequest by: <@${author}>`,
+                            0x325aab, `https://vndb.org/v${id}`,
+                            null, thumbnail)
                         ] 
                 },
                 appliedTags: [process.env.VNL_REQUEST_TAG_ID]
@@ -138,7 +139,7 @@ const request = async (id, title, client) => {
 };
 
 // Send report link
-const report = async (id, title, link, reason, client) => {
+const report = async (id, title, link, reason, thumbnail, client, author) => {
     try {
         const channel = await client.channels.cache.get(process.env.VNL_FORUM_ID);
         return await channel.threads.create(
@@ -149,8 +150,12 @@ const report = async (id, title, link, reason, client) => {
                         embed_maker.embed(
                             client.user.avatarURL(), 
                             'Report Visual Novel', 
-                            `**${title}**\nVNDB Link : [https://vndb.org/v${id}](https://vndb.org/v${id})\nLink Name : ${link}\nReason : ${reason}`, 
-                            0x325aab, `https://vndb.org/v${id}`)
+                            `**${title}**\n
+                            VNDB Link : [https://vndb.org/v${id}](https://vndb.org/v${id})\n
+                            Link Name : ${link}\nReason : ${reason}
+                            \nReported by: <@${author}>`, 
+                            0x325aab, `https://vndb.org/v${id}`,
+                            null, thumbnail)
                         ]  
                 },
                 appliedTags: [process.env.VNL_REPORT_TAG_ID]
