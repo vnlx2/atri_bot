@@ -12,6 +12,7 @@ dotenv.config();
 const token = process.env.BOT_TOKEN;
 
 try {
+    console.log(`ATRI Bot ${process.env.VERSION}`);
     // Create Discord.js Client Instance
     const client = new Client({ intents: [
         GatewayIntentBits.Guilds,
