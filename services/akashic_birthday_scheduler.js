@@ -79,8 +79,7 @@ const initialized = async (client) => {
         const birthdayUsers = new Set();
         console.info('Initialized Birthday Schedule');
         console.info(`Current Date is ${moment()}`);
-        await processBirthday(client, guild, birthdayUsers)
-        return schedule('0 0 * * *', async (client, guild, birthdayUsers) => await processBirthday(client, guild, birthdayUsers));
+        return schedule('0 0 * * *', async () => await processBirthday(client, guild, birthdayUsers));
     }
     catch (err) {
         console.error('An error has occured in Birthday Scheduler Initializer.');
