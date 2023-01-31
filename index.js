@@ -24,9 +24,10 @@ try {
     CommandController(client);
     EventController(client);
 
+    // Login to Discord with your token
+    client.login(token);
 }
 catch (ex) {
     console.log(ex);
     logger.error(ex);
 }
-
