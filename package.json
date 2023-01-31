@@ -1,11 +1,12 @@
 {
-  "name": "ATRI",
-  "version": "0.2.0",
+  "name": "atri_bot",
+  "version": "1.1.0",
   "description": "Visual Novel Discord Bot",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node index.js",
-    "start.dev": "nodemon -L index.js | pino-pretty",
+    "dev": "nodemon -L index.js | pino-pretty",
     "deploy.cmd": "node deploy-command.js"
   },
   "author": "Moonchild",
@@ -15,13 +16,12 @@
     "discord.js": "^14.1.1",
     "dotenv": "^16.0.1",
     "moment": "^2.29.4",
-    "mysql": "^2.18.1",
-    "mysql2": "^2.3.3",
+    "moment-timezone": "^0.5.40",
+    "mongoose": "^6.8.1",
     "node-cron": "^3.0.1",
     "node-schedule": "^2.1.0",
     "pino": "^7.0.0-rc.9",
-    "pino-pretty": "^9.1.0",
-    "vndb-api": "^1.0.3"
+    "pino-pretty": "^9.1.0"
   },
   "devDependencies": {
     "eslint": "^8.20.0"

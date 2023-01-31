@@ -1,13 +1,12 @@
-/* eslint-disable indent */
-const moment = require('moment');
-const logger = require('../services/logger_service');
-const dotenv = require('dotenv');
+import moment from 'moment';
+import dotenv from 'dotenv';
+import logger from '../services/logger_service.js';
 
 dotenv.config();
 
 // const vndbService = VndbService
 
-module.exports = {
+export default {
 	name: 'messageCreate',
 	once: false,
 	execute(message, client) {

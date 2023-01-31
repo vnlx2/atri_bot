@@ -1,6 +1,6 @@
-/* eslint-disable indent */
-const pino = require('pino');
-const path = require('node:path');
+import pino from "pino";
+import path from 'node:path';
+
 const logger = pino(
 	{
         transport: {
@@ -14,4 +14,4 @@ const logger = pino(
         },
     },
 );
-module.exports = logger;
+export default logger;

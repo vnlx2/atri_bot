@@ -1,11 +1,9 @@
-/* eslint-disable indent */
+import { InteractionType } from 'discord.js';
+import embed_maker from '../helpers/embed.js';
+import logger from '../services/logger_service.js';
+import ReportFeature from '../services/VisualNovel/Features/ReportFeature.js';
 
-const { InteractionType } = require('discord.js');
-const vn_search = require('../services/vn_search');
-const logger = require('../services/logger_service');
-
-/* eslint-disable no-trailing-spaces */ 
-module.exports = {
+export default {
 	name: 'interactionCreate',
 	async execute(interaction, client) {
 		console.log(`${interaction.user.tag} in #${interaction.channel.name} triggered an interaction.`);
@@ -23,7 +21,9 @@ module.exports = {
 					const reason = interaction.fields.getTextInputValue('report-reason');
 					const id = parseInt(interaction.customId.split('-')[4]);
 					const title = interaction.customId.split('-')[5];
-					await vn_search.report(id, title, linkName, reason, client);
+					const author = interaction.user.id;
+					const thumbnail = interaction.message.embeds[0].thumbnail.url;
+					await ReportFeature(id, title, linkName, reason, thumbnail, client, author);
 					await interaction.update({ content: 'Your report has been sent.', embeds: [], components: [] });
 				}
 			}
@@ -31,8 +31,13 @@ module.exports = {
 		catch (err) {
 			console.error(err);
 			logger.error(err);
-			await interaction.reply({
-				content: `An Error has occured. ${err}`,
+			await client.channels.cache.get(interaction.channelId).send({
+				embeds: [
+					embed_maker.errorEmbed(
+						'Error', 'Waaahhhh....!!! An error was occured.\nPlease try again...~', 
+						client
+						)
+					],
 				ephemeral: true,
 			});
 		}

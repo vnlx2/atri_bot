@@ -1,5 +1,5 @@
 /* eslint-disable indent */
-const embed = (icon_url, title, description, color = 0x5e11d9, url = null, fields = null, thumbnail_url = null) => {
+const embed = (icon_url, title, description, color = 0x5e11d9, url = null, fields = null, thumbnail_url = null, image_url = null) => {
     const embed_data = {
         color: color,
         title: title,
@@ -11,7 +11,7 @@ const embed = (icon_url, title, description, color = 0x5e11d9, url = null, field
         timestamp: new Date(),
         footer: {
             text: `ATRI Version: ${process.env.VERSION}`,
-        },
+        }
     };
     if (url != null) embed_data.url = url;
     if (thumbnail_url != null) {
@@ -22,6 +22,11 @@ const embed = (icon_url, title, description, color = 0x5e11d9, url = null, field
     if (fields != null) {
         embed_data.fields = fields;
     }
+    if(image_url) {
+        embed_data.image = {
+            url: image_url,
+        };
+    }
     embed_data.timestamp = new Date();
     embed_data.footer = {
         text: `ATRI Version: ${process.env.VERSION}`,
@@ -29,6 +34,23 @@ const embed = (icon_url, title, description, color = 0x5e11d9, url = null, field
     return embed_data;
 };
 
-module.exports = {
+const errorEmbed = (title, message, client) => {
+    return {
+        color: 0xe01212,
+        title: title, message,
+        author: {
+            name: 'ATRI Visual Novel Search Engine',
+            icon_url: client.user.avatarURL(),
+        },
+        description: message,
+        timestamp: new Date(),
+        footer: {
+            text: `ATRI Version: ${process.env.VERSION}`,
+        },
+    };
+};
+
+export default {
     embed,
+    errorEmbed
 };
