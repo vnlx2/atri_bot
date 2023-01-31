@@ -9,12 +9,11 @@ import GetTotal from "../Jobs/GetTotal.js";
 export default async function (title, client, page = 1) {
     try {
         const results = await FindJob(title, page);
-        if (!results) {
-			return embed.errorEmbed(
+        if (results.length === 0) {
+            return { embeds: [embed.errorEmbed(
                 'Not Found', 
                 'Sorry, we didn\'t find the Visual Novel you are looking for.', 
-                client
-            );
+                client)] };
 		}
         const total = await GetTotal(title);
         const isEndPage = !(total > (5 * page));
@@ -39,9 +38,9 @@ export default async function (title, client, page = 1) {
     } catch (err) {
         console.error(err);
 		logger.error(err);
-        return ({ embeds: [embed.errorEmbed(
+        return { embeds: [embed.errorEmbed(
             'Error', 
             'Waaahhhh....!!! Gomen (´;︵;`)\n' + 
-            'An error was occured when find VN info.\nPlease try again...~', client)] });
+            'An error was occured when find VN info.\nPlease try again...~', client)] };
     }
 }

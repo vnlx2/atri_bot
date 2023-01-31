@@ -9,12 +9,11 @@ import { ActionRowBuilder } from "@discordjs/builders";
 export default async function (code, client) {
     try {
 		const result = await FetchVisualNovelJob(code);
-		if (!result) {
-			return embed_maker.errorEmbed(
+		if (result.length === 0) {
+            return { embeds: [embed.errorEmbed(
                 'Not Found', 
                 'Sorry, we didn\'t find the vn you are looking for, please check the vn id again.', 
-                client
-            );
+                client)] };
 		}
 		const fields = GenerateFieldsJob(result);
         const requestButton = CreateButton(`vn-dl-request-${code}`, 'Request VN', 'primary', { name: "📄" });
