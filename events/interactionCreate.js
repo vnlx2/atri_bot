@@ -1,7 +1,7 @@
 import { InteractionType } from 'discord.js';
 import embed_maker from '../helpers/embed.js';
-import vn_search from '../services/vn_search.js';
 import logger from '../services/logger_service.js';
+import ReportFeature from '../services/VisualNovel/Features/ReportFeature.js';
 
 export default {
 	name: 'interactionCreate',
@@ -23,7 +23,7 @@ export default {
 					const title = interaction.customId.split('-')[5];
 					const author = interaction.user.id;
 					const thumbnail = interaction.message.embeds[0].thumbnail.url;
-					await vn_search.report(id, title, linkName, reason, thumbnail, client, author);
+					await ReportFeature(id, title, linkName, reason, thumbnail, client, author);
 					await interaction.update({ content: 'Your report has been sent.', embeds: [], components: [] });
 				}
 			}

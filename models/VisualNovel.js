@@ -9,22 +9,50 @@ const linkSchema = mongoose.Schema({
     type : {
         type: String
     },
+    platform: {
+        type: String
+    },
     url : {
         type: String,
         required: true
     }
 });
 
+const downloadLinkSchema = mongoose.Schema({
+    jp_link : [linkSchema],
+    en_link : [linkSchema],
+    id_link : [linkSchema]
+});
+
 const VisualNovel = mongoose.Schema({
-    code : {
+    code: {
         type: String,
         required: true
     },
-    jp_link : [linkSchema],
-    en_link : [linkSchema],
-    id_link : [linkSchema],
+    title: {
+        type: String,
+        required: true
+    },
+    aliases: {
+        type: String
+    },
+    length: {
+        type: Number
+    },
+    rating: {
+        type: Number,
+        required: true
+    },
+    description: {
+        type: String,
+        required: true
+    },
+    image: {
+        type: String
+    },
+    downloadUrl: downloadLinkSchema
 }, {
     timestamps: true
 });
 
-export default mongoose.model('visual_novels', VisualNovel);
+export default mongoose.model('vndbs', VisualNovel);

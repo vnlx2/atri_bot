@@ -1,5 +1,8 @@
-import vn_search from "../services/vn_search.js";
-import vn_info_tools from '../events/vnInfoToolCollect.js';
+import VNInfoButtonListener from '../events/VisualNovelInfoButtonListener.js';
+import InfoFeature from "../services/VisualNovel/Features/InfoFeature.js";
+import FindFeature from "../services/VisualNovel/Features/FindFeature.js";
+import logger from "../services/logger_service.js";
+import embed from '../helpers/embed.js';
 
 // Handle VN Search navigation collect
 async function handle(interaction, originInteraction, navigationCollect, client) {
@@ -10,24 +13,24 @@ async function handle(interaction, originInteraction, navigationCollect, client)
         if (interaction.isButton()) {
             await interaction.deferUpdate();
             if (interaction.customId.includes('next-page')) {
-                this.resetTimer();
+                navigationCollect.resetTimer();
                 const page = parseInt(interaction.customId.split('-')[3]);
                 const title = interaction.customId.split('-')[0];
-                const data = await vn_search.search(title, client, page);
+                const data = await FindFeature(title, client, page);
                 await interaction.editReply(data);
             }
             else if (interaction.customId.includes('prev-page')) {
                 navigationCollect.resetTimer();
                 const page = parseInt(interaction.customId.split('-')[3]);
                 const title = interaction.customId.split('-')[0];
-                const data = await vn_search.search(title, client, page);
+                const data = await FindFeature(title, client, page);
                 await interaction.editReply(data);
             }
         }
         else if (interaction.isStringSelectMenu() && interaction.customId === 'selected-result') {
-            const info = await vn_search.info(parseInt(interaction.values[0]), client);
-            const message = await originInteraction.followUp(info);
-            await vn_info_tools(originInteraction, client, message);
+            const info = await InfoFeature(parseInt(interaction.values[0]), client);
+            await originInteraction.followUp(info);
+            await VNInfoButtonListener(originInteraction, client);
             navigationCollect.stop(['VN was Selected']);
         }
     }
@@ -39,17 +42,17 @@ async function handle(interaction, originInteraction, navigationCollect, client)
 // VN Info
 export const info = async (interaction, client) => {
     await interaction.deferReply();
-    const result = await vn_search.info(interaction.options.getInteger('id'), client);
+    const result = await InfoFeature(interaction.options.getInteger('id'), client);
     await interaction.editReply(result);
 
-    vn_info_tools(interaction, client);
+    VNInfoButtonListener(interaction, client);
 }
 
 // VN Search
 export const search = async (interaction, client) => {
     // Send Search Result
     await interaction.deferReply();
-    const result = await vn_search.search(interaction.options.getString('title'), client);
+    const result = await FindFeature(interaction.options.getString('title'), client);
     await interaction.editReply(result);
 
     const navigationCollect = interaction.channel.createMessageComponentCollector({
@@ -61,6 +64,7 @@ export const search = async (interaction, client) => {
             await handle(i, interaction, navigationCollect, client);
         } catch (error) {
             logger.error(error);
+            console.log(error);
             await interaction.followUp({ embeds: [embed.errorEmbed('Error', 'Waaahhhh....!!! An error was occured.\nPlease try again...~', client)] });
             navigationCollect.stop(['vn_info_tools was Selected']);
         }
