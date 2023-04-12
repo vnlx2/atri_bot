@@ -1,5 +1,6 @@
 import axios from 'axios';
 import provinces from '../utils/imsakiyahDB/id/provinces.json' assert { type: "json" };
+import { setFeature } from '../services/Imsakiyah/Features/SetFeature.js';
 
 let cities = "";
 
@@ -27,3 +28,15 @@ export const autocompleteProvince = async (interaction) => {
         );
     }
 }
+
+export const set = async (interaction, client) => {
+    try {
+        const provinceId = provinces.filter(province => province.name === interaction.options.getString('province'))[0].id;
+        const userId = interaction.member.user.id;
+        const cityName = interaction.options.getString('city');
+        const result = await setFeature(userId, provinceId, cityName, client);
+        await interaction.reply(result);
+    } catch (err) {
+        throw err;
+    }
+} 

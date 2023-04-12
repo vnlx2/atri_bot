@@ -1,5 +1,5 @@
 import { SlashCommandBuilder } from "discord.js";
-import { autocompleteProvince } from "../controllers/ImsakiyahController.js";
+import { autocompleteProvince, set } from "../controllers/ImsakiyahController.js";
 import logger from "../services/logger_service.js";
 
 export default {
@@ -29,10 +29,10 @@ export default {
     async autocomplete(interaction) {
         await autocompleteProvince(interaction);
     },
-    async execute(interaction) {
+    async execute(interaction, client) {
         try {
-            if (interaction.options.getSubcommand() === 'info') {
-				await info(interaction, client);
+            if (interaction.options.getSubcommand() === 'set') {
+				await set(interaction, client);
 			}
         } catch (err) {
             console.error(err);
