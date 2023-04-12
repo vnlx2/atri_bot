@@ -27,6 +27,11 @@ export default {
 					await interaction.update({ content: 'Your report has been sent.', embeds: [], components: [] });
 				}
 			}
+			else if (interaction.isAutocomplete()) {
+				const command = interaction.client.commands.get(interaction.commandName);
+				if (!command) return;
+				await command.autocomplete(interaction);
+			}
 		}
 		catch (err) {
 			console.error(err);
