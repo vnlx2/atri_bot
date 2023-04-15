@@ -1,5 +1,5 @@
 import { SlashCommandBuilder } from "discord.js";
-import { autocompleteProvince, set } from "../controllers/ImsakiyahController.js";
+import { autocompleteProvince, set, unset } from "../controllers/ImsakiyahController.js";
 import logger from "../services/logger_service.js";
 
 export default {
@@ -28,8 +28,8 @@ export default {
         )
         .addSubcommand(subcommand => 
             subcommand
-                .setName('dummy')
-                .setDescription('Only tester DM')
+                .setName('unset')
+                .setDescription('Unset imsakiyah configuration')
         ),
     async autocomplete(interaction) {
         await autocompleteProvince(interaction);
@@ -39,8 +39,8 @@ export default {
             if (interaction.options.getSubcommand() === 'set') {
 				await set(interaction, client);
 			}
-            else if (interaction.options.getSubcommand() === 'dummy') {
-                interaction.user.send('Hello :wave:');
+            else if (interaction.options.getSubcommand() === 'unset') {
+                await unset(interaction, client);
             }
         } catch (err) {
             console.error(err);

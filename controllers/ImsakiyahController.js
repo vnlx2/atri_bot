@@ -1,6 +1,7 @@
 import axios from 'axios';
 import provinces from '../utils/imsakiyahDB/id/provinces.json' assert { type: "json" };
 import { setFeature } from '../services/Imsakiyah/Features/SetFeature.js';
+import { unsetFeature } from '../services/Imsakiyah/Features/UnsetFeature.js';
 
 let cities = "";
 
@@ -40,3 +41,13 @@ export const set = async (interaction, client) => {
         throw err;
     }
 } 
+
+export const unset = async (interaction, client) => {
+    try {
+        const userId = interaction.member.user.id;
+        const result = await unsetFeature(userId, client);
+        await interaction.reply(result);
+    } catch (err) {
+        throw err;
+    }
+}
