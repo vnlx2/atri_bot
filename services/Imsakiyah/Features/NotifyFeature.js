@@ -4,6 +4,22 @@ import axios from "axios";
 import { getRegisteredCity } from "../Jobs/GetRegisteredCity.js";
 import { getUsers } from "../Jobs/GetUsers.js";
 
+const changeTimezone = (date, timeZone) => {
+    if (typeof date === 'string') {
+        return new Date(
+            new Date(date).toLocaleString('en-US', {
+                timeZone,
+            }),
+        );
+    }
+
+    return new Date(
+        date.toLocaleString('en-US', {
+            timeZone,
+        }),
+    );
+}
+
 const dateToDateFormat = (date) => {
     const obj = date.split(/\//);
     return `${obj[1]}/${obj[0]}/${obj[2]}`;
@@ -26,7 +42,7 @@ const getLastRamadhan = async () => {
 }
 
 const check = async (client, lastRamadhan) => {
-    const currentDate = new Date();
+    const currentDate = changeTimezone(new Date(), 'Asia/Jakarta');
     if (lastRamadhan > currentDate) {
         const cities = await getRegisteredCity();
         for (let city of cities) {
@@ -42,7 +58,7 @@ const check = async (client, lastRamadhan) => {
                 await sendNotify(client, city._id, 'maghrib');
             }
         }
-    }    
+    }
 }
 
 const sendNotify = async (client, cityId, status="imsak") => {
