@@ -25,6 +25,11 @@ export default {
                         .setAutocomplete(true)
                         .setRequired(true)
                 )
+        )
+        .addSubcommand(subcommand => 
+            subcommand
+                .setName('dummy')
+                .setDescription('Only tester DM')
         ),
     async autocomplete(interaction) {
         await autocompleteProvince(interaction);
@@ -34,6 +39,9 @@ export default {
             if (interaction.options.getSubcommand() === 'set') {
 				await set(interaction, client);
 			}
+            else if (interaction.options.getSubcommand() === 'dummy') {
+                interaction.user.send('Hello :wave:');
+            }
         } catch (err) {
             console.error(err);
 			logger.error(err);
