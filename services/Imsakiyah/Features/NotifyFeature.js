@@ -3,6 +3,30 @@ import logger from "../../logger_service.js";
 import axios from "axios";
 import { getRegisteredCity } from "../Jobs/GetRegisteredCity.js";
 import { getUsers } from "../Jobs/GetUsers.js";
+import { find } from "geo-tz";
+
+const convertCoordinatToDecimal = (latitude, longitude) => {
+    latitude = latitude.replace(/[^a-zA-Z0-9. ]/g, '').split(" ");
+    longitude = longitude.replace(/[^a-zA-Z0-9. ]/g, '').split(" ");
+    
+    let decimalLatitude = parseInt(latitude[0]) + parseInt(latitude[1])/60 
+                            + parseFloat(latitude[2])/3600;
+    let decimalLongitude = parseInt(longitude[0]) + parseInt(longitude[1])/60 
+    + parseFloat(longitude[2])/3600;
+
+    if (latitude[3] === 'S') {
+        decimalLatitude *= -1;
+    }
+    if (longitude[3] === 'W') {
+        decimalLongitude *= -1;
+    }
+    return [decimalLatitude, decimalLongitude];
+}
+
+const getTimeZoneBasedOnCoordinate = (latitude, longitude) => {
+    const timeZone = find(latitude, longitude);
+    return timeZone[0];
+}
 
 const changeTimezone = (date, timeZone) => {
     if (typeof date === 'string') {
@@ -49,6 +73,11 @@ const check = async (client, lastRamadhan) => {
             const response = await axios.get(
                 `https://imsakiyah-api.santrikoding.com/imsyakiyah?state=${encodeURI(city.provinceId)}&city=${encodeURI(city._id)}&year=${currentDate.getFullYear()}&date=${currentDate.toISOString().split('T')[0]}`
             );
+            const decimalGeolocation = convertCoordinatToDecimal(
+                response.data.data[0].meta.latitdue, response.data.data[0].meta.longitude
+                );
+            const timezone = getTimeZoneBasedOnCoordinate(decimalGeolocation[0], decimalGeolocation[1]);
+            currentDate = changeTimezone(new Date(), timezone);
             const currentHour = String(currentDate.getHours()).padStart(2, '0');
             const currentMinute = String(currentDate.getMinutes()).padStart(2, '0');
             if (response.data.data[0].imsak === `${currentHour}:${currentMinute}`) {
