@@ -37,13 +37,22 @@ export default {
             const conversation = conversations.find(
                 (conversation) => conversation.option === 'mention gohan',
             );
-            return setTimeout(() => {
-              const response =
-                conversation.response[Math.floor(Math.random() * 2)];
+            setTimeout(() => {
+              const indexResponse = Math.floor(Math.random() * 2);
+              const response = conversation.response[indexResponse];
               gohanResponse.reply(response);
+              if (indexResponse === 0) {
+                const guild = client.guilds.cache.get(process.env.AKASHIC_SERVER_ID);
+                const member = guild.members.cache.get(message.author.id);
+                if (!member.roles.cache.has(process.env.AKASHIC_PENGASUH_ROLE_ID)) {
+                  member.timeout(60_000);
+                }
+              }
             }, 3000);
           }
-          return await message.reply(response);
+          else {
+            return await message.reply(response.replace('USERID', message.author.id));
+          }
         } else {
           const conversation = conversations.find((conversation) =>
             conversation.utterance.find((utterance) =>
