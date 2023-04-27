@@ -1,10 +1,25 @@
 import { schedule } from 'node-cron';
-import moment from 'moment-timezone';
 import dotenv from 'dotenv';
 import logger from './logger_service.js';
 import AkashicBirthday from '../models/AkashicBirthday.js';
 
 dotenv.config();
+
+const changeTimezone = (date, timeZone) => {
+    if (typeof date === 'string') {
+        return new Date(
+            new Date(date).toLocaleString('en-US', {
+                timeZone,
+            }),
+        );
+    }
+
+    return new Date(
+        date.toLocaleString('en-US', {
+            timeZone,
+        }),
+    );
+}
 
 const clearBirthdayRole = async (guild, birthdayUsers) => {
     try 
@@ -25,7 +40,8 @@ const clearBirthdayRole = async (guild, birthdayUsers) => {
 const getBirthdayUsers = async () => {
     try 
     {
-        const users = await AkashicBirthday.find({ month: moment().month()+1, day: moment().date() })
+        const currentDate = changeTimezone(new Date(), 'Asia/Jakarta');
+        const users = await AkashicBirthday.find({ month: currentDate.getMonth()+1, day: currentDate.getDate() })
         return users;
     }
     catch (err)
@@ -74,11 +90,9 @@ const processBirthday = async (client, guild, birthdayUsers) => {
 
 const initialized = async (client) => {
     try {
-        moment.tz.setDefault("Asia/Jakarta");
         const guild = await client.guilds.cache.get(process.env.AKASHIC_SERVER_ID);
         const birthdayUsers = new Set();
         console.info('Initialized Birthday Schedule');
-        console.info(`Current Date is ${moment()}`);
         schedule('0 0 * * *', async () => await processBirthday(client, guild, birthdayUsers), {
             scheduled: true,
             timezone: "Asia/Jakarta"
