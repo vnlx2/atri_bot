@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import mongooseFuzzySearching from "mongoose-fuzzy-searching";
 
 // Schema
 const linkSchema = mongoose.Schema({
@@ -24,7 +25,7 @@ const downloadLinkSchema = mongoose.Schema({
     id_link : [linkSchema]
 });
 
-const VisualNovel = mongoose.Schema({
+const VisualNovelSchema = mongoose.Schema({
     code: {
         type: String,
         required: true
@@ -33,9 +34,9 @@ const VisualNovel = mongoose.Schema({
         type: String,
         required: true
     },
-    aliases: {
+    aliases: [{
         type: String
-    },
+    }],
     length: {
         type: Number
     },
@@ -55,4 +56,17 @@ const VisualNovel = mongoose.Schema({
     timestamps: true
 });
 
-export default mongoose.model('vndbs', VisualNovel);
+VisualNovelSchema.plugin(mongooseFuzzySearching, { fields: [
+    {
+        name: 'title',
+        minSize: 3,
+        weight: 3
+    },
+    {
+        name: 'aliases',
+        minSize: 3,
+        prefixOnly: true
+    }
+] })
+
+export default mongoose.model('visual_novels', VisualNovelSchema);

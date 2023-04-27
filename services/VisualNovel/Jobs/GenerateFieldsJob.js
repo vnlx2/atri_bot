@@ -11,7 +11,7 @@ export default function (result) {
         return [
             {
 				name: 'Aliases',
-				value: result.aliases ?? '-',
+				value: result.aliases.join("\r\n") ?? '-',
 				inline: true,
 			},
 			{

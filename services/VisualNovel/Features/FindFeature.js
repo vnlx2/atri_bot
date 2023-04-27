@@ -11,8 +11,9 @@ export default async function (title, client, page = 1) {
         const results = await FindJob(title, page);
         if (results.length === 0) {
             return { embeds: [embed.errorEmbed(
-                'Not Found', 
-                'Sorry, we didn\'t find the Visual Novel you are looking for.', 
+                `${title} not found`, 
+                'Sorry, we didn\'t find the Visual Novel you are looking for.\n' +
+                'Please try different keywords or make sure that all words are spelled correctly.',
                 client)] };
 		}
         const total = await GetTotal(title);

@@ -1686,6 +1686,11 @@ mongodb@4.14.0:
     "@aws-sdk/credential-providers" "^3.186.0"
     saslprep "^1.0.3"
 
+mongoose-fuzzy-searching@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/mongoose-fuzzy-searching/-/mongoose-fuzzy-searching-2.0.2.tgz#16a25b198591ab41ac00f3a9d15d3328aa7a126c"
+  integrity sha512-Hbmx59VWJjQJDNdoyQ8bdECaqpis0pKoliWzf5eILzFs2KO7laUJpaQWJySN9OvdQS/gM9fURMSzQVQoLeZ3DA==
+
 mongoose@^6.8.1:
   version "6.10.5"
   resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-6.10.5.tgz#4d027269b5fcb86f1d40ce1c188d5774bd080480"
