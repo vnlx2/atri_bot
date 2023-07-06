@@ -10,7 +10,7 @@ export default {
 		console.log(`Uptime: ${Date(Date.now()).toString()}`);
 		// logger.info(`System Ready, Logged as ${client.user.tag}`);
 		// logger.info(`Uptime: ${Date(Date.now()).toString()}`);
-		birthday.set_schedule(client);
+		// birthday.set_schedule(client);
 		await birthdayInitialized(client);
 		await imsakiyahScheduler(client);
 	},
