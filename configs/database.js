@@ -12,6 +12,6 @@ mongoose.connect(process.env.MONGODB_URI, {
 
 export const db = mongoose.connection
     .on('error', (error) => {
-        logger.error(error);
+        // logger.error(error);
     })
     .once('open', () => console.log('Database Connected'));

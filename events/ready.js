@@ -8,9 +8,9 @@ export default {
 	async execute(client) {
 		console.log(`System Ready, Logged as ${client.user.tag}`);
 		console.log(`Uptime: ${Date(Date.now()).toString()}`);
-		logger.info(`System Ready, Logged as ${client.user.tag}`);
-		logger.info(`Uptime: ${Date(Date.now()).toString()}`);
-		// birthday.set_schedule(client);
+		// logger.info(`System Ready, Logged as ${client.user.tag}`);
+		// logger.info(`Uptime: ${Date(Date.now()).toString()}`);
+		birthday.set_schedule(client);
 		await birthdayInitialized(client);
 		await imsakiyahScheduler(client);
 	},
