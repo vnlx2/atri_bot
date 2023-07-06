@@ -58,7 +58,7 @@ export default {
 		catch (err) {
 			console.error('errornya udah sampe main execution');
 			console.error(err);
-			logger.error(err);
+			// logger.error(err);
 			await interaction.followUp({ embeds: [embed.errorEmbed('Error', 'Waaahhhh....!!! An error was occured.\nPlease try again...~', client)] });          
 		}
 	},

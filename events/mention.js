@@ -19,7 +19,7 @@ export default {
         if (message.author.bot) return false;
         if (preventMentions.includes(message.content)) return false;
 
-        logger.info(`${message.author.username} mentions Me`);
+        //logger.info(`${message.author.username} mentions Me`);
 
         // Get responses from chat dataset
         const content = message.content.toLowerCase();
@@ -151,7 +151,7 @@ export default {
       }
     } catch (err) {
       console.error(err);
-      logger.error(err);
+      // logger.error(err);
     }
   },
 };

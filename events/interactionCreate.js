@@ -7,7 +7,7 @@ export default {
 	name: 'interactionCreate',
 	async execute(interaction, client) {
 		console.log(`${interaction.user.tag} in #${interaction.channel.name} triggered an interaction.`);
-		logger.info(`${interaction.user.tag} in #${interaction.channel.name} triggered an interaction.`);
+		//logger.info(`${interaction.user.tag} in #${interaction.channel.name} triggered an interaction.`);
 		try {
 			// Execute Slash Command
 			if (interaction.isChatInputCommand()) {
@@ -35,7 +35,7 @@ export default {
 		}
 		catch (err) {
 			console.error(err);
-			logger.error(err);
+			// logger.error(err);
 			await client.channels.cache.get(interaction.channelId).send({
 				embeds: [
 					embed_maker.errorEmbed(

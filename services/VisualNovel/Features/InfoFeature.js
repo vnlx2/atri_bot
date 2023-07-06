@@ -34,7 +34,7 @@ export default async function (code, client) {
         return { embeds: [embed], ephemeral: false, components: [buttons] };
 	} catch (err) {
 		console.error(err);
-		logger.error(err);
+		// logger.error(err);
         return ({ embeds: [embed_maker.errorEmbed(
             'Error', 
             'Waaahhhh....!!! Gomen (´;︵;`)\n' + 

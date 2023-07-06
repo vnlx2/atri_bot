@@ -84,7 +84,7 @@ const processBirthday = async (client, guild, birthdayUsers) => {
     {
         console.error('An error has occured in Birthday Scheduler Process.');
         console.error(err);
-        logger.error(err);
+        // logger.error(err);
     }
 }
 
@@ -101,7 +101,7 @@ const initialized = async (client) => {
     catch (err) {
         console.error('An error has occured in Birthday Scheduler Initializer.');
         console.error(err);
-        logger.error(err);
+        // logger.error(err);
     }
 }
 

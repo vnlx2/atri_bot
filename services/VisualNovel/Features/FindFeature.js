@@ -38,7 +38,7 @@ export default async function (title, client, page = 1) {
         return { embeds: [searchResultField], ephemeral: false, components: [buttons, selectBox], fetchReply: true };
     } catch (err) {
         console.error(err);
-		logger.error(err);
+		// logger.error(err);
         return { embeds: [embed.errorEmbed(
             'Error', 
             'Waaahhhh....!!! Gomen (´;︵;`)\n' + 

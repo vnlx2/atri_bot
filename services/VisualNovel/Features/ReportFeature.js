@@ -26,6 +26,6 @@ export default async function (id, title, link, reason, thumbnail, client, autho
         });
     } catch (err) {
         console.error(err);
-        logger.error(err);
+        // logger.error(err);
     }
 }
