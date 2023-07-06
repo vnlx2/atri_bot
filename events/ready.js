@@ -12,6 +12,6 @@ export default {
 		// logger.info(`Uptime: ${Date(Date.now()).toString()}`);
 		// birthday.set_schedule(client);
 		await birthdayInitialized(client);
-		await imsakiyahScheduler(client);
+		// await imsakiyahScheduler(client);
 	},
 };
