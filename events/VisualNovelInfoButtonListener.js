@@ -58,7 +58,7 @@ export default async (interaction, client, msg = null) => {
         });
     } catch (err) {
         console.log(err);
-        logger.error(err);
+        // logger.error(err);
         await interaction.followUp({ embeds: [embed.errorEmbed(
             'Error', 
             'Waaahhhh....!!! An error was occured when process report link.\nPlease try again...~', client)] });

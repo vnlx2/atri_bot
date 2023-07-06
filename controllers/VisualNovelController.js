@@ -63,7 +63,7 @@ export const search = async (interaction, client) => {
         try {
             await handle(i, interaction, navigationCollect, client);
         } catch (error) {
-            logger.error(error);
+            // logger.error(error);
             console.log(error);
             await interaction.followUp({ embeds: [embed.errorEmbed('Error', 'Waaahhhh....!!! An error was occured.\nPlease try again...~', client)] });
             navigationCollect.stop(['vn_info_tools was Selected']);
@@ -81,7 +81,7 @@ export const team = async (interaction, client) => {
         console.log('TODO'); // TODO : Fantl search
         await interaction.reply({ embeds: [embed.embed(client.user.avatarURL, 'Coming Soon', 'Tch.. Tch.. Tch...\nFitur ini masih pengembangan loh, nanti ATRI kabarkan kalau udah selesai yah...~', 0xFFB100, null, null, null, 'https://cdn.discordapp.com/attachments/889918535139201064/929424964757635102/unknown.png')] });
     } catch (error) {
-        logger.error(error);
+        // logger.error(error);
         await interaction.followUp({ embeds: [embed.errorEmbed('Error', 'Waaahhhh....!!! An error was occured.\nPlease try again...~', client)] });
         navigationCollect.stop(['vn_info_tools was Selected']);
     }

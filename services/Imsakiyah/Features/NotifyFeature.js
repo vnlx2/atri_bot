@@ -118,7 +118,7 @@ const initialized = async (client) => {
     } catch (err) {
         console.error('An error has occured in Imsakiyah Scheduler Initializer.');
         console.error(err);
-        logger.error(err);
+        // logger.error(err);
     }
 }
 

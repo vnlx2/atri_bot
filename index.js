@@ -29,5 +29,5 @@ try {
 }
 catch (ex) {
     console.log(ex);
-    logger.error(ex);
+    // logger.error(ex);
 }

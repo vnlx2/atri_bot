@@ -151,7 +151,7 @@ export default {
       }
     } catch (err) {
       console.error(err);
-      logger.error(err);
+      // logger.error(err);
     }
   },
 };

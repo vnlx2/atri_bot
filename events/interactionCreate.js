@@ -35,7 +35,7 @@ export default {
 		}
 		catch (err) {
 			console.error(err);
-			logger.error(err);
+			// logger.error(err);
 			await client.channels.cache.get(interaction.channelId).send({
 				embeds: [
 					embed_maker.errorEmbed(
