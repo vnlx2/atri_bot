@@ -11,12 +11,12 @@ export default function (result) {
         return [
             {
 				name: 'Aliases',
-				value: result.aliases.join("\r\n") ?? '-',
+				value: (result.aliases === null) ? '-' : result.aliases.join("\r\n"),
 				inline: true,
 			},
 			{
 				name: 'Length',
-				value: vn_length[result.length] ?? '-',
+				value: (result.length === null) ? '-' : vn_length[result.length],
 				inline: true,
 			},
 			{
