@@ -47,7 +47,11 @@ const changeTimezone = (date, timeZone) => {
 const checkIsRamadhan = async () => {
     try {
         const response = await axios.get(
-            `https://api.moonchild.my.id/adzan?lat=15.2&lng=98.5`
+            `https://api.moonchild.my.id/adzan?lat=15.2&lng=98.5`, {
+                headers: {
+                    'User-Agent': process.env.BOT_AGENT || 'axios/1.3.5'
+                }
+            }
         );
         const lastDate = response.data.data;
         return lastDate['hijrDate'].includes('Ramadhan')
@@ -63,7 +67,11 @@ const check = async (client) => {
         for (let location of locations) {
             try {
                 const response = await axios.get(
-                    `https://api.moonchild.my.id/adzan?lat=${location.latitude}&lng=${location.longitude}`
+                    `https://api.moonchild.my.id/adzan?lat=${location.latitude}&lng=${location.longitude}`, {
+                        headers: {
+                            'User-Agent': process.env.BOT_AGENT || 'axios/1.3.5'
+                        }
+                    }
                 );
                 const tz = getTimeZoneBasedOnCoordinate(location.latitude, location.longitude);
                 const currentDate = changeTimezone(new Date(), tz);
