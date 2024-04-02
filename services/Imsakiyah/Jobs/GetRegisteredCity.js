@@ -1,13 +1,8 @@
 import Imsakiyah from "../../../models/Imsakiyah.js";
 
-export const getRegisteredCity = async () => {
+export const getCoordinate = async () => {
     try {
-        return await Imsakiyah.aggregate([
-            { $group: {
-                _id: '$cityId', 
-                provinceId: { "$first": "$provinceId" }
-            }}
-        ]);
+        return await Imsakiyah.find();
     } catch (err) {
         throw err;
     }

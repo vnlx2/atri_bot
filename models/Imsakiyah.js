@@ -6,11 +6,11 @@ const Imsakiyah = mongoose.Schema({
         type: String,
         required: true
     },
-    provinceId:{
+    longitude:{
         type: String,
         required: true
     },
-    cityId: {
+    latitude: {
         type: String,
         required: true
     }
@@ -18,4 +18,4 @@ const Imsakiyah = mongoose.Schema({
     versionKey: false // You should be aware of the outcome after set to false
 });
 
-export default mongoose.model('imsakiyah_user', Imsakiyah);
+export default mongoose.model('imsakiyahs', Imsakiyah);

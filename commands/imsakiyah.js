@@ -1,6 +1,5 @@
 import { SlashCommandBuilder } from "discord.js";
 import { autocompleteProvince, set, unset } from "../controllers/ImsakiyahController.js";
-import logger from "../services/logger_service.js";
 
 export default {
     data: new SlashCommandBuilder()
@@ -13,16 +12,8 @@ export default {
                 .setDescription('Set imsakiyah configuration')
                 .addStringOption(option => 
                     option
-                        .setName('province')
-                        .setDescription('Please enter your province')
-                        .setAutocomplete(true)
-                        .setRequired(true)
-                )
-                .addStringOption(option => 
-                    option
-                        .setName('city')
-                        .setDescription('Please enter your city')
-                        .setAutocomplete(true)
+                        .setName('coordinate')
+                        .setDescription('Please enter coordinate')
                         .setRequired(true)
                 )
         )
@@ -31,9 +22,6 @@ export default {
                 .setName('unset')
                 .setDescription('Unset imsakiyah configuration')
         ),
-    async autocomplete(interaction) {
-        await autocompleteProvince(interaction);
-    },
     async execute(interaction, client) {
         try {
             if (interaction.options.getSubcommand() === 'set') {
@@ -44,7 +32,6 @@ export default {
             }
         } catch (err) {
             console.error(err);
-			// logger.error(err);
 			await interaction.followUp({ embeds: [embed.errorEmbed('Error', 'Waaahhhh....!!! An error was occured.\nPlease try again...~', client)] });
         }
     },
